@@ -58,6 +58,11 @@ const footerLinksData: FooterLinks[] = [
         label: "Discreet Packaging",
         url: "/#packaging",
       },
+      {
+        id: 25,
+        label: "FAQ",
+        url: "/faq",
+      },
     ],
   },
   {
@@ -67,7 +72,7 @@ const footerLinksData: FooterLinks[] = [
       {
         id: 31,
         label: "Contact",
-        url: "/#contact",
+        url: "/contact",
       },
       {
         id: 32,

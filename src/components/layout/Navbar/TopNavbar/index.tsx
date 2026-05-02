@@ -78,7 +78,7 @@ const data: NavMenu = [
     id: 6,
     type: "MenuItem",
     label: "Contact",
-    url: "/#contact",
+    url: "/contact",
     children: [],
   },
 ];
