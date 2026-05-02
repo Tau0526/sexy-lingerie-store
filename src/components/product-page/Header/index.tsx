@@ -9,6 +9,14 @@ import SizeSelection from "./SizeSelection";
 import AddToCardSection from "./AddToCardSection";
 
 const Header = ({ data }: { data: Product }) => {
+  const currency = "\u00a3";
+  const discountedPrice =
+    data.discount.percentage > 0
+      ? Math.round(data.price - (data.price * data.discount.percentage) / 100)
+      : data.discount.amount > 0
+      ? data.price - data.discount.amount
+      : data.price;
+
   return (
     <>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -16,6 +24,7 @@ const Header = ({ data }: { data: Product }) => {
           <PhotoSection data={data} />
         </div>
         <div>
+          <span className="text-sm text-black/50">{data.category}</span>
           <h1
             className={cn([
               integralCF.className,
@@ -39,29 +48,14 @@ const Header = ({ data }: { data: Product }) => {
             </span>
           </div>
           <div className="flex items-center space-x-2.5 sm:space-x-3 mb-5">
-            {data.discount.percentage > 0 ? (
-              <span className="font-bold text-black text-2xl sm:text-[32px]">
-                {`$${Math.round(
-                  data.price - (data.price * data.discount.percentage) / 100
-                )}`}
-              </span>
-            ) : data.discount.amount > 0 ? (
-              <span className="font-bold text-black text-2xl sm:text-[32px]">
-                {`$${data.price - data.discount.amount}`}
-              </span>
-            ) : (
-              <span className="font-bold text-black text-2xl sm:text-[32px]">
-                ${data.price}
-              </span>
-            )}
-            {data.discount.percentage > 0 && (
+            <span className="font-bold text-black text-2xl sm:text-[32px]">
+              {currency}
+              {discountedPrice}
+            </span>
+            {(data.discount.percentage > 0 || data.discount.amount > 0) && (
               <span className="font-bold text-black/40 line-through text-2xl sm:text-[32px]">
-                ${data.price}
-              </span>
-            )}
-            {data.discount.amount > 0 && (
-              <span className="font-bold text-black/40 line-through text-2xl sm:text-[32px]">
-                ${data.price}
+                {currency}
+                {data.price}
               </span>
             )}
             {data.discount.percentage > 0 ? (
@@ -71,14 +65,13 @@ const Header = ({ data }: { data: Product }) => {
             ) : (
               data.discount.amount > 0 && (
                 <span className="font-medium text-[10px] sm:text-xs py-1.5 px-3.5 rounded-full bg-[#FF3333]/10 text-[#FF3333]">
-                  {`-$${data.discount.amount}`}
+                  {`-${currency}${data.discount.amount}`}
                 </span>
               )
             )}
           </div>
           <p className="text-sm sm:text-base text-black/60 mb-5">
-            This graphic t-shirt which is perfect for any occasion. Crafted from
-            a soft and breathable fabric, it offers superior comfort and style.
+            {data.description}
           </p>
           <hr className="h-[1px] border-t-black/10 mb-5" />
           <ColorSelection />

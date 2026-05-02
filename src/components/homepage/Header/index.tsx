@@ -2,116 +2,121 @@ import AnimatedCounter from "@/components/ui/AnimatedCounter";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 import { integralCF } from "@/styles/fonts";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import * as motion from "framer-motion/client";
 
 const Header = () => {
   return (
-    <header className="bg-[#F2F0F1] pt-10 md:pt-24 overflow-hidden">
-      <div className="md:max-w-frame mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2">
-        <section className="max-w-frame px-4">
-          <motion.h2
-            initial={{ y: "100px", opacity: 0, rotate: 10 }}
-            whileInView={{ y: "0", opacity: 1, rotate: 0 }}
+    <header className="relative overflow-hidden bg-[#08080d] text-white">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(122,92,255,0.42),transparent_28%),radial-gradient(circle_at_65%_58%,rgba(107,226,255,0.2),transparent_25%),linear-gradient(135deg,#08080d_0%,#11101b_48%,#050507_100%)]" />
+      <div className="absolute right-[8%] top-16 hidden h-48 w-48 rounded-full border border-[#c8b6ff]/20 md:block" />
+      <div className="absolute right-[11%] top-20 hidden h-40 w-40 rounded-full bg-[#d8d0ff]/10 blur-3xl md:block" />
+      <div className="absolute bottom-[-80px] left-[-40px] h-52 w-52 rounded-full bg-[#d5b89c]/10 blur-3xl" />
+
+      <div className="relative max-w-frame mx-auto grid min-h-[720px] grid-cols-1 items-center px-4 py-16 md:min-h-[760px] md:grid-cols-[1.08fr_0.92fr] md:py-24 xl:px-0">
+        <section className="max-w-[680px]">
+          <motion.p
+            initial={{ y: "40px", opacity: 0 }}
+            whileInView={{ y: "0", opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            transition={{ duration: 0.5 }}
+            className="mb-5 text-xs font-semibold uppercase tracking-[0.32em] text-[#9bdfff]"
+          >
+            UK intimate apparel boutique
+          </motion.p>
+          <motion.h1
+            initial={{ y: "60px", opacity: 0 }}
+            whileInView={{ y: "0", opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.15, duration: 0.65 }}
             className={cn([
               integralCF.className,
-              "text-4xl lg:text-[64px] lg:leading-[64px] mb-5 lg:mb-8",
+              "mb-6 text-[42px] leading-[46px] sm:text-6xl md:text-[72px] md:leading-[76px]",
             ])}
           >
-            FIND CLOTHES THAT MATCHES YOUR STYLE
-          </motion.h2>
+            Moonlit Intimates for Confident Nights
+          </motion.h1>
           <motion.p
-            initial={{ y: "100px", opacity: 0 }}
+            initial={{ y: "50px", opacity: 0 }}
             whileInView={{ y: "0", opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.5, duration: 0.6 }}
-            className="text-black/60 text-sm lg:text-base mb-6 lg:mb-8 max-w-[545px]"
+            transition={{ delay: 0.3, duration: 0.6 }}
+            className="mb-8 max-w-[590px] text-sm leading-7 text-white/68 sm:text-base"
           >
-            Browse through our diverse range of meticulously crafted garments,
-            designed to bring out your individuality and cater to your sense of
-            style.
+            Elegant intimate apparel and sensual sleepwear, designed for
+            confidence, comfort, and quiet allure.
           </motion.p>
           <motion.div
-            initial={{ y: "100px", opacity: 0 }}
+            initial={{ y: "45px", opacity: 0 }}
             whileInView={{ y: "0", opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 1, duration: 0.6 }}
+            transition={{ delay: 0.45, duration: 0.6 }}
+            className="flex flex-col gap-3 sm:flex-row"
           >
             <Link
-              href="/shop"
-              className="w-full md:w-52 mb-5 md:mb-12 inline-block text-center bg-black hover:bg-black/80 transition-all text-white px-14 py-4 rounded-full hover:animate-pulse"
+              href="/shop#new-arrivals"
+              className="inline-flex h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-medium text-black transition-all hover:bg-[#d7c7ff]"
             >
-              Shop Now
+              Shop New Collection
+            </Link>
+            <Link
+              href="/shop#lingerie-sets"
+              className="inline-flex h-12 items-center justify-center rounded-full border border-white/25 px-7 text-sm font-medium text-white transition-all hover:border-[#9bdfff] hover:text-[#9bdfff]"
+            >
+              Explore Lingerie Sets
             </Link>
           </motion.div>
           <motion.div
-            initial={{ y: "100px", opacity: 0 }}
+            initial={{ y: "45px", opacity: 0 }}
             whileInView={{ y: "0", opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ delay: 1.5, duration: 0.6 }}
-            className="flex md:h-full md:max-h-11 lg:max-h-[52px] xl:max-h-[68px] items-center justify-center md:justify-start flex-wrap sm:flex-nowrap md:space-x-3 lg:space-x-6 xl:space-x-8 md:mb-[116px]"
+            transition={{ delay: 0.6, duration: 0.6 }}
+            className="mt-12 flex flex-wrap items-center gap-y-5 text-white/70 sm:flex-nowrap sm:gap-x-6"
           >
             <div className="flex flex-col">
-              <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
-                <AnimatedCounter from={0} to={200} />+
+              <span className="text-2xl font-bold text-white md:text-3xl">
+                <AnimatedCounter from={0} to={5} />+
               </span>
-              <span className="text-xs xl:text-base text-black/60 text-nowrap">
-                International Brands
-              </span>
-            </div>
-            <Separator
-              className="ml-6 md:ml-0 h-12 md:h-full bg-black/10"
-              orientation="vertical"
-            />
-            <div className="flex flex-col ml-6 md:ml-0">
-              <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
-                <AnimatedCounter from={0} to={2000} />+
-              </span>
-              <span className="text-xs xl:text-base text-black/60 text-nowrap">
-                High-Quality Products
+              <span className="text-xs uppercase tracking-[0.18em]">
+                Boutique categories
               </span>
             </div>
-            <Separator
-              className="hidden sm:block sm:h-12 md:h-full ml-6 md:ml-0 bg-black/10"
-              orientation="vertical"
-            />
-            <div className="flex flex-col w-full text-center sm:w-auto sm:text-left mt-3 sm:mt-0 sm:ml-6 md:ml-0">
-              <span className="font-bold text-2xl md:text-xl lg:text-3xl xl:text-[40px] xl:mb-2">
-                <AnimatedCounter from={0} to={3000} />+
+            <Separator className="hidden h-12 bg-white/15 sm:block" orientation="vertical" />
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-white md:text-3xl">
+                UK
               </span>
-              <span className="text-xs xl:text-base text-black/60 text-nowrap">
-                Happy Customers
+              <span className="text-xs uppercase tracking-[0.18em]">
+                Market focused
+              </span>
+            </div>
+            <Separator className="hidden h-12 bg-white/15 sm:block" orientation="vertical" />
+            <div className="flex flex-col">
+              <span className="text-2xl font-bold text-white md:text-3xl">
+                18+
+              </span>
+              <span className="text-xs uppercase tracking-[0.18em]">
+                Tasteful intimacy
               </span>
             </div>
           </motion.div>
         </section>
+
         <motion.section
-          initial={{ y: "100px", opacity: 0, rotate: 10 }}
-          whileInView={{ y: "0", opacity: 1, rotate: 0 }}
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          transition={{ delay: 2.3, duration: 0.8 }}
-          className="relative md:px-4 min-h-[448px] md:min-h-[428px] bg-cover bg-top xl:bg-[center_top_-1.6rem] bg-no-repeat bg-[url('/images/header-res-homepage.png')] md:bg-[url('/images/header-homepage.png')]"
+          transition={{ delay: 0.35, duration: 0.75 }}
+          className="relative mt-14 min-h-[360px] md:mt-0 md:min-h-[520px]"
         >
-          <Image
-            priority
-            src="/icons/big-star.svg"
-            height={104}
-            width={104}
-            alt="big star"
-            className="absolute right-7 xl:right-0 top-12 max-w-[76px] max-h-[76px] lg:max-w-24 lg:max-h-max-w-24 xl:max-w-[104px] xl:max-h-[104px] animate-[spin_4s_infinite]"
-          />
-          <Image
-            priority
-            src="/icons/small-star.svg"
-            height={56}
-            width={56}
-            alt="small star"
-            className="absolute left-7 md:left-0 top-36 sm:top-64 md:top-44 lg:top-56 max-w-11 max-h-11 md:max-w-14 md:max-h-14 animate-[spin_3s_infinite]"
-          />
+          <div className="absolute left-1/2 top-1/2 h-[310px] w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(196,185,255,0.28),rgba(107,226,255,0.08)_46%,transparent_68%)] blur-sm sm:h-[420px] sm:w-[420px]" />
+          <div className="absolute left-1/2 top-1/2 h-[230px] w-[230px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 sm:h-[320px] sm:w-[320px]" />
+          <div className="absolute left-1/2 top-1/2 h-[155px] w-[155px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f3eadf] shadow-[0_0_90px_rgba(206,219,255,0.45)] sm:h-[220px] sm:w-[220px]" />
+          <div className="absolute left-[49%] top-1/2 h-[165px] w-[165px] -translate-y-1/2 rounded-full bg-[#08080d] sm:h-[235px] sm:w-[235px]" />
+          <div className="absolute bottom-[28%] left-[18%] h-12 w-20 rotate-[-18deg] rounded-[90%_10%_90%_10%] border border-[#9bdfff]/50 bg-[#9bdfff]/10 blur-[0.2px]" />
+          <div className="absolute bottom-[33%] right-[18%] h-12 w-20 rotate-[18deg] rounded-[10%_90%_10%_90%] border border-[#c8b6ff]/50 bg-[#c8b6ff]/10 blur-[0.2px]" />
+          <div className="absolute bottom-[21%] left-1/2 h-24 w-[1px] -translate-x-1/2 bg-gradient-to-b from-[#9bdfff]/70 to-transparent" />
         </motion.section>
       </div>
     </header>

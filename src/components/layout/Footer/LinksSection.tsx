@@ -1,32 +1,31 @@
 import React from "react";
 import { FooterLinks } from "./footer.types";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 
 const footerLinksData: FooterLinks[] = [
   {
     id: 1,
-    title: "company",
+    title: "shop",
     children: [
       {
         id: 11,
-        label: "about",
-        url: "#",
+        label: "New In",
+        url: "/shop#new-arrivals",
       },
       {
         id: 12,
-        label: "features",
-        url: "#",
+        label: "Lingerie Sets",
+        url: "/shop#lingerie-sets",
       },
       {
         id: 13,
-        label: "works",
-        url: "#",
+        label: "Sleepwear",
+        url: "/shop#sleepwear",
       },
       {
         id: 14,
-        label: "career",
-        url: "#",
+        label: "Accessories",
+        url: "/shop#accessories",
       },
     ],
   },
@@ -36,75 +35,75 @@ const footerLinksData: FooterLinks[] = [
     children: [
       {
         id: 21,
-        label: "customer support",
-        url: "#",
+        label: "Shipping",
+        url: "/shipping",
       },
       {
         id: 22,
-        label: "delivery details",
-        url: "#",
+        label: "Returns",
+        url: "/returns",
       },
       {
         id: 23,
-        label: "terms & conditions",
-        url: "#",
+        label: "Size Guide",
+        url: "/size-guide",
       },
       {
         id: 24,
-        label: "privacy policy",
-        url: "#",
+        label: "Privacy",
+        url: "/privacy",
       },
     ],
   },
   {
     id: 3,
-    title: "faq",
+    title: "studio",
     children: [
       {
         id: 31,
-        label: "account",
-        url: "#",
+        label: "About Moonlite",
+        url: "/#about",
       },
       {
         id: 32,
-        label: "manage deliveries",
-        url: "#",
+        label: "Discreet Packaging",
+        url: "/#packaging",
       },
       {
         id: 33,
-        label: "orders",
-        url: "#",
+        label: "Contact",
+        url: "/#contact",
       },
       {
         id: 34,
-        label: "payments",
-        url: "#",
+        label: "Instagram",
+        url: "https://instagram.com/Moonlite.studio_",
       },
     ],
   },
   {
     id: 4,
-    title: "resources",
+    title: "contact",
     children: [
       {
         id: 41,
-        label: "Free eBooks",
-        url: "#",
+        label: "Kayee7601@gmail.com",
+        url: "mailto:Kayee7601@gmail.com",
       },
       {
         id: 42,
-        label: "development tutorial",
-        url: "#",
+        label: "Moonlite.studio_",
+        url: "https://instagram.com/Moonlite.studio_",
       },
       {
         id: 43,
-        label: "How to - Blog",
-        url: "#",
+        label: "UK boutique brand",
+        url: "/",
       },
       {
         id: 44,
-        label: "youtube playlist",
-        url: "#",
+        label: "18+ tasteful intimates",
+        url: "/",
       },
     ],
   },
@@ -115,17 +114,14 @@ const LinksSection = () => {
     <>
       {footerLinksData.map((item) => (
         <section className="flex flex-col mt-5" key={item.id}>
-          <h3 className="font-medium text-sm md:text-base uppercase tracking-widest mb-6">
+          <h3 className="font-medium text-sm md:text-base uppercase tracking-widest mb-6 text-white">
             {item.title}
           </h3>
           {item.children.map((link) => (
             <Link
               href={link.url}
               key={link.id}
-              className={cn([
-                link.id !== 41 && link.id !== 43 && "capitalize",
-                "text-black/60 text-sm md:text-base mb-4 w-fit",
-              ])}
+              className="text-white/55 hover:text-[#9bdfff] transition-colors text-sm md:text-base mb-4 w-fit"
             >
               {link.label}
             </Link>

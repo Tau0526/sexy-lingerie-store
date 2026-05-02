@@ -7,14 +7,14 @@ import React from "react";
 
 const NewsLetterSection = () => {
   return (
-    <div className="relative grid grid-cols-1 md:grid-cols-2 py-9 md:py-11 px-6 md:px-16 max-w-frame mx-auto bg-black rounded-[20px]">
+    <div className="relative grid grid-cols-1 md:grid-cols-2 py-9 md:py-11 px-6 md:px-16 max-w-frame mx-auto border border-white/10 bg-[radial-gradient(circle_at_top_right,rgba(155,223,255,0.16),transparent_32%),linear-gradient(135deg,#171323,#09090f)] rounded-[20px]">
       <p
         className={cn([
           integralCF.className,
-          "font-bold text-[32px] md:text-[40px] text-white mb-9 md:mb-0",
+          "font-bold text-[30px] md:text-[40px] text-white mb-9 md:mb-0",
         ])}
       >
-        STAY UP TO DATE ABOUT OUR LATEST OFFERS
+        RECEIVE THE MOONLITE EDIT
       </p>
       <div className="flex items-center">
         <div className="flex flex-col w-full max-w-[349px] mx-auto">
@@ -38,11 +38,11 @@ const NewsLetterSection = () => {
           </InputGroup>
           <Button
             variant="secondary"
-            className="text-sm sm:text-base font-medium bg-white h-12 rounded-full px-4 py-3"
-            aria-label="Subscribe to Newsletter"
+            className="text-sm sm:text-base font-medium bg-white h-12 rounded-full px-4 py-3 hover:bg-[#d7c7ff]"
+            aria-label="Subscribe to Moonlite Studio newsletter"
             type="button"
           >
-            Subscribe to Newsletter
+            Subscribe
           </Button>
         </div>
       </div>

@@ -15,9 +15,17 @@ type ProductListSecProps = {
   title: string;
   data: Product[];
   viewAllLink?: string;
+  theme?: "light" | "dark";
 };
 
-const ProductListSec = ({ title, data, viewAllLink }: ProductListSecProps) => {
+const ProductListSec = ({
+  title,
+  data,
+  viewAllLink,
+  theme = "light",
+}: ProductListSecProps) => {
+  const isDark = theme === "dark";
+
   return (
     <section className="max-w-frame mx-auto text-center">
       <motion.h2
@@ -27,6 +35,7 @@ const ProductListSec = ({ title, data, viewAllLink }: ProductListSecProps) => {
         transition={{ duration: 0.6 }}
         className={cn([
           integralCF.className,
+          isDark ? "text-white" : "text-black",
           "text-[32px] md:text-5xl mb-8 md:mb-14 capitalize",
         ])}
       >
@@ -50,7 +59,7 @@ const ProductListSec = ({ title, data, viewAllLink }: ProductListSecProps) => {
                 key={product.id}
                 className="w-full max-w-[198px] sm:max-w-[295px] pl-0"
               >
-                <ProductCard data={product} />
+                <ProductCard data={product} theme={theme} />
               </CarouselItem>
             ))}
           </CarouselContent>
@@ -59,7 +68,12 @@ const ProductListSec = ({ title, data, viewAllLink }: ProductListSecProps) => {
           <div className="w-full px-4 sm:px-0 text-center">
             <Link
               href={viewAllLink}
-              className="w-full inline-block sm:w-[218px] px-[54px] py-4 border rounded-full hover:bg-black hover:text-white text-black transition-all font-medium text-sm sm:text-base border-black/10"
+              className={cn([
+                isDark
+                  ? "border-white/15 text-white hover:bg-white hover:text-black"
+                  : "border-black/10 text-black hover:bg-black hover:text-white",
+                "w-full inline-block sm:w-[218px] px-[54px] py-4 border rounded-full transition-all font-medium text-sm sm:text-base",
+              ])}
             >
               View All
             </Link>

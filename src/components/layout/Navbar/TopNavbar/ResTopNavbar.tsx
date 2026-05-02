@@ -29,7 +29,7 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
           height={100}
           width={100}
           alt="menu"
-          className="max-w-[22px] max-h-[22px]"
+          className="max-w-[22px] max-h-[22px] invert"
         />
       </SheetTrigger>
       <SheetContent side="left" className="overflow-y-auto">
@@ -37,7 +37,7 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
           <SheetTitle asChild>
             <SheetClose asChild>
               <Link href="/" className={cn([integralCF.className, "text-2xl"])}>
-                SHOP.CO
+                Moonlite Studio
               </Link>
             </SheetClose>
           </SheetTitle>

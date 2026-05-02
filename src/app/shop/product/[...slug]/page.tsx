@@ -1,27 +1,16 @@
-import {
-  newArrivalsData,
-  relatedProductData,
-  topSellingData,
-} from "@/app/page";
+import { allProductsData, relatedProductData } from "@/data/products";
 import ProductListSec from "@/components/common/ProductListSec";
 import BreadcrumbProduct from "@/components/product-page/BreadcrumbProduct";
 import Header from "@/components/product-page/Header";
 import Tabs from "@/components/product-page/Tabs";
-import { Product } from "@/types/product.types";
 import { notFound } from "next/navigation";
-
-const data: Product[] = [
-  ...newArrivalsData,
-  ...topSellingData,
-  ...relatedProductData,
-];
 
 export default function ProductPage({
   params,
 }: {
   params: { slug: string[] };
 }) {
-  const productData = data.find(
+  const productData = allProductsData.find(
     (product) => product.id === Number(params.slug[0])
   );
 
