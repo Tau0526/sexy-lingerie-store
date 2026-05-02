@@ -1,139 +1,153 @@
 import BreadcrumbShop from "@/components/shop-page/BreadcrumbShop";
-
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
 import MobileFilters from "@/components/shop-page/filters/MobileFilters";
 import Filters from "@/components/shop-page/filters";
 import { FiSliders } from "react-icons/fi";
-import {
-  newArrivalsData,
-  relatedProductData,
-  topSellingData,
-} from "@/data/products";
+import { allProductsData } from "@/data/products";
 import ProductCard from "@/components/common/ProductCard";
-import {
-  Pagination,
-  PaginationContent,
-  PaginationEllipsis,
-  PaginationItem,
-  PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
-} from "@/components/ui/pagination";
+import Link from "next/link";
+import { ProductCategory } from "@/types/product.types";
+import { cn } from "@/lib/utils";
 
-export default function ShopPage() {
+const categories: Array<ProductCategory | "All"> = [
+  "All",
+  "Lingerie Sets",
+  "Sleepwear",
+  "Slips & Chemises",
+  "Costumes",
+  "Accessories",
+];
+
+const sortOptions = [
+  { label: "Featured", value: "featured" },
+  { label: "Price Low", value: "low-price" },
+  { label: "Price High", value: "high-price" },
+];
+
+const getCategoryHref = (category: ProductCategory | "All", sort: string) => {
+  const params = new URLSearchParams();
+  if (category !== "All") params.set("category", category);
+  if (sort !== "featured") params.set("sort", sort);
+
+  return `/shop${params.toString() ? `?${params.toString()}` : ""}`;
+};
+
+const getSortHref = (
+  sort: string,
+  category: ProductCategory | "All"
+) => {
+  const params = new URLSearchParams();
+  if (category !== "All") params.set("category", category);
+  if (sort !== "featured") params.set("sort", sort);
+
+  return `/shop${params.toString() ? `?${params.toString()}` : ""}`;
+};
+
+export default function ShopPage({
+  searchParams,
+}: {
+  searchParams?: { category?: string; sort?: string };
+}) {
+  const selectedCategory = categories.includes(
+    searchParams?.category as ProductCategory
+  )
+    ? (searchParams?.category as ProductCategory)
+    : "All";
+  const selectedSort = searchParams?.sort ?? "featured";
+  const filteredProducts =
+    selectedCategory === "All"
+      ? allProductsData
+      : allProductsData.filter(
+          (product) => product.category === selectedCategory
+        );
+  const products = [...filteredProducts].sort((first, second) => {
+    if (selectedSort === "low-price") return first.price - second.price;
+    if (selectedSort === "high-price") return second.price - first.price;
+    return first.id - second.id;
+  });
+
   return (
-    <main className="pb-20">
+    <main className="bg-[#05050a] pb-20 text-white">
       <div className="max-w-frame mx-auto px-4 xl:px-0">
-        <hr className="h-[1px] border-t-black/10 mb-5 sm:mb-6" />
-        <BreadcrumbShop />
-        <div className="flex md:space-x-5 items-start">
-          <div className="hidden md:block min-w-[295px] max-w-[295px] border border-black/10 rounded-[20px] px-5 md:px-6 py-5 space-y-5 md:space-y-6">
+        <div className="border-t border-white/10 pt-5 sm:pt-6">
+          <BreadcrumbShop />
+        </div>
+
+        <section className="mb-8 rounded-[8px] border border-white/10 bg-[#0b0b14] px-5 py-8 shadow-[0_20px_80px_rgba(21,20,40,0.35)] sm:px-8">
+          <span className="mb-3 block text-sm text-[#9bdfff]">
+            Moonlite Studio
+          </span>
+          <h1 className="mb-3 text-3xl font-bold leading-tight md:text-5xl">
+            Shop Moonlite Studio
+          </h1>
+          <p className="max-w-2xl text-sm leading-6 text-white/65 sm:text-base">
+            Elegant intimate pieces designed for confidence, comfort and quiet
+            allure.
+          </p>
+        </section>
+
+        <div className="flex items-start md:space-x-5">
+          <aside className="hidden min-w-[275px] max-w-[275px] rounded-[8px] border border-white/10 bg-[#0b0b14] px-5 py-5 md:block md:px-6">
             <div className="flex items-center justify-between">
-              <span className="font-bold text-black text-xl">Filters</span>
-              <FiSliders className="text-2xl text-black/40" />
+              <span className="text-xl font-bold text-white">Filters</span>
+              <FiSliders className="text-2xl text-[#9bdfff]" />
             </div>
             <Filters />
-          </div>
-          <div className="flex flex-col w-full space-y-5">
-            <div className="flex flex-col lg:flex-row lg:justify-between">
-              <div className="flex items-center justify-between">
-                <h1 className="font-bold text-2xl md:text-[32px]">Casual</h1>
+          </aside>
+
+          <div className="flex w-full flex-col space-y-5">
+            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <h2 className="text-2xl font-bold md:text-[32px]">
+                    Explore the Collection
+                  </h2>
+                  <span className="mt-2 block text-sm text-white/55">
+                    Showing {products.length} of {allProductsData.length} pieces
+                  </span>
+                </div>
                 <MobileFilters />
               </div>
-              <div className="flex flex-col sm:items-center sm:flex-row">
-                <span className="text-sm md:text-base text-black/60 mr-3">
-                  Showing 1-10 of 100 Products
-                </span>
-                <div className="flex items-center">
-                  Sort by:{" "}
-                  <Select defaultValue="most-popular">
-                    <SelectTrigger className="font-medium text-sm px-1.5 sm:text-base w-fit text-black bg-transparent shadow-none border-none">
-                      <SelectValue />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="most-popular">Most Popular</SelectItem>
-                      <SelectItem value="low-price">Low Price</SelectItem>
-                      <SelectItem value="high-price">High Price</SelectItem>
-                    </SelectContent>
-                  </Select>
-                </div>
+
+              <div className="flex flex-wrap gap-2">
+                {sortOptions.map((option) => (
+                  <Link
+                    key={option.value}
+                    href={getSortHref(option.value, selectedCategory)}
+                    className={cn([
+                      "rounded-full border px-4 py-2 text-sm transition-all",
+                      selectedSort === option.value
+                        ? "border-[#9bdfff] bg-[#9bdfff] text-[#05050a]"
+                        : "border-white/10 text-white/65 hover:border-[#9bdfff]/60 hover:text-white",
+                    ])}
+                  >
+                    {option.label}
+                  </Link>
+                ))}
               </div>
             </div>
-            <div className="w-full grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-5">
-              {[
-                ...relatedProductData.slice(1, 4),
-                ...newArrivalsData.slice(1, 4),
-                ...topSellingData.slice(1, 4),
-              ].map((product) => (
-                <ProductCard key={product.id} data={product} />
+
+            <div className="flex gap-2 overflow-x-auto pb-1 md:hidden">
+              {categories.map((category) => (
+                <Link
+                  key={category}
+                  href={getCategoryHref(category, selectedSort)}
+                  className={cn([
+                    "shrink-0 rounded-full border px-4 py-2 text-sm",
+                    selectedCategory === category
+                      ? "border-[#8b7cf6] bg-[#8b7cf6] text-white"
+                      : "border-white/10 bg-white/5 text-white/70",
+                  ])}
+                >
+                  {category}
+                </Link>
               ))}
             </div>
-            <hr className="border-t-black/10" />
-            <Pagination className="justify-between">
-              <PaginationPrevious href="#" className="border border-black/10" />
-              <PaginationContent>
-                <PaginationItem>
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                    isActive
-                  >
-                    1
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                  >
-                    2
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem className="hidden lg:block">
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                  >
-                    3
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationEllipsis className="text-black/50 font-medium text-sm" />
-                </PaginationItem>
-                <PaginationItem className="hidden lg:block">
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                  >
-                    8
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem className="hidden sm:block">
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                  >
-                    9
-                  </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                  <PaginationLink
-                    href="#"
-                    className="text-black/50 font-medium text-sm"
-                  >
-                    10
-                  </PaginationLink>
-                </PaginationItem>
-              </PaginationContent>
 
-              <PaginationNext href="#" className="border border-black/10" />
-            </Pagination>
+            <div className="grid w-full grid-cols-1 gap-4 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+              {products.map((product) => (
+                <ProductCard key={product.id} data={product} theme="dark" />
+              ))}
+            </div>
           </div>
         </div>
       </div>

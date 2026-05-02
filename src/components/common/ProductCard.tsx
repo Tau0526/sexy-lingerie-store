@@ -3,6 +3,7 @@ import Rating from "../ui/Rating";
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/types/product.types";
+import { cn } from "@/lib/utils";
 
 type ProductCardProps = {
   data: Product;
@@ -18,34 +19,60 @@ const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
       : data.discount.amount > 0
       ? data.price - data.discount.amount
       : data.price;
+  const label = data.tag ?? (data.isNew ? "New In" : "Best Seller");
 
   return (
     <Link
       href={`/shop/product/${data.id}/${data.slug}`}
-      className="flex flex-col items-start aspect-auto"
+      className={cn([
+        "group flex h-full flex-col overflow-hidden rounded-[8px] border transition-all duration-300",
+        isDark
+          ? "border-white/10 bg-[#0b0b12] hover:border-[#8b7cf6]/50"
+          : "border-black/10 bg-white hover:border-[#8b7cf6]/40",
+      ])}
     >
-      <div className="bg-[#F0EEED] rounded-[13px] lg:rounded-[20px] w-full lg:max-w-[295px] aspect-square mb-2.5 xl:mb-4 overflow-hidden">
+      <div
+        className={cn([
+          "relative w-full aspect-[4/5] overflow-hidden",
+          isDark ? "bg-[#151421]" : "bg-[#f2eff7]",
+        ])}
+      >
+        <span className="absolute left-3 top-3 z-[1] rounded-full border border-white/15 bg-[#11101a]/80 px-3 py-1 text-[11px] font-medium text-[#d8d2ff] backdrop-blur">
+          {label}
+        </span>
         <Image
           src={data.srcUrl}
           width={295}
           height={298}
-          className="rounded-md w-full h-full object-contain hover:scale-110 transition-all duration-500"
+          className="w-full h-full object-cover transition-all duration-500 group-hover:scale-105"
           alt={data.title}
           priority
         />
       </div>
-      <strong
-        className={isDark ? "text-white xl:text-xl" : "text-black xl:text-xl"}
-      >
-        {data.title}
-      </strong>
-      <div className="flex items-end mb-1 xl:mb-2">
+      <div className="flex flex-1 flex-col p-4">
+        <span
+          className={cn([
+            "mb-2 text-xs uppercase",
+            isDark ? "text-[#9bdfff]" : "text-[#5f55c8]",
+          ])}
+        >
+          {data.category}
+        </span>
+        <strong
+          className={cn([
+            "text-base leading-tight xl:text-lg",
+            isDark ? "text-white" : "text-black",
+          ])}
+        >
+          {data.title}
+        </strong>
+      <div className="mt-3 flex items-end">
         <Rating
           initialValue={data.rating}
           allowFraction
           SVGclassName="inline-block"
-          emptyClassName="fill-gray-50"
-          size={19}
+          emptyClassName={isDark ? "fill-white/10" : "fill-gray-100"}
+          size={16}
           readonly
         />
         <span
@@ -59,27 +86,27 @@ const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
           <span className={isDark ? "text-white/55" : "text-black/60"}>/5</span>
         </span>
       </div>
-      <div className="flex items-center space-x-[5px] xl:space-x-2.5">
+      <div className="mt-3 flex flex-wrap items-center gap-2">
         <span
           className={
             isDark
-              ? "font-bold text-white text-xl xl:text-2xl"
-              : "font-bold text-black text-xl xl:text-2xl"
+              ? "font-bold text-white text-xl"
+              : "font-bold text-black text-xl"
           }
         >
           {currency}
-          {discountedPrice}
+          {discountedPrice.toFixed(2)}
         </span>
         {(data.discount.percentage > 0 || data.discount.amount > 0) && (
           <span
             className={
               isDark
-                ? "font-bold text-white/35 line-through text-xl xl:text-2xl"
-                : "font-bold text-black/40 line-through text-xl xl:text-2xl"
+                ? "font-bold text-white/35 line-through text-base"
+                : "font-bold text-black/40 line-through text-base"
             }
           >
             {currency}
-            {data.price}
+            {data.price.toFixed(2)}
           </span>
         )}
         {data.discount.percentage > 0 ? (
@@ -93,6 +120,7 @@ const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
             </span>
           )
         )}
+      </div>
       </div>
     </Link>
   );

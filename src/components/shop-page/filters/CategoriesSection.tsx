@@ -9,35 +9,39 @@ type Category = {
 
 const categoriesData: Category[] = [
   {
-    title: "T-shirts",
-    slug: "/shop?category=t-shirts",
+    title: "All",
+    slug: "/shop",
   },
   {
-    title: "Shorts",
-    slug: "/shop?category=shorts",
+    title: "Lingerie Sets",
+    slug: "/shop?category=Lingerie+Sets",
   },
   {
-    title: "Shirts",
-    slug: "/shop?category=shirts",
+    title: "Sleepwear",
+    slug: "/shop?category=Sleepwear",
   },
   {
-    title: "Hoodie",
-    slug: "/shop?category=hoodie",
+    title: "Slips & Chemises",
+    slug: "/shop?category=Slips+%26+Chemises",
   },
   {
-    title: "Jeans",
-    slug: "/shop?category=jeans",
+    title: "Costumes",
+    slug: "/shop?category=Costumes",
+  },
+  {
+    title: "Accessories",
+    slug: "/shop?category=Accessories",
   },
 ];
 
 const CategoriesSection = () => {
   return (
-    <div className="flex flex-col space-y-0.5 text-black/60">
+    <div className="flex flex-col space-y-0.5 text-white/65">
       {categoriesData.map((category, idx) => (
         <Link
           key={idx}
           href={category.slug}
-          className="flex items-center justify-between py-2"
+          className="flex items-center justify-between py-2 transition-colors hover:text-[#9bdfff]"
         >
           {category.title} <MdKeyboardArrowRight />
         </Link>

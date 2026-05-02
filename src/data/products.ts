@@ -7,14 +7,14 @@ const moonliteColors = [
 ];
 
 const braSizes = ["32A", "32B", "34B", "34C", "36C", "38D"];
-const letterSizes = ["XS", "S", "M", "L", "XL"];
+const letterSizes = ["S", "M", "L"];
 
 export const newArrivalsData: Product[] = [
   {
     id: 1,
     title: "Luna Lace Lingerie Set",
     slug: "luna-lace-lingerie-set",
-    category: "Sets",
+    category: "Lingerie Sets",
     srcUrl: "/images/pic1.png",
     gallery: ["/images/pic1.png", "/images/pic10.png", "/images/pic11.png"],
     price: 49.99,
@@ -23,9 +23,12 @@ export const newArrivalsData: Product[] = [
     description:
       "A refined lace set with soft structure, delicate detail and a confident evening mood.",
     details: ["Soft lace finish", "Adjustable straps", "Designed for discreet UK delivery"],
+    material: "Soft lace with recycled polyamide blend",
+    care: "Hand wash cold and lay flat to dry",
     sizes: braSizes,
     colors: moonliteColors,
     isNew: true,
+    tag: "New In",
   },
   {
     id: 2,
@@ -40,15 +43,18 @@ export const newArrivalsData: Product[] = [
     description:
       "A smooth satin sleep dress with a minimal silhouette and soft moonlit sheen.",
     details: ["Satin-touch fabric", "Adjustable shoulder straps", "Easy relaxed fit"],
+    material: "Satin-touch recycled polyester",
+    care: "Machine wash cold in a garment bag",
     sizes: letterSizes,
     colors: moonliteColors,
     isNew: true,
+    tag: "Limited",
   },
   {
     id: 3,
     title: "Moonlit Mesh Bodysuit",
     slug: "moonlit-mesh-bodysuit",
-    category: "Bodysuits",
+    category: "Costumes",
     srcUrl: "/images/pic3.png",
     gallery: ["/images/pic3.png"],
     price: 64.99,
@@ -57,15 +63,18 @@ export const newArrivalsData: Product[] = [
     description:
       "A sheer-inspired bodysuit designed to feel sensual, elegant and never overstated.",
     details: ["Soft mesh panels", "Comfort stretch", "Statement evening silhouette"],
+    material: "Stretch mesh with soft lace trims",
+    care: "Hand wash cold and dry away from direct heat",
     sizes: letterSizes,
     colors: moonliteColors,
     isNew: true,
+    tag: "New In",
   },
   {
     id: 4,
     title: "Celeste Soft Cup Bralette",
     slug: "celeste-soft-cup-bralette",
-    category: "Bras",
+    category: "Accessories",
     srcUrl: "/images/pic4.png",
     gallery: ["/images/pic4.png", "/images/pic10.png", "/images/pic11.png"],
     price: 34.99,
@@ -74,9 +83,12 @@ export const newArrivalsData: Product[] = [
     description:
       "A soft cup bralette made for understated support and everyday confidence.",
     details: ["Wire-free comfort", "Soft elastic underband", "Lightweight lace texture"],
+    material: "Soft lace and elastic trim",
+    care: "Hand wash cold with similar colours",
     sizes: braSizes,
     colors: moonliteColors,
     isNew: true,
+    tag: "Limited",
   },
 ];
 
@@ -85,7 +97,7 @@ export const topSellingData: Product[] = [
     id: 5,
     title: "Midnight Lingerie Set",
     slug: "midnight-lingerie-set",
-    category: "Sets",
+    category: "Lingerie Sets",
     srcUrl: "/images/pic5.png",
     gallery: ["/images/pic5.png", "/images/pic10.png", "/images/pic11.png"],
     price: 54.99,
@@ -94,15 +106,18 @@ export const topSellingData: Product[] = [
     description:
       "A best-selling matching set with a dark, refined Moonlite Studio feel.",
     details: ["Matching bra and brief", "Adjustable fit", "Premium boutique styling"],
+    material: "Lace with stretch mesh lining",
+    care: "Hand wash cold and reshape while damp",
     sizes: braSizes,
     colors: moonliteColors,
     isNew: false,
+    tag: "Best Seller",
   },
   {
     id: 6,
     title: "Aurora Lace Chemise",
     slug: "aurora-lace-chemise",
-    category: "Sleepwear",
+    category: "Slips & Chemises",
     srcUrl: "/images/pic6.png",
     gallery: ["/images/pic6.png", "/images/pic10.png", "/images/pic11.png"],
     price: 44.99,
@@ -111,15 +126,18 @@ export const topSellingData: Product[] = [
     description:
       "A lace-trimmed chemise with a soft drape and elegant nightwear mood.",
     details: ["Lace trim", "Soft-touch fabric", "Relaxed sleepwear fit"],
+    material: "Soft-touch modal blend with lace trim",
+    care: "Machine wash cold on a delicate cycle",
     sizes: letterSizes,
     colors: moonliteColors,
     isNew: false,
+    tag: "Best Seller",
   },
   {
     id: 7,
     title: "Eclipse Lounge Robe",
     slug: "eclipse-lounge-robe",
-    category: "Loungewear",
+    category: "Sleepwear",
     srcUrl: "/images/pic7.png",
     gallery: ["/images/pic7.png"],
     price: 39.99,
@@ -128,15 +146,18 @@ export const topSellingData: Product[] = [
     description:
       "A relaxed robe for slow mornings, quiet evenings and refined layering.",
     details: ["Tie waist", "Easy drape", "Designed for comfort and coverage"],
+    material: "Lightweight satin-touch fabric",
+    care: "Machine wash cold and hang to dry",
     sizes: letterSizes,
     colors: moonliteColors,
     isNew: false,
+    tag: "Limited",
   },
   {
     id: 8,
     title: "Butterfly Strap Detail Set",
     slug: "butterfly-strap-detail-set",
-    category: "Sets",
+    category: "Lingerie Sets",
     srcUrl: "/images/pic8.png",
     gallery: ["/images/pic8.png"],
     price: 52.99,
@@ -145,9 +166,12 @@ export const topSellingData: Product[] = [
     description:
       "A delicate set with subtle strap details inspired by Moonlite Studio's butterfly mark.",
     details: ["Decorative strap detail", "Matching set", "Soft stretch finish"],
+    material: "Soft stretch lace with satin elastic",
+    care: "Hand wash cold and do not tumble dry",
     sizes: braSizes,
     colors: moonliteColors,
     isNew: false,
+    tag: "Best Seller",
   },
 ];
 
@@ -156,7 +180,7 @@ export const relatedProductData: Product[] = [
     id: 12,
     title: "Opal Balconette Bra",
     slug: "opal-balconette-bra",
-    category: "Bras",
+    category: "Accessories",
     srcUrl: "/images/pic12.png",
     gallery: ["/images/pic12.png", "/images/pic10.png", "/images/pic11.png"],
     price: 42.99,
@@ -165,15 +189,18 @@ export const relatedProductData: Product[] = [
     description:
       "A flattering balconette shape with soft support and a polished finish.",
     details: ["Balconette shape", "Adjustable straps", "Soft supportive band"],
+    material: "Lace, mesh and soft support elastic",
+    care: "Hand wash cold and dry flat",
     sizes: braSizes,
     colors: moonliteColors,
     isNew: false,
+    tag: "Limited",
   },
   {
     id: 13,
     title: "Nightingale Lace Brief",
     slug: "nightingale-lace-brief",
-    category: "Briefs",
+    category: "Accessories",
     srcUrl: "/images/pic13.png",
     gallery: ["/images/pic13.png", "/images/pic10.png", "/images/pic11.png"],
     price: 19.99,
@@ -182,15 +209,18 @@ export const relatedProductData: Product[] = [
     description:
       "A delicate lace brief designed for comfort, ease and everyday refinement.",
     details: ["Soft lace", "Comfort waistband", "Everyday fit"],
+    material: "Soft lace with cotton gusset",
+    care: "Machine wash cold in a garment bag",
     sizes: letterSizes,
     colors: moonliteColors,
     isNew: false,
+    tag: "New In",
   },
   {
     id: 14,
     title: "Starlit Slip Dress",
     slug: "starlit-slip-dress",
-    category: "Sleepwear",
+    category: "Slips & Chemises",
     srcUrl: "/images/pic14.png",
     gallery: ["/images/pic14.png"],
     price: 69.99,
@@ -199,15 +229,18 @@ export const relatedProductData: Product[] = [
     description:
       "A graceful slip dress with a smooth finish and minimal evening silhouette.",
     details: ["Smooth slip shape", "Adjustable straps", "Elegant nightwear feel"],
+    material: "Satin-touch fabric with lace detail",
+    care: "Hand wash cold and hang to dry",
     sizes: letterSizes,
     colors: moonliteColors,
     isNew: false,
+    tag: "Best Seller",
   },
   {
     id: 15,
     title: "Velvet Moon Lounge Set",
     slug: "velvet-moon-lounge-set",
-    category: "Loungewear",
+    category: "Sleepwear",
     srcUrl: "/images/pic15.png",
     gallery: ["/images/pic15.png"],
     price: 74.99,
@@ -216,9 +249,12 @@ export const relatedProductData: Product[] = [
     description:
       "A soft lounge set for private evenings, relaxed styling and elevated comfort.",
     details: ["Two-piece lounge set", "Soft handle", "Relaxed fit"],
+    material: "Soft velvet-touch stretch blend",
+    care: "Machine wash cold inside out",
     sizes: letterSizes,
     colors: moonliteColors,
     isNew: false,
+    tag: "Limited",
   },
 ];
 

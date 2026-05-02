@@ -4,12 +4,14 @@ export type Discount = {
 };
 
 export type ProductCategory =
+  | "Lingerie Sets"
+  | "Sleepwear"
+  | "Slips & Chemises"
+  | "Costumes"
+  | "Accessories"
   | "Bras"
   | "Briefs"
-  | "Bodysuits"
-  | "Sleepwear"
-  | "Loungewear"
-  | "Sets";
+  | "Bodysuits";
 
 export type ProductColor = {
   name: string;
@@ -28,7 +30,10 @@ export type Product = {
   rating: number;
   description: string;
   details: string[];
+  material: string;
+  care: string;
   sizes: string[];
   colors: ProductColor[];
   isNew: boolean;
+  tag?: "New In" | "Best Seller" | "Limited";
 };

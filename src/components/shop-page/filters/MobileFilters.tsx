@@ -1,10 +1,8 @@
 import React from "react";
 import {
   Drawer,
-  DrawerClose,
   DrawerContent,
   DrawerDescription,
-  DrawerFooter,
   DrawerHeader,
   DrawerTitle,
   DrawerTrigger,
@@ -19,16 +17,16 @@ const MobileFilters = () => {
         <DrawerTrigger asChild>
           <button
             type="button"
-            className="h-8 w-8 rounded-full bg-[#F0F0F0] text-black p-1 md:hidden"
+            className="h-9 w-9 rounded-full border border-white/10 bg-white/10 p-1 text-white md:hidden"
           >
             <FiSliders className="text-base mx-auto" />
           </button>
         </DrawerTrigger>
-        <DrawerContent className="max-h-[90%]">
+        <DrawerContent className="max-h-[90%] border-white/10 bg-[#0b0b14] text-white">
           <DrawerHeader>
             <div className="flex items-center justify-between">
-              <span className="font-bold text-black text-xl">Filters</span>
-              <FiSliders className="text-2xl text-black/40" />
+              <span className="text-xl font-bold text-white">Filters</span>
+              <FiSliders className="text-2xl text-[#9bdfff]" />
             </div>
             <DrawerTitle className="hidden">filters</DrawerTitle>
             <DrawerDescription className="hidden">filters</DrawerDescription>
