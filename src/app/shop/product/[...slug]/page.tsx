@@ -9,8 +9,11 @@ export default function ProductPage({
 }: {
   params: { slug: string[] };
 }) {
+  const productId = Number(params.slug[0]);
+  const productSlug = params.slug[params.slug.length - 1];
   const productData = allProductsData.find(
-    (product) => product.id === Number(params.slug[0])
+    (product) =>
+      product.id === productId || product.slug === productSlug
   );
 
   if (!productData?.title) {
