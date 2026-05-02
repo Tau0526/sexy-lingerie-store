@@ -1,5 +1,4 @@
 import React from "react";
-import Rating from "../ui/Rating";
 import { IoEllipsisHorizontal } from "react-icons/io5";
 import { Button } from "../ui/button";
 import { IoIosCheckmarkCircle } from "react-icons/io";
@@ -29,14 +28,8 @@ const ReviewCard = ({
       ])}
     >
       {blurChild && blurChild}
-      <div className="w-full flex items-center justify-between mb-3 sm:mb-4">
-        <Rating
-          initialValue={data.rating}
-          allowFraction
-          SVGclassName="inline-block"
-          size={23}
-          readonly
-        />
+      <div className="mb-3 flex w-full items-center justify-between sm:mb-4">
+        <span className="h-px w-12 bg-[#9C7548]/45" />
         {isAction && (
           <Button variant="ghost" size="icon">
             <IoEllipsisHorizontal className="text-[#9A9088] text-2xl" />

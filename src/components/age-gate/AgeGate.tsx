@@ -31,12 +31,12 @@ const AgeGate = () => {
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#2A1820]/78 px-4 py-8 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#2A1820]/82 px-4 py-8 backdrop-blur-sm moonlite-reveal">
       <section
         role="dialog"
         aria-modal="true"
         aria-labelledby="age-gate-title"
-        className="w-full max-w-[460px] border border-[#9C7548]/35 bg-[#F2EADC] px-6 py-7 text-center text-[#3D2E26] shadow-[0_24px_80px_rgba(42,24,32,0.28)] sm:px-9 sm:py-9"
+        className="w-full max-w-[460px] scale-100 border border-[#9C7548]/35 bg-[linear-gradient(145deg,#F2EADC,#E8DECD)] px-6 py-7 text-center text-[#3D2E26] shadow-[0_24px_80px_rgba(42,24,32,0.28)] sm:px-9 sm:py-9"
       >
         <p className="mb-4 text-xs font-medium uppercase tracking-[0.24em] text-[#9C7548]">
           Moonlite Studio
@@ -55,14 +55,14 @@ const AgeGate = () => {
           <button
             type="button"
             onClick={handleConfirm}
-            className="min-h-12 rounded-sm bg-[#2A1820] px-6 text-sm font-medium text-[#F2EADC] transition-colors hover:bg-[#3D2E26]"
+            className="silk-shimmer min-h-12 rounded-sm border border-[#2A1820] bg-[#2A1820] px-6 text-sm font-medium text-[#F2EADC] transition-all duration-300 hover:border-[#9C7548]/65 hover:bg-[#3D2E26]"
           >
             I am 18 or over
           </button>
           <button
             type="button"
             onClick={handleLeave}
-            className="min-h-12 rounded-sm border border-[#9C7548]/45 px-6 text-sm font-medium text-[#3D2E26] transition-colors hover:border-[#9C7548] hover:text-[#9C7548]"
+            className="min-h-12 rounded-sm border border-[#9C7548]/45 px-6 text-sm font-medium text-[#3D2E26] transition-all duration-300 hover:border-[#9C7548] hover:bg-[#F2EADC]/60 hover:text-[#9C7548]"
           >
             Leave site
           </button>

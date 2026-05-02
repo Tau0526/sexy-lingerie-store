@@ -8,11 +8,6 @@ const footerLinksData: FooterLinks[] = [
     title: "Shop",
     children: [
       {
-        id: 11,
-        label: "Shop",
-        url: "/shop",
-      },
-      {
         id: 12,
         label: "New In",
         url: "/shop",
@@ -36,7 +31,7 @@ const footerLinksData: FooterLinks[] = [
   },
   {
     id: 2,
-    title: "Care",
+    title: "Help",
     children: [
       {
         id: 21,
@@ -100,7 +95,7 @@ const LinksSection = () => {
             <Link
               href={link.url}
               key={link.id}
-              className="text-[#E8DECD]/58 hover:text-[#9C7548] transition-colors text-sm md:text-base mb-4 w-fit"
+              className="moonlite-link mb-4 w-fit text-sm text-[#E8DECD]/58 md:text-base"
             >
               {link.label}
             </Link>

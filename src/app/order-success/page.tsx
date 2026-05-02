@@ -6,9 +6,9 @@ import Link from "next/link";
 
 export default function OrderSuccessPage() {
   return (
-    <main className="bg-[#F2EADC] pb-20 text-[#3D2E26]">
-      <section className="mx-auto flex min-h-[68vh] max-w-2xl flex-col items-center justify-center px-4 py-12 text-center">
-        <div className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-[#9C7548]/40 text-[#9C7548]">
+    <main className="silk-page pb-20 text-[#3D2E26]">
+      <section className="moonlite-reveal mx-auto flex min-h-[68vh] max-w-2xl flex-col items-center justify-center px-4 py-12 text-center">
+        <div className="mb-7 flex h-16 w-16 items-center justify-center rounded-full border border-[#9C7548]/55 bg-[#F2EADC]/60 text-[#9C7548]">
           <Check className="h-7 w-7" />
         </div>
         <p className="mb-3 text-xs uppercase tracking-[0.22em] text-[#9C7548]">
@@ -38,14 +38,14 @@ export default function OrderSuccessPage() {
         <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
           <Button
             asChild
-            className="h-12 rounded-sm bg-[#2A1820] px-7 text-[#F2EADC] hover:bg-[#3D2E26]"
+            className="h-12 px-7"
           >
             <Link href="/shop">Continue Shopping</Link>
           </Button>
           <Button
             asChild
             variant="outline"
-            className="h-12 rounded-sm border-[#9C7548]/40 bg-transparent px-7 text-[#3D2E26] hover:bg-[#E8DECD]"
+            className="h-12 px-7"
           >
             <Link href="/">Back to Home</Link>
           </Button>

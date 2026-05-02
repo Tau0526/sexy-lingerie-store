@@ -1,11 +1,9 @@
 "use client";
 
 import React from "react";
-import { PiTrashFill } from "react-icons/pi";
 import Image from "next/image";
 import Link from "next/link";
 import CartCounter from "@/components/ui/CartCounter";
-import { Button } from "../ui/button";
 import {
   addToCart,
   CartItem,
@@ -24,16 +22,16 @@ const ProductCard = ({ data }: ProductCardProps) => {
   const unitPrice = getItemUnitPrice(data);
 
   return (
-    <div className="flex flex-col gap-4 sm:flex-row sm:items-start">
+    <div className="group flex flex-col gap-4 p-2 transition-colors duration-300 hover:bg-[#F2EADC]/38 sm:flex-row sm:items-start">
       <Link
         href={`/shop/product/${data.id}/${data.name.split(" ").join("-")}`}
-        className="aspect-square w-full max-w-[132px] shrink-0 overflow-hidden bg-[#F2EADC]"
+        className="aspect-[4/5] w-full max-w-[132px] shrink-0 overflow-hidden border border-[#9C7548]/14 bg-[#F2EADC] sm:aspect-square"
       >
         <Image
           src={data.srcUrl}
           width={124}
           height={124}
-          className="h-full w-full object-cover transition-all duration-500 hover:scale-105"
+          className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.03]"
           alt={data.name}
           priority
         />
@@ -42,14 +40,13 @@ const ProductCard = ({ data }: ProductCardProps) => {
         <div className="flex items-start justify-between gap-4">
           <Link
             href={`/shop/product/${data.id}/${data.name.split(" ").join("-")}`}
-            className="text-base font-medium text-[#3D2E26] xl:text-xl"
+            className="moonlite-link text-base font-medium text-[#3D2E26] xl:text-xl"
           >
             {data.name}
           </Link>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="h-8 w-8 shrink-0 text-[#9C7548] hover:bg-[#F2EADC]"
+          <button
+            type="button"
+            className="moonlite-link shrink-0 text-sm text-[#3D2E26]/52 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#9C7548]"
             onClick={() =>
               dispatch(
                 remove({
@@ -61,8 +58,8 @@ const ProductCard = ({ data }: ProductCardProps) => {
             }
             aria-label={`Remove ${data.name}`}
           >
-            <PiTrashFill className="text-xl" />
-          </Button>
+            Remove
+          </button>
         </div>
         <div className="grid gap-1 text-xs text-[#3D2E26]/62 md:text-sm">
           <span>{data.category || "Moonlite Studio"}</span>
@@ -93,7 +90,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
                   )
             }
             isZeroDelete
-            className="min-w-[112px] max-w-[112px] rounded-sm bg-[#F2EADC] px-4 py-3 text-[#3D2E26] md:max-h-10"
+            className="min-w-[118px] max-w-[118px] bg-[#F2EADC]/72 text-[#3D2E26]"
           />
         </div>
       </div>

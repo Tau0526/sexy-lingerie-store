@@ -20,8 +20,9 @@ const Footer = () => {
   return (
     <footer
       id="contact"
-      className="border-t border-[#9C7548]/20 bg-[#2A1820] px-4 pt-10 text-[#F2EADC] md:pt-14"
+      className="relative overflow-hidden border-t border-[#9C7548]/20 bg-[#2A1820] px-4 pt-10 text-[#F2EADC] md:pt-14"
     >
+      <div className="pointer-events-none absolute right-[-8%] top-[-24%] h-[360px] w-[360px] rounded-full bg-[#9C7548]/12 blur-3xl" />
       <div className="mx-auto max-w-frame">
         <nav className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4 lg:max-w-[360px]">
@@ -29,7 +30,7 @@ const Footer = () => {
               <span className="flex h-8 w-8 items-center justify-center">
                 <Image
                   priority
-                  src="/brand/main-logo.png"
+                  src="/images/Main_logo颜色版_01.png"
                   height={36}
                   width={36}
                   alt="Moonlite Studio logo"
@@ -54,13 +55,13 @@ const Footer = () => {
             </p>
             <Link
               href="mailto:Kayee7601@gmail.com"
-              className="mb-2 block w-fit text-sm text-[#E8DECD]/82 transition-colors hover:text-[#9C7548]"
+              className="moonlite-link mb-2 block w-fit text-sm text-[#E8DECD]/82"
             >
               Email: Kayee7601@gmail.com
             </Link>
             <Link
               href="https://instagram.com/Moonlite.studio_"
-              className="mb-6 block w-fit text-sm text-[#E8DECD]/62 transition-colors hover:text-[#9C7548]"
+              className="moonlite-link mb-6 block w-fit text-sm text-[#E8DECD]/62"
             >
               Instagram: Moonlite.studio_
             </Link>

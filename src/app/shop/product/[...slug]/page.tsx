@@ -21,7 +21,7 @@ export default function ProductPage({
   }
 
   return (
-    <main className="bg-[#F2EADC] pb-20 text-[#3D2E26]">
+    <main className="silk-page pb-20 text-[#3D2E26]">
       <div className="max-w-frame mx-auto px-4 xl:px-0">
         <hr className="h-[1px] border-t-[#9C7548]/18 mb-5 sm:mb-6" />
         <BreadcrumbProduct title={productData?.title ?? "product"} />

@@ -18,7 +18,7 @@ export type MenuListProps = {
 export function MenuList({ data, label }: MenuListProps) {
   return (
     <NavigationMenuItem>
-      <NavigationMenuTrigger className="font-normal px-3 bg-transparent text-[#3D2E26]/78 hover:bg-transparent hover:text-[#9C7548] focus:bg-transparent focus:text-[#9C7548] data-[state=open]:bg-transparent data-[state=open]:text-[#9C7548]">
+      <NavigationMenuTrigger className="moonlite-link bg-transparent px-3 font-normal text-[#3D2E26]/78 hover:bg-transparent focus:bg-transparent focus:text-[#9C7548] data-[state=open]:bg-transparent data-[state=open]:text-[#9C7548]">
         {label}
       </NavigationMenuTrigger>
       <NavigationMenuContent className="border border-[#9C7548]/20 bg-[#F2EADC] text-[#3D2E26] shadow-[0_20px_60px_rgba(42,24,32,0.08)]">
@@ -44,7 +44,7 @@ const ListItem = React.forwardRef<
         <Link
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-sm p-3 leading-none no-underline outline-none transition-colors hover:bg-[#E8DECD]/70 focus:bg-[#E8DECD]/70",
+            "block select-none space-y-1 rounded-sm border border-transparent p-3 leading-none no-underline outline-none transition-all duration-300 hover:border-[#9C7548]/18 hover:bg-[#E8DECD]/70 focus:bg-[#E8DECD]/70",
             className
           )}
           {...props}

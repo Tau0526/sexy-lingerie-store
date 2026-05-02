@@ -10,7 +10,7 @@ const highlightsData = [
 
 const Brands = () => {
   return (
-    <div className="border-y border-[#9C7548]/18 bg-[#E8DECD]">
+    <div className="border-y border-[#9C7548]/16 bg-[#E8DECD]/72">
       <div className="max-w-frame mx-auto flex flex-wrap items-center justify-center gap-x-8 gap-y-4 px-4 py-5 text-center md:justify-between xl:px-0">
         {highlightsData.map((item) => (
           <span

@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import Link from "next/link";
+import { Button } from "@/components/ui/button";
 
 export default function ContactPage() {
   const [message, setMessage] = useState("");
@@ -12,9 +13,9 @@ export default function ContactPage() {
   };
 
   return (
-    <main className="bg-[#F2EADC] pb-24 text-[#3D2E26]">
+    <main className="silk-page pb-24 text-[#3D2E26]">
       <div className="mx-auto max-w-frame px-4 xl:px-0">
-        <section className="border-b border-[#9C7548]/18 py-14 sm:py-20">
+        <section className="moonlite-reveal border-b border-[#9C7548]/18 py-14 sm:py-20">
           <span className="mb-4 block text-xs font-medium uppercase tracking-[0.24em] text-[#9C7548]">
             Moonlite Studio
           </span>
@@ -32,7 +33,7 @@ export default function ContactPage() {
               <h2 className="mb-2 text-lg font-medium">Email</h2>
               <Link
                 href="mailto:Kayee7601@gmail.com"
-                className="text-[#3D2E26]/68 transition-colors hover:text-[#9C7548]"
+                className="moonlite-link text-[#3D2E26]/68"
               >
                 Kayee7601@gmail.com
               </Link>
@@ -41,7 +42,7 @@ export default function ContactPage() {
               <h2 className="mb-2 text-lg font-medium">Instagram</h2>
               <Link
                 href="https://instagram.com/Moonlite.studio_"
-                className="text-[#3D2E26]/68 transition-colors hover:text-[#9C7548]"
+                className="moonlite-link text-[#3D2E26]/68"
               >
                 Moonlite.studio_
               </Link>
@@ -64,7 +65,7 @@ export default function ContactPage() {
                 <input
                   type="text"
                   name="name"
-                  className="h-12 w-full rounded-sm border border-[#9C7548]/22 bg-[#E8DECD]/60 px-4 text-[#3D2E26] outline-none transition-colors focus:border-[#9C7548]"
+                  className="h-12 w-full rounded-sm border border-[#9C7548]/28 bg-[#F2EADC]/72 px-4 text-[#3D2E26] outline-none transition-all duration-300 hover:border-[#9C7548]/50 focus:border-[#2A1820] focus:ring-1 focus:ring-[#9C7548]/45"
                 />
               </label>
               <label className="block">
@@ -72,7 +73,7 @@ export default function ContactPage() {
                 <input
                   type="email"
                   name="email"
-                  className="h-12 w-full rounded-sm border border-[#9C7548]/22 bg-[#E8DECD]/60 px-4 text-[#3D2E26] outline-none transition-colors focus:border-[#9C7548]"
+                  className="h-12 w-full rounded-sm border border-[#9C7548]/28 bg-[#F2EADC]/72 px-4 text-[#3D2E26] outline-none transition-all duration-300 hover:border-[#9C7548]/50 focus:border-[#2A1820] focus:ring-1 focus:ring-[#9C7548]/45"
                 />
               </label>
               <label className="block">
@@ -80,16 +81,16 @@ export default function ContactPage() {
                 <textarea
                   name="message"
                   rows={6}
-                  className="w-full rounded-sm border border-[#9C7548]/22 bg-[#E8DECD]/60 px-4 py-3 text-[#3D2E26] outline-none transition-colors focus:border-[#9C7548]"
+                  className="w-full rounded-sm border border-[#9C7548]/28 bg-[#F2EADC]/72 px-4 py-3 text-[#3D2E26] outline-none transition-all duration-300 hover:border-[#9C7548]/50 focus:border-[#2A1820] focus:ring-1 focus:ring-[#9C7548]/45"
                 />
               </label>
             </div>
-            <button
+            <Button
               type="submit"
-              className="mt-6 h-12 rounded-sm bg-[#2A1820] px-7 text-sm font-medium text-[#F2EADC] transition-colors hover:bg-[#3D2E26]"
+              className="mt-6 px-7"
             >
               Send message
-            </button>
+            </Button>
             {message && (
               <p className="mt-4 text-sm leading-6 text-[#3D2E26]/66">
                 {message}

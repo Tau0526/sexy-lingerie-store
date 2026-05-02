@@ -23,9 +23,9 @@ const shippingSections = [
 
 export default function ShippingPage() {
   return (
-    <main className="bg-[#F2EADC] pb-24 text-[#3D2E26]">
+    <main className="silk-page pb-24 text-[#3D2E26]">
       <div className="mx-auto max-w-frame px-4 xl:px-0">
-        <section className="border-b border-[#9C7548]/18 py-14 sm:py-20">
+        <section className="moonlite-reveal border-b border-[#9C7548]/18 py-14 sm:py-20">
           <span className="mb-4 block text-xs font-medium uppercase tracking-[0.24em] text-[#9C7548]">
             Moonlite Studio
           </span>
@@ -39,10 +39,10 @@ export default function ShippingPage() {
 
         <section
           id="packaging"
-          className="max-w-3xl scroll-mt-24 divide-y divide-[#9C7548]/18"
+          className="max-w-3xl scroll-mt-24 divide-y divide-[#9C7548]/18 border-b border-[#9C7548]/18"
         >
           {shippingSections.map((section) => (
-            <div key={section.title} className="grid gap-4 py-8 md:grid-cols-[220px_1fr]">
+            <div key={section.title} className="grid gap-4 py-8 transition-colors duration-300 hover:bg-[#E8DECD]/35 md:grid-cols-[220px_1fr]">
               <h2 className="text-lg font-medium text-[#3D2E26]">
                 {section.title}
               </h2>

@@ -38,9 +38,9 @@ const faqs = [
 
 export default function FaqPage() {
   return (
-    <main className="bg-[#F2EADC] pb-24 text-[#3D2E26]">
+    <main className="silk-page pb-24 text-[#3D2E26]">
       <div className="mx-auto max-w-frame px-4 xl:px-0">
-        <section className="border-b border-[#9C7548]/18 py-14 sm:py-20">
+        <section className="moonlite-reveal border-b border-[#9C7548]/18 py-14 sm:py-20">
           <span className="mb-4 block text-xs font-medium uppercase tracking-[0.24em] text-[#9C7548]">
             Moonlite Studio
           </span>
@@ -59,9 +59,9 @@ export default function FaqPage() {
               <AccordionItem
                 key={faq.question}
                 value={`item-${index}`}
-                className="border-[#9C7548]/18"
+                className="border-[#9C7548]/18 transition-colors duration-300 hover:bg-[#E8DECD]/35"
               >
-                <AccordionTrigger className="text-left text-base font-medium text-[#3D2E26] hover:text-[#9C7548] hover:no-underline">
+                <AccordionTrigger className="py-5 text-left text-base font-medium text-[#3D2E26] hover:text-[#9C7548] hover:no-underline">
                   {faq.question}
                 </AccordionTrigger>
                 <AccordionContent className="text-sm leading-7 text-[#3D2E26]/66 sm:text-base">

@@ -43,7 +43,7 @@ const AddToCartBtn = ({ data }: { data: Product & { quantity: number } }) => {
     <div className="ml-3 flex w-full flex-col sm:ml-5">
       <button
         type="button"
-        className="h-11 w-full rounded-sm bg-[#2A1820] text-sm font-medium text-[#F2EADC] transition-colors hover:bg-[#3D2E26] sm:text-base md:h-[52px]"
+        className="silk-shimmer h-12 w-full rounded-sm border border-[#2A1820] bg-[#2A1820] text-sm font-medium tracking-[0.02em] text-[#F2EADC] transition-all duration-300 ease-out hover:border-[#9C7548]/65 hover:bg-[#3D2E26] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#9C7548] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F2EADC] sm:text-base md:h-[52px]"
         onClick={handleAddToBag}
       >
         Add to Bag

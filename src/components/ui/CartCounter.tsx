@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { FaMinus, FaPlus } from "react-icons/fa6";
+import { Minus, Plus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 type CartCounterProps = {
@@ -42,7 +42,7 @@ const CartCounter = ({
   return (
     <div
       className={cn(
-        "bg-[#F0F0F0] w-full min-w-[110px] max-w-[110px] sm:max-w-[170px] py-3 md:py-3.5 px-4 sm:px-5 rounded-full flex items-center justify-between",
+        "flex h-12 w-full min-w-[118px] max-w-[118px] items-center justify-between rounded-sm border border-[#9C7548]/28 bg-[#F2EADC]/72 px-3 text-[#3D2E26] sm:max-w-[142px]",
         className
       )}
     >
@@ -50,22 +50,24 @@ const CartCounter = ({
         variant="ghost"
         size="icon"
         type="button"
-        className="h-5 w-5 sm:h-6 sm:w-6 text-xl hover:bg-transparent"
+        className="h-8 w-8 text-[#3D2E26]/72 hover:bg-transparent hover:text-[#9C7548]"
         onClick={() => remove()}
+        aria-label="Decrease quantity"
       >
-        <FaMinus />
+        <Minus className="h-4 w-4" />
       </Button>
-      <span className="font-medium text-sm sm:text-base">
+      <span className="min-w-6 text-center text-sm font-medium sm:text-base">
         {!isZeroDelete ? counter : initialValue}
       </span>
       <Button
         variant="ghost"
         size="icon"
         type="button"
-        className="h-5 w-5 sm:h-6 sm:w-6 text-xl hover:bg-transparent"
+        className="h-8 w-8 text-[#3D2E26]/72 hover:bg-transparent hover:text-[#9C7548]"
         onClick={() => addToCart()}
+        aria-label="Increase quantity"
       >
-        <FaPlus />
+        <Plus className="h-4 w-4" />
       </Button>
     </div>
   );

@@ -46,18 +46,18 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
           <SheetTitle asChild>
             <SheetClose asChild>
               <Link href="/" className="flex items-center gap-3">
-                <span className="flex h-12 w-12 items-center justify-center">
+                <span className="flex h-14 w-14 items-center justify-center">
                   <Image
                     priority
                     src="/images/Main_logo颜色版_01.png"
-                    height={56}
-                    width={56}
+                    height={96}
+                    width={96}
                     alt="Moonlite Studio logo"
                     className="h-full w-full object-contain"
                   />
                 </span>
-                <span className={cn([integralCF.className, "text-[22px] text-[#3D2E26]"])}>
-                  Moonlite Studio
+                <span className={cn([integralCF.className, "text-[21px] uppercase leading-tight tracking-[0.02em] text-[#3D2E26]"])}>
+                  MOONLITE STUDIO
                 </span>
               </Link>
             </SheetClose>

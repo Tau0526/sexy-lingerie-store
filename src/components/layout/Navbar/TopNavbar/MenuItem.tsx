@@ -19,7 +19,7 @@ export function MenuItem({ label, url }: MenuItemProps) {
         <NavigationMenuLink
           className={cn([
             navigationMenuTriggerStyle(),
-            "font-normal px-3 bg-transparent text-[#3D2E26]/78 hover:bg-transparent hover:text-[#9C7548] hover:underline hover:underline-offset-8 focus:bg-transparent focus:text-[#9C7548]",
+            "moonlite-link bg-transparent px-3 font-normal text-[#3D2E26]/78 hover:bg-transparent focus:bg-transparent focus:text-[#9C7548]",
           ])}
         >
           {label}

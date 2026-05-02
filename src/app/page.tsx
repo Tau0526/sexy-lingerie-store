@@ -11,7 +11,7 @@ export default function Home() {
     <>
       <Header />
       <Brands />
-        <main className="bg-[#F2EADC] pb-[64px] sm:pb-24">
+        <main className="silk-page pb-[64px] sm:pb-24">
         <div className="pt-[64px] sm:pt-24">
           <ProductListSec
             title="New Collection"
@@ -27,7 +27,7 @@ export default function Home() {
           <div className="grid grid-cols-1 gap-8 border-y border-[#9C7548]/18 py-12 lg:grid-cols-[1.15fr_0.85fr]">
             <div className="pr-0 lg:pr-12">
               <span className="text-xs font-medium uppercase tracking-[0.24em] text-[#9C7548]">
-                Moonlite Studio
+                03 / Private Details
               </span>
               <h2 className="mt-4 mb-4 max-w-[720px] text-3xl font-medium text-[#3D2E26] md:text-[44px] md:leading-[54px]">
                 Private confidence, refined intimacy, and quiet allure.
@@ -41,7 +41,7 @@ export default function Home() {
             </div>
             <div
               id="packaging"
-              className="bg-[#E8DECD] p-7 md:p-10"
+              className="group border border-[#9C7548]/18 bg-[#E8DECD]/72 p-7 transition-all duration-500 ease-out hover:border-[#9C7548]/38 hover:bg-[#E8DECD] md:p-10"
             >
               <span className="text-xs font-medium uppercase tracking-[0.24em] text-[#9C7548]">
                 Discreet UK Packaging

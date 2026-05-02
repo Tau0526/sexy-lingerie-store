@@ -1,7 +1,6 @@
 import React from "react";
 import * as motion from "framer-motion/client";
 import { cn } from "@/lib/utils";
-import { integralCF } from "@/styles/fonts";
 import {
   Carousel,
   CarouselContent,
@@ -28,15 +27,23 @@ const ProductListSec = ({
 
   return (
     <section className="max-w-frame mx-auto text-center">
+      <motion.p
+        initial={{ y: "28px", opacity: 0 }}
+        whileInView={{ y: "0", opacity: 1 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.5 }}
+        className="mb-3 text-xs font-medium uppercase tracking-[0.24em] text-[#9C7548]"
+      >
+        {title === "New Collection" ? "01 / New Collection" : "02 / Moonlite Edit"}
+      </motion.p>
       <motion.h2
         initial={{ y: "100px", opacity: 0 }}
         whileInView={{ y: "0", opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className={cn([
-          integralCF.className,
           isDark ? "text-[#3D2E26]" : "text-[#3D2E26]",
-          "text-[32px] md:text-5xl mb-10 md:mb-16 capitalize font-normal",
+          "mb-10 text-[30px] font-medium capitalize leading-tight md:mb-14 md:text-[44px]",
         ])}
       >
         {title}
@@ -53,11 +60,11 @@ const ProductListSec = ({
           }}
           className="w-full mb-8 md:mb-10"
         >
-          <CarouselContent className="mx-4 xl:mx-0 space-x-5 sm:space-x-7">
+          <CarouselContent className="mx-4 space-x-5 sm:space-x-8 xl:mx-0">
             {data.map((product) => (
               <CarouselItem
                 key={product.id}
-                className="w-full max-w-[198px] sm:max-w-[295px] pl-0"
+                className="w-full max-w-[205px] pl-0 sm:max-w-[300px]"
               >
                 <ProductCard data={product} theme={theme} />
               </CarouselItem>
@@ -72,10 +79,10 @@ const ProductListSec = ({
                 isDark
                   ? "border-[#9C7548]/35 text-[#3D2E26] hover:border-[#9C7548] hover:text-[#9C7548]"
                   : "border-[#9C7548]/24 text-[#3D2E26] hover:border-[#9C7548] hover:text-[#9C7548]",
-                "w-full inline-block sm:w-[218px] px-[54px] py-4 border rounded-sm transition-colors font-medium text-sm sm:text-base",
+                "moonlite-link inline-block w-full rounded-sm border px-[54px] py-4 text-sm font-medium transition-colors sm:w-[218px] sm:text-base",
               ])}
             >
-              View All
+              View Collection
             </Link>
           </div>
         )}

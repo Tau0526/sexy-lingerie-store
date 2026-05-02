@@ -86,22 +86,22 @@ const data: NavMenu = [
 const TopNavbar = () => {
   return (
     <nav className="sticky top-0 z-20 border-b border-[#9C7548]/20 bg-[#F2EADC]/92 backdrop-blur-xl">
-      <div className="relative mx-auto flex max-w-frame items-center justify-between px-4 py-3 md:justify-start md:py-4 xl:px-0">
+      <div className="relative mx-auto flex max-w-frame items-center justify-between px-4 py-3 md:justify-start md:py-3.5 xl:px-0">
         <div className="flex shrink-0 items-center">
-          <div className="block md:hidden mr-4">
+          <div className="mr-3 block md:hidden">
             <ResTopNavbar data={data} />
           </div>
           <Link
             href="/"
-            className="mr-4 flex shrink-0 items-center gap-3 lg:mr-8"
+            className="mr-3 flex min-w-0 shrink-0 items-center gap-3 sm:gap-3.5 lg:mr-8"
             aria-label="Moonlite Studio home"
           >
-            <span className="flex h-12 w-12 shrink-0 items-center justify-center md:h-14 md:w-14">
+            <span className="flex h-11 w-11 shrink-0 items-center justify-center md:h-[50px] md:w-[50px]">
               <Image
                 priority
                 src="/images/Main_logo颜色版_01.png"
-                height={64}
-                width={64}
+                height={96}
+                width={96}
                 alt="Moonlite Studio logo"
                 className="h-full w-full object-contain"
               />
@@ -109,10 +109,10 @@ const TopNavbar = () => {
             <span
               className={cn([
                 integralCF.className,
-                "whitespace-nowrap text-lg font-normal text-[#3D2E26] sm:text-xl md:text-[22px] lg:text-[25px]",
+                "whitespace-nowrap text-[15px] font-normal uppercase leading-none tracking-[0.02em] text-[#3D2E26] xs:text-lg sm:text-xl md:text-[22px] lg:text-[24px]",
               ])}
             >
-              Moonlite Studio
+              MOONLITE STUDIO
             </span>
           </Link>
         </div>
@@ -144,7 +144,7 @@ const TopNavbar = () => {
           <InputGroup.Input
             type="search"
             name="search"
-            placeholder="Search for products..."
+            placeholder="Search pieces..."
             className="bg-transparent text-[#3D2E26] placeholder:text-[#3D2E26]/45"
           />
         </InputGroup>

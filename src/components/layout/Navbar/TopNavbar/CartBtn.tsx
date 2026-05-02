@@ -12,7 +12,7 @@ const CartBtn = () => {
   return (
     <Link
       href="/cart"
-      className="relative mr-[14px] p-1 text-[#3D2E26]"
+      className="group relative flex h-10 w-10 items-center justify-center rounded-sm text-[#3D2E26] transition-all duration-300 hover:-translate-y-0.5 hover:bg-[#E8DECD]/60 hover:text-[#9C7548]"
       aria-label="Open your bag"
     >
       <Image
@@ -21,10 +21,10 @@ const CartBtn = () => {
         height={100}
         width={100}
         alt=""
-        className="max-w-[22px] max-h-[22px] opacity-75"
+        className="max-h-[21px] max-w-[21px] opacity-75 transition-opacity duration-300 group-hover:opacity-100"
       />
       {cart && cart.totalQuantities > 0 && (
-        <span className="border border-[#9C7548]/20 bg-[#2A1820] text-[#F2EADC] rounded-full w-fit-h-fit px-1 text-xs absolute -top-3 left-1/2 -translate-x-1/2">
+        <span className="absolute -right-1 -top-1 min-w-5 rounded-full border border-[#9C7548]/25 bg-[#2A1820] px-1 text-center text-xs leading-5 text-[#F2EADC]">
           {cart.totalQuantities}
         </span>
       )}

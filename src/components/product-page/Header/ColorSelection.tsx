@@ -9,7 +9,6 @@ import { RootState } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { Product } from "@/types/product.types";
 import React, { useEffect } from "react";
-import { IoMdCheckmark } from "react-icons/io";
 
 const ColorSelection = ({ data }: { data: Product }) => {
   const { colorSelection } = useAppSelector(
@@ -24,25 +23,30 @@ const ColorSelection = ({ data }: { data: Product }) => {
 
   return (
     <div className="flex flex-col">
-      <span className="text-sm sm:text-base text-[#3D2E26]/62 mb-4">
-        Select Colour
+      <span className="mb-4 text-sm text-[#3D2E26]/70 sm:text-base">
+        Select colour
       </span>
-      <div className="flex flex-wrap items-center gap-3 sm:gap-4">
+      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
         {colorsData.map((color, index) => (
           <button
             key={index}
             type="button"
             className={cn([
-              color.code,
-              "rounded-full w-11 sm:w-12 h-11 sm:h-12 flex items-center justify-center border border-[#9C7548]/28",
-              colorSelection.name === color.name && "ring-1 ring-[#9C7548] ring-offset-2 ring-offset-[#F2EADC]",
+              "flex min-h-11 items-center gap-2 rounded-sm border border-[#9C7548]/28 bg-[#F2EADC]/45 px-3 text-sm text-[#3D2E26] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[#9C7548]/65 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#9C7548] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F2EADC] sm:px-4",
+              colorSelection.name === color.name &&
+                "border-[#2A1820] bg-[#E8DECD] text-[#2A1820]",
             ])}
             onClick={() => dispatch(setColorSelection(color))}
-            aria-label={color.name}
+            aria-pressed={colorSelection.name === color.name}
           >
-            {colorSelection.name === color.name && (
-              <IoMdCheckmark className="text-base text-[#F2EADC]" />
-            )}
+            <span
+              className={cn(
+                color.code,
+                "h-3.5 w-3.5 rounded-full border border-[#3D2E26]/20 saturate-50"
+              )}
+              aria-hidden="true"
+            />
+            {color.name}
           </button>
         ))}
       </div>

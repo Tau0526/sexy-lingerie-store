@@ -120,9 +120,9 @@ export default function CheckoutPage() {
   };
 
   return (
-    <main className="bg-[#F2EADC] pb-20 text-[#3D2E26]">
+    <main className="silk-page pb-20 text-[#3D2E26]">
       <div className="mx-auto max-w-frame px-4 py-8 xl:px-0">
-        <div className="mb-8 border-b border-[#9C7548]/20 pb-5">
+        <div className="moonlite-reveal mb-8 border-b border-[#9C7548]/20 pb-5">
           <p className="mb-3 text-xs uppercase tracking-[0.22em] text-[#9C7548]">
             Moonlite Studio
           </p>
@@ -141,13 +141,14 @@ export default function CheckoutPage() {
         </div>
 
         {items.length === 0 ? (
-          <section className="bg-[#E8DECD] p-6 text-center">
+          <section className="border-y border-[#9C7548]/16 bg-[#E8DECD]/66 p-6 text-center">
             <p className="mb-5 text-[#3D2E26]/70">
               Your bag is empty. Add a Moonlite Studio piece before checkout.
             </p>
             <Button
               asChild
-              className="h-12 rounded-sm bg-[#2A1820] px-7 text-[#F2EADC] hover:bg-[#3D2E26]"
+              variant="outline"
+              className="px-7"
             >
               <Link href="/shop">Continue Shopping</Link>
             </Button>
@@ -157,7 +158,7 @@ export default function CheckoutPage() {
             onSubmit={handleSubmit}
             className="grid gap-6 lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px]"
           >
-            <section className="bg-[#E8DECD] p-5 md:p-6">
+            <section className="border-y border-[#9C7548]/16 bg-[#E8DECD]/58 p-5 md:p-6">
               <h2 className="mb-5 text-xl font-medium">Delivery Details</h2>
               <div className="grid gap-4 sm:grid-cols-2">
                 <Field
@@ -194,7 +195,7 @@ export default function CheckoutPage() {
                   </label>
                   <div
                     id="country"
-                    className="border border-[#9C7548]/30 bg-[#F2EADC] px-3 py-3 text-sm"
+                    className="h-12 border border-[#9C7548]/28 bg-[#F2EADC]/78 px-3 py-3 text-sm text-[#3D2E26]/78"
                   >
                     United Kingdom
                   </div>
@@ -238,18 +239,18 @@ export default function CheckoutPage() {
                       updateField("orderNote", event.target.value)
                     }
                     rows={4}
-                    className="w-full resize-none border border-[#9C7548]/30 bg-[#F2EADC] px-3 py-3 text-sm text-[#3D2E26] outline-none transition focus:border-[#9C7548]"
+                    className="w-full resize-none border border-[#9C7548]/28 bg-[#F2EADC]/78 px-3 py-3 text-sm text-[#3D2E26] outline-none transition-all duration-300 placeholder:text-[#3D2E26]/38 hover:border-[#9C7548]/50 focus:border-[#2A1820] focus:ring-1 focus:ring-[#9C7548]/45"
                   />
                 </div>
               </div>
 
-              <div className="mt-6 flex gap-3 border border-[#9C7548]/25 bg-[#F2EADC] p-4 text-sm leading-6 text-[#3D2E26]/70">
+              <div className="mt-6 flex gap-3 border-l border-[#9C7548]/45 bg-[#F2EADC]/68 p-4 text-sm leading-6 text-[#3D2E26]/70">
                 <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#9C7548]" />
                 <p>This is a demo checkout. No real payment will be taken.</p>
               </div>
             </section>
 
-            <aside className="bg-[#E8DECD] p-5 md:p-6 lg:sticky lg:top-24">
+            <aside className="border-y border-[#9C7548]/16 bg-[#E8DECD]/66 p-5 md:p-6 lg:sticky lg:top-24">
               <h2 className="mb-5 text-xl font-medium">Order Summary</h2>
               <div className="mb-5 space-y-3 border-b border-[#9C7548]/22 pb-5 text-sm">
                 <p className="text-[#3D2E26]/62">
@@ -292,10 +293,7 @@ export default function CheckoutPage() {
                       FREE_DELIVERY_THRESHOLD
                     )}.`}
               </p>
-              <Button
-                type="submit"
-                className="mt-6 h-12 w-full rounded-sm bg-[#2A1820] text-[#F2EADC] hover:bg-[#3D2E26]"
-              >
+              <Button type="submit" className="mt-6 h-12 w-full">
                 Place Mock Order
               </Button>
             </aside>
@@ -338,7 +336,7 @@ const Field = ({
       type={type}
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      className="h-12 w-full border border-[#9C7548]/30 bg-[#F2EADC] px-3 text-sm text-[#3D2E26] outline-none transition focus:border-[#9C7548]"
+      className="h-12 w-full border border-[#9C7548]/28 bg-[#F2EADC]/78 px-3 text-sm text-[#3D2E26] outline-none transition-all duration-300 placeholder:text-[#3D2E26]/38 hover:border-[#9C7548]/50 focus:border-[#2A1820] focus:ring-1 focus:ring-[#9C7548]/45"
     />
     {error && <p className="mt-2 text-xs text-[#6F2F2B]">{error}</p>}
   </div>
