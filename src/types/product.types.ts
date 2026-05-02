@@ -24,11 +24,14 @@ export type Product = {
   slug: string;
   category: ProductCategory;
   srcUrl: string;
+  srcAlt?: string;
   gallery?: string[];
+  galleryAlts?: string[];
   price: number;
   discount: Discount;
   rating: number;
   description: string;
+  longDescription?: string;
   details: string[];
   material: string;
   care: string;

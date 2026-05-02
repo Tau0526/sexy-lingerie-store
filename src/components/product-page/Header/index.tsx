@@ -41,6 +41,11 @@ const Header = ({ data }: { data: Product }) => {
           <p className="text-sm sm:text-base text-[#3D2E26]/64 mb-6 leading-7">
             {data.description}
           </p>
+          {data.longDescription && (
+            <p className="mb-6 text-sm leading-7 text-[#3D2E26]/62 sm:text-base">
+              {data.longDescription}
+            </p>
+          )}
           <div className="mb-6 grid gap-3 border-l border-[#9C7548]/35 bg-[#E8DECD]/70 p-4 text-sm text-[#3D2E26]/62 sm:grid-cols-2">
             <div>
               <span className="mb-1 block font-medium text-[#3D2E26]">Material</span>

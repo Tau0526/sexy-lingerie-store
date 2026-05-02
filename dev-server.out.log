@@ -1,0 +1,19 @@
+
+> next-ecommerce-shopco@0.1.0 dev
+> next dev --hostname 127.0.0.1
+
+  ▲ Next.js 14.2.7
+  - Local:        http://127.0.0.1:3000
+  - Network:      http://127.0.0.1:3000
+
+ ✓ Starting...
+ ✓ Ready in 3.2s
+ ○ Compiling /shop/product/[...slug] ...
+ ✓ Compiled /shop/product/[...slug] in 4.9s (1403 modules)
+ ✓ Compiled in 571ms (670 modules)
+ GET /shop/product/1/black-lace-moonlit-set 200 in 6393ms
+ ○ Compiling /shop ...
+ ✓ Compiled /shop in 2.1s (1668 modules)
+ GET / 200 in 2803ms
+ GET /shop 200 in 2648ms
+ GET /shop/product/1/black-lace-moonlit-set 200 in 2652ms

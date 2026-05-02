@@ -5,25 +5,36 @@ import Image from "next/image";
 import React, { useState } from "react";
 
 const PhotoSection = ({ data }: { data: Product }) => {
-  const [selected, setSelected] = useState<string>(data.srcUrl);
+  const [selected, setSelected] = useState<string>(data.gallery?.[0] ?? data.srcUrl);
+  const selectedIndex = data.gallery?.findIndex((photo) => photo === selected) ?? -1;
+  const selectedAlt =
+    selectedIndex >= 0
+      ? data.galleryAlts?.[selectedIndex] ?? `${data.title} gallery image ${selectedIndex + 1}`
+      : data.srcAlt ?? `${data.title} product image`;
 
   return (
     <div className="flex flex-col-reverse lg:flex-row lg:space-x-3.5">
       {data?.gallery && data.gallery.length > 0 && (
-        <div className="flex lg:flex-col space-x-3 lg:space-x-0 lg:space-y-3.5 w-full lg:w-fit items-center lg:justify-start justify-center">
+        <div className="flex w-full items-center justify-center space-x-3 overflow-x-auto pb-1 lg:max-h-[530px] lg:w-fit lg:flex-col lg:justify-start lg:space-x-0 lg:space-y-3.5 lg:overflow-y-auto lg:pb-0 lg:pr-1">
           {data.gallery.map((photo, index) => (
             <button
               key={index}
               type="button"
-            className="bg-[#E8DECD] w-full max-w-[111px] xl:max-w-[152px] max-h-[106px] xl:max-h-[167px] xl:min-h-[167px] aspect-square overflow-hidden border border-[#9C7548]/14"
-            onClick={() => setSelected(photo)}
-          >
+              className="aspect-square w-full max-w-[111px] shrink-0 overflow-hidden border border-[#9C7548]/14 bg-[#E8DECD] max-h-[106px] xl:max-w-[152px] xl:max-h-[167px] xl:min-h-[167px]"
+              onClick={() => setSelected(photo)}
+              aria-label={`Show ${
+                data.galleryAlts?.[index] ?? `${data.title} gallery image ${index + 1}`
+              }`}
+            >
               <Image
                 src={photo}
                 width={152}
                 height={167}
                 className="w-full h-full object-cover transition-opacity duration-500 hover:opacity-85"
-                alt={data.title}
+                alt={
+                  data.galleryAlts?.[index] ??
+                  `${data.title} gallery image ${index + 1}`
+                }
                 priority
               />
             </button>
@@ -37,7 +48,7 @@ const PhotoSection = ({ data }: { data: Product }) => {
           width={444}
           height={530}
           className="w-full h-full object-cover"
-          alt={data.title}
+          alt={selectedAlt}
           priority
           unoptimized
         />

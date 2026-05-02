@@ -6,27 +6,62 @@ const moonliteColors = [
   { name: "Dusky Violet", code: "bg-[#6f5bd6]" },
 ];
 
+const blackLaceMoonlitSetGallery = Array.from(
+  { length: 18 },
+  (_, index) =>
+    `/products/black-lace-moonlit-set/black-lace-moonlit-set-${index + 1}.jpg`
+);
+
+const blackLaceMoonlitSetGalleryAlts = [
+  "Black Lace Moonlit Set front view",
+  "Black Lace Moonlit Set lace detail",
+  "Black Lace Moonlit Set side view",
+  "Black Lace Moonlit Set back view",
+  "Black Lace Moonlit Set sheer lace detail",
+  "Black Lace Moonlit Set strap detail",
+  "Black Lace Moonlit Set fabric close-up",
+  "Black Lace Moonlit Set styled front view",
+  "Black Lace Moonlit Set cup detail",
+  "Black Lace Moonlit Set waist detail",
+  "Black Lace Moonlit Set silhouette view",
+  "Black Lace Moonlit Set black lace texture",
+  "Black Lace Moonlit Set mesh detail",
+  "Black Lace Moonlit Set elegant front view",
+  "Black Lace Moonlit Set delicate trim detail",
+  "Black Lace Moonlit Set refined back view",
+  "Black Lace Moonlit Set intimate set detail",
+  "Black Lace Moonlit Set final gallery view",
+];
+
 const braSizes = ["32A", "32B", "34B", "34C", "36C", "38D"];
 const letterSizes = ["S", "M", "L"];
 
 export const newArrivalsData: Product[] = [
   {
     id: 1,
-    title: "Luna Lace Lingerie Set",
-    slug: "luna-lace-lingerie-set",
+    title: "Black Lace Moonlit Set",
+    slug: "black-lace-moonlit-set",
     category: "Lingerie Sets",
-    srcUrl: "/images/pic1.png",
-    gallery: ["/images/pic1.png", "/images/pic10.png", "/images/pic11.png"],
-    price: 49.99,
+    srcUrl: "/products/black-lace-moonlit-set/black-lace-moonlit-set-1.jpg",
+    srcAlt: "Black Lace Moonlit Set front view",
+    gallery: blackLaceMoonlitSetGallery,
+    galleryAlts: blackLaceMoonlitSetGalleryAlts,
+    price: 29.99,
     discount: { amount: 0, percentage: 0 },
     rating: 4.7,
     description:
-      "A refined lace set with soft structure, delicate detail and a confident evening mood.",
-    details: ["Soft lace finish", "Adjustable straps", "Designed for discreet UK delivery"],
-    material: "Soft lace with recycled polyamide blend",
-    care: "Hand wash cold and lay flat to dry",
-    sizes: braSizes,
-    colors: moonliteColors,
+      "A black lace intimate set with delicate sheer detailing, designed for quiet confidence and moonlit evenings.",
+    longDescription:
+      "A refined black lace set designed for intimate evenings and quiet confidence. Sheer lace, soft structure and delicate detailing create a polished silhouette while keeping the overall mood elegant, minimal and sensual without being vulgar.",
+    details: [
+      "Delicate sheer lace detailing",
+      "Soft structured intimate set",
+      "Designed for discreet UK delivery",
+    ],
+    material: "Lace, mesh and soft-touch stretch fabric.",
+    care: "Hand wash cold. Do not bleach. Lay flat to dry.",
+    sizes: ["S", "M", "L", "XL"],
+    colors: [{ name: "Black", code: "bg-[#050507]" }],
     isNew: true,
     tag: "New In",
   },

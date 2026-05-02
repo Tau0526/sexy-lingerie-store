@@ -34,7 +34,7 @@ const Header = () => {
               "mb-6 max-w-[650px] text-[38px] font-normal leading-[46px] text-[#3D2E26] sm:text-6xl md:text-[64px] md:leading-[76px]",
             ])}
           >
-            Silk-soft intimates for moonlit confidence
+            Silk-soft intimates for moonlite confidence
           </motion.h1>
           <motion.p
             initial={{ y: "50px", opacity: 0 }}

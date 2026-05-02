@@ -46,7 +46,7 @@ const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
           width={295}
           height={298}
           className="w-full h-full object-cover transition-opacity duration-700 ease-out group-hover:opacity-88"
-          alt={data.title}
+          alt={data.srcAlt ?? `${data.title} product image`}
           priority
         />
       </div>
