@@ -8,13 +8,14 @@ const calcAdjustedTotalPrice = (
   data: CartItem,
   quantity?: number
 ): number => {
-  return (
-    (totalPrice + data.discount.percentage > 0
+  const unitPrice =
+    data.discount.percentage > 0
       ? Math.round(data.price - (data.price * data.discount.percentage) / 100)
       : data.discount.amount > 0
       ? Math.round(data.price - data.discount.amount)
-      : data.price) * (quantity ? quantity : data.quantity)
-  );
+      : data.price;
+
+  return unitPrice * (quantity ? quantity : data.quantity);
 };
 
 export type RemoveCartItem = {

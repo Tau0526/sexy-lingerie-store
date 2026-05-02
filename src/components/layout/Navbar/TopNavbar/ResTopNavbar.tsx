@@ -22,15 +22,21 @@ import {
 const ResTopNavbar = ({ data }: { data: NavMenu }) => {
   return (
     <Sheet>
-      <SheetTrigger asChild className="cursor-pointer">
-        <Image
-          priority
-          src="/icons/menu.svg"
-          height={100}
-          width={100}
-          alt="menu"
-          className="max-w-[22px] max-h-[22px]"
-        />
+      <SheetTrigger asChild>
+        <button
+          type="button"
+          className="flex h-10 w-10 items-center justify-center text-[#3D2E26]"
+          aria-label="Open navigation menu"
+        >
+          <Image
+            priority
+            src="/icons/menu.svg"
+            height={22}
+            width={22}
+            alt=""
+            className="h-[22px] w-[22px]"
+          />
+        </button>
       </SheetTrigger>
       <SheetContent
         side="left"
@@ -40,12 +46,12 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
           <SheetTitle asChild>
             <SheetClose asChild>
               <Link href="/" className="flex items-center gap-3">
-                <span className="flex h-10 w-10 items-center justify-center">
+                <span className="flex h-12 w-12 items-center justify-center">
                   <Image
                     priority
                     src="/images/Main_logo颜色版_01.png"
-                    height={48}
-                    width={48}
+                    height={56}
+                    width={56}
                     alt="Moonlite Studio logo"
                     className="h-full w-full object-contain"
                   />

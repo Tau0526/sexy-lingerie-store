@@ -96,12 +96,12 @@ const TopNavbar = () => {
             className="mr-4 flex shrink-0 items-center gap-3 lg:mr-8"
             aria-label="Moonlite Studio home"
           >
-            <span className="flex h-10 w-10 shrink-0 items-center justify-center md:h-12 md:w-12">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center md:h-14 md:w-14">
               <Image
                 priority
                 src="/images/Main_logo颜色版_01.png"
-                height={56}
-                width={56}
+                height={64}
+                width={64}
                 alt="Moonlite Studio logo"
                 className="h-full w-full object-contain"
               />
@@ -109,14 +109,14 @@ const TopNavbar = () => {
             <span
               className={cn([
                 integralCF.className,
-                "whitespace-nowrap text-xl font-normal text-[#3D2E26] md:text-[22px] lg:text-[25px]",
+                "whitespace-nowrap text-lg font-normal text-[#3D2E26] sm:text-xl md:text-[22px] lg:text-[25px]",
               ])}
             >
               Moonlite Studio
             </span>
           </Link>
         </div>
-        <NavigationMenu className="hidden md:flex mr-2 lg:mr-5">
+        <NavigationMenu className="mr-2 hidden lg:mr-5 lg:flex">
           <NavigationMenuList>
             {data.map((item) => (
               <React.Fragment key={item.id}>
@@ -130,7 +130,7 @@ const TopNavbar = () => {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
-        <InputGroup className="hidden md:flex max-w-[220px] bg-[#E8DECD]/80 border border-[#9C7548]/15 mr-3 text-[#3D2E26] lg:max-w-[280px]">
+        <InputGroup className="mr-3 hidden max-w-[240px] border border-[#9C7548]/15 bg-[#E8DECD]/80 text-[#3D2E26] xl:flex">
           <InputGroup.Text>
             <Image
               priority

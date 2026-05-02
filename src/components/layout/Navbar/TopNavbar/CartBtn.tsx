@@ -10,13 +10,17 @@ const CartBtn = () => {
   const { cart } = useAppSelector((state: RootState) => state.carts);
 
   return (
-    <Link href="/cart" className="relative mr-[14px] p-1 text-[#3D2E26]">
+    <Link
+      href="/cart"
+      className="relative mr-[14px] p-1 text-[#3D2E26]"
+      aria-label="Open your bag"
+    >
       <Image
         priority
         src="/icons/cart.svg"
         height={100}
         width={100}
-        alt="cart"
+        alt=""
         className="max-w-[22px] max-h-[22px] opacity-75"
       />
       {cart && cart.totalQuantities > 0 && (

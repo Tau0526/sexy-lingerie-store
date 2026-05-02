@@ -186,10 +186,16 @@ export default function CheckoutPage() {
                   onChange={(value) => updateField("phone", value)}
                 />
                 <div>
-                  <label className="mb-2 block text-sm text-[#3D2E26]/70">
+                  <label
+                    htmlFor="country"
+                    className="mb-2 block text-sm text-[#3D2E26]/70"
+                  >
                     Country
                   </label>
-                  <div className="border border-[#9C7548]/30 bg-[#F2EADC] px-3 py-3 text-sm">
+                  <div
+                    id="country"
+                    className="border border-[#9C7548]/30 bg-[#F2EADC] px-3 py-3 text-sm"
+                  >
                     United Kingdom
                   </div>
                 </div>
@@ -219,10 +225,14 @@ export default function CheckoutPage() {
                   onChange={(value) => updateField("postcode", value)}
                 />
                 <div className="sm:col-span-2">
-                  <label className="mb-2 block text-sm text-[#3D2E26]/70">
+                  <label
+                    htmlFor="order-note"
+                    className="mb-2 block text-sm text-[#3D2E26]/70"
+                  >
                     Order note
                   </label>
                   <textarea
+                    id="order-note"
                     value={form.orderNote}
                     onChange={(event) =>
                       updateField("orderNote", event.target.value)
@@ -312,10 +322,19 @@ const Field = ({
   error,
   type = "text",
   className,
-}: FieldProps) => (
+}: FieldProps) => {
+  const fieldId = `checkout-${label.toLowerCase().replace(/\s+/g, "-")}`;
+
+  return (
   <div className={className}>
-    <label className="mb-2 block text-sm text-[#3D2E26]/70">{label}</label>
+    <label
+      htmlFor={fieldId}
+      className="mb-2 block text-sm text-[#3D2E26]/70"
+    >
+      {label}
+    </label>
     <input
+      id={fieldId}
       type={type}
       value={value}
       onChange={(event) => onChange(event.target.value)}
@@ -323,4 +342,5 @@ const Field = ({
     />
     {error && <p className="mt-2 text-xs text-[#6F2F2B]">{error}</p>}
   </div>
-);
+  );
+};

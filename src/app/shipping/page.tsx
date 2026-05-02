@@ -37,7 +37,10 @@ export default function ShippingPage() {
           </p>
         </section>
 
-        <section className="max-w-3xl divide-y divide-[#9C7548]/18">
+        <section
+          id="packaging"
+          className="max-w-3xl scroll-mt-24 divide-y divide-[#9C7548]/18"
+        >
           {shippingSections.map((section) => (
             <div key={section.title} className="grid gap-4 py-8 md:grid-cols-[220px_1fr]">
               <h2 className="text-lg font-medium text-[#3D2E26]">

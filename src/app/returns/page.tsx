@@ -40,7 +40,8 @@ export default function ReturnsPage() {
             </h2>
             <p className="text-sm leading-7 text-[#3D2E26]/68 sm:text-base">
               For hygiene reasons, opened intimate apparel cannot be returned
-              unless faulty.
+              unless faulty. Eligible returns should be unopened, unworn and in
+              their original packaging.
             </p>
           </div>
 
