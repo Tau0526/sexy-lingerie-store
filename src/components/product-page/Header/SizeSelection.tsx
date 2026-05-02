@@ -15,10 +15,8 @@ const SizeSelection = ({ data }: { data: Product }) => {
   const sizes = data.sizes;
 
   useEffect(() => {
-    if (!sizes.includes(sizeSelection)) {
-      dispatch(setSizeSelection(sizes[0]));
-    }
-  }, [dispatch, sizeSelection, sizes]);
+    dispatch(setSizeSelection(""));
+  }, [data.id, dispatch]);
 
   return (
     <div className="flex flex-col">

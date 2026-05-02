@@ -96,12 +96,12 @@ const TopNavbar = () => {
             className="mr-4 flex shrink-0 items-center gap-3 lg:mr-8"
             aria-label="Moonlite Studio home"
           >
-            <span className="flex h-8 w-8 shrink-0 items-center justify-center md:h-10 md:w-10">
+            <span className="flex h-10 w-10 shrink-0 items-center justify-center md:h-12 md:w-12">
               <Image
                 priority
-                src="/brand/main-logo.png"
-                height={48}
-                width={48}
+                src="/images/Main_logo颜色版_01.png"
+                height={56}
+                width={56}
                 alt="Moonlite Studio logo"
                 className="h-full w-full object-contain"
               />
@@ -109,7 +109,7 @@ const TopNavbar = () => {
             <span
               className={cn([
                 integralCF.className,
-                "whitespace-nowrap text-lg font-normal text-[#3D2E26] md:text-xl lg:text-[23px]",
+                "whitespace-nowrap text-xl font-normal text-[#3D2E26] md:text-[22px] lg:text-[25px]",
               ])}
             >
               Moonlite Studio

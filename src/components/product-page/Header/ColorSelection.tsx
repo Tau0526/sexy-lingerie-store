@@ -19,10 +19,8 @@ const ColorSelection = ({ data }: { data: Product }) => {
   const colorsData: Color[] = data.colors;
 
   useEffect(() => {
-    if (!colorsData.some((color) => color.name === colorSelection.name)) {
-      dispatch(setColorSelection(colorsData[0]));
-    }
-  }, [colorSelection.name, colorsData, dispatch]);
+    dispatch(setColorSelection({ name: "", code: "" }));
+  }, [data.id, dispatch]);
 
   return (
     <div className="flex flex-col">

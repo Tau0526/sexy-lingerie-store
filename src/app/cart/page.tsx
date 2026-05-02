@@ -1,121 +1,129 @@
 "use client";
 
-import BreadcrumbCart from "@/components/cart-page/BreadcrumbCart";
 import ProductCard from "@/components/cart-page/ProductCard";
 import { Button } from "@/components/ui/button";
-import InputGroup from "@/components/ui/input-group";
+import {
+  FREE_DELIVERY_THRESHOLD,
+  formatPrice,
+  getCartSubtotal,
+  getCartTotal,
+  getUkDelivery,
+} from "@/lib/cart-pricing";
+import { useAppSelector } from "@/lib/hooks/redux";
+import { RootState } from "@/lib/store";
 import { cn } from "@/lib/utils";
 import { integralCF } from "@/styles/fonts";
-import { FaArrowRight } from "react-icons/fa6";
-import { MdOutlineLocalOffer } from "react-icons/md";
-import { TbBasketExclamation } from "react-icons/tb";
-import React from "react";
-import { RootState } from "@/lib/store";
-import { useAppSelector } from "@/lib/hooks/redux";
+import { ArrowRight, ShoppingBag } from "lucide-react";
 import Link from "next/link";
+import React from "react";
 
 export default function CartPage() {
-  const { cart, totalPrice, adjustedTotalPrice } = useAppSelector(
-    (state: RootState) => state.carts
+  const { cart } = useAppSelector((state: RootState) => state.carts);
+  const items = cart?.items || [];
+  const subtotal = getCartSubtotal(items);
+  const shipping = getUkDelivery(subtotal, items.length);
+  const total = getCartTotal(subtotal, shipping);
+  const amountUntilFreeDelivery = Math.max(
+    FREE_DELIVERY_THRESHOLD - subtotal,
+    0
   );
 
   return (
-    <main className="pb-20">
-      <div className="max-w-frame mx-auto px-4 xl:px-0">
-        {cart && cart.items.length > 0 ? (
+    <main className="bg-[#F2EADC] pb-20 text-[#3D2E26]">
+      <div className="mx-auto max-w-frame px-4 py-8 xl:px-0">
+        {items.length > 0 ? (
           <>
-            <BreadcrumbCart />
-            <h2
-              className={cn([
-                integralCF.className,
-                "font-bold text-[32px] md:text-[40px] text-black uppercase mb-5 md:mb-6",
-              ])}
-            >
-              your cart
-            </h2>
-            <div className="flex flex-col lg:flex-row space-y-5 lg:space-y-0 lg:space-x-5 items-start">
-              <div className="w-full p-3.5 md:px-6 flex-col space-y-4 md:space-y-6 rounded-[20px] border border-black/10">
-                {cart?.items.map((product, idx, arr) => (
-                  <React.Fragment key={idx}>
-                    <ProductCard data={product} />
-                    {arr.length - 1 !== idx && (
-                      <hr className="border-t-black/10" />
-                    )}
-                  </React.Fragment>
-                ))}
-              </div>
-              <div className="w-full lg:max-w-[505px] p-5 md:px-6 flex-col space-y-4 md:space-y-6 rounded-[20px] border border-black/10">
-                <h6 className="text-xl md:text-2xl font-bold text-black">
-                  Order Summary
-                </h6>
-                <div className="flex flex-col space-y-5">
-                  <div className="flex items-center justify-between">
-                    <span className="md:text-xl text-black/60">Subtotal</span>
-                    <span className="md:text-xl font-bold">${totalPrice}</span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="md:text-xl text-black/60">
-                      Discount (-
-                      {Math.round(
-                        ((totalPrice - adjustedTotalPrice) / totalPrice) * 100
+            <div className="mb-8 border-b border-[#9C7548]/20 pb-5">
+              <p className="mb-3 text-xs uppercase tracking-[0.22em] text-[#9C7548]">
+                Moonlite Studio
+              </p>
+              <h1
+                className={cn(
+                  integralCF.className,
+                  "text-[32px] font-normal uppercase md:text-[40px]"
+                )}
+              >
+                Your Bag
+              </h1>
+            </div>
+
+            <div className="grid gap-6 lg:grid-cols-[1fr_380px] xl:grid-cols-[1fr_420px]">
+              <section className="bg-[#E8DECD] p-4 md:p-6">
+                <div className="flex flex-col gap-5">
+                  {items.map((product, idx) => (
+                    <React.Fragment
+                      key={`${product.id}-${product.attributes.join("-")}`}
+                    >
+                      <ProductCard data={product} />
+                      {items.length - 1 !== idx && (
+                        <hr className="border-t border-[#9C7548]/22" />
                       )}
-                      %)
-                    </span>
-                    <span className="md:text-xl font-bold text-red-600">
-                      -${Math.round(totalPrice - adjustedTotalPrice)}
-                    </span>
+                    </React.Fragment>
+                  ))}
+                </div>
+              </section>
+
+              <aside className="bg-[#E8DECD] p-5 md:p-6 lg:sticky lg:top-24">
+                <h2 className="mb-5 text-xl font-medium">Order Summary</h2>
+                <div className="space-y-4 text-sm md:text-base">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[#3D2E26]/62">Subtotal</span>
+                    <span>{formatPrice(subtotal)}</span>
                   </div>
                   <div className="flex items-center justify-between">
-                    <span className="md:text-xl text-black/60">
-                      Delivery Fee
-                    </span>
-                    <span className="md:text-xl font-bold">Free</span>
+                    <span className="text-[#3D2E26]/62">UK Delivery</span>
+                    <span>{shipping === 0 ? "Free" : formatPrice(shipping)}</span>
                   </div>
-                  <hr className="border-t-black/10" />
-                  <div className="flex items-center justify-between">
-                    <span className="md:text-xl text-black">Total</span>
-                    <span className="text-xl md:text-2xl font-bold">
-                      ${Math.round(adjustedTotalPrice)}
-                    </span>
+                  <hr className="border-t border-[#9C7548]/22" />
+                  <div className="flex items-center justify-between text-lg font-medium">
+                    <span>Total</span>
+                    <span>{formatPrice(total)}</span>
                   </div>
                 </div>
-                <div className="flex space-x-3">
-                  <InputGroup className="bg-[#F0F0F0]">
-                    <InputGroup.Text>
-                      <MdOutlineLocalOffer className="text-black/40 text-2xl" />
-                    </InputGroup.Text>
-                    <InputGroup.Input
-                      type="text"
-                      name="code"
-                      placeholder="Add promo code"
-                      className="bg-transparent placeholder:text-black/40"
-                    />
-                  </InputGroup>
-                  <Button
-                    type="button"
-                    className="bg-black rounded-full w-full max-w-[119px] h-[48px]"
-                  >
-                    Apply
-                  </Button>
-                </div>
+
+                <p className="mt-5 border-l border-[#9C7548]/45 pl-3 text-sm leading-6 text-[#3D2E26]/64">
+                  Free UK delivery over {formatPrice(FREE_DELIVERY_THRESHOLD)}
+                  {amountUntilFreeDelivery > 0
+                    ? `, add ${formatPrice(amountUntilFreeDelivery)} more to qualify.`
+                    : "."}
+                </p>
+
                 <Button
-                  type="button"
-                  className="text-sm md:text-base font-medium bg-black rounded-full w-full py-4 h-[54px] md:h-[60px] group"
+                  asChild
+                  className="mt-6 h-12 w-full rounded-sm bg-[#2A1820] text-[#F2EADC] hover:bg-[#3D2E26]"
                 >
-                  Go to Checkout{" "}
-                  <FaArrowRight className="text-xl ml-2 group-hover:translate-x-1 transition-all" />
+                  <Link href="/checkout">
+                    Proceed to Checkout
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
                 </Button>
-              </div>
+              </aside>
             </div>
           </>
         ) : (
-          <div className="flex items-center flex-col text-gray-300 mt-32">
-            <TbBasketExclamation strokeWidth={1} className="text-6xl" />
-            <span className="block mb-4">Your shopping cart is empty.</span>
-            <Button className="rounded-full w-24" asChild>
-              <Link href="/shop">Shop</Link>
+          <section className="mx-auto flex min-h-[52vh] max-w-xl flex-col items-center justify-center text-center">
+            <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-full border border-[#9C7548]/35 text-[#9C7548]">
+              <ShoppingBag className="h-6 w-6" />
+            </div>
+            <h1
+              className={cn(
+                integralCF.className,
+                "mb-4 text-3xl font-normal uppercase text-[#3D2E26] md:text-4xl"
+              )}
+            >
+              Your bag is currently empty.
+            </h1>
+            <p className="mb-7 text-sm leading-7 text-[#3D2E26]/64 md:text-base">
+              Discover Moonlite Studio pieces designed for quiet confidence and
+              refined allure.
+            </p>
+            <Button
+              asChild
+              className="h-12 rounded-sm bg-[#2A1820] px-7 text-[#F2EADC] hover:bg-[#3D2E26]"
+            >
+              <Link href="/shop">Continue Shopping</Link>
             </Button>
-          </div>
+          </section>
         )}
       </div>
     </main>
