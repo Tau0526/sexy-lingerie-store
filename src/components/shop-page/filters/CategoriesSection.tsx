@@ -36,12 +36,12 @@ const categoriesData: Category[] = [
 
 const CategoriesSection = () => {
   return (
-    <div className="flex flex-col space-y-0.5 text-white/65">
+    <div className="flex flex-col space-y-0.5 text-[#3D2E26]/58">
       {categoriesData.map((category, idx) => (
         <Link
           key={idx}
           href={category.slug}
-          className="flex items-center justify-between py-2 transition-colors hover:text-[#9bdfff]"
+          className="flex items-center justify-between py-2 transition-colors hover:text-[#9C7548]"
         >
           {category.title} <MdKeyboardArrowRight />
         </Link>

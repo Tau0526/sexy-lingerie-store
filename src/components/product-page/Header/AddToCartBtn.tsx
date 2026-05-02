@@ -15,7 +15,7 @@ const AddToCartBtn = ({ data }: { data: Product & { quantity: number } }) => {
   return (
     <button
       type="button"
-      className="bg-[#9bdfff] w-full ml-3 sm:ml-5 rounded-full h-11 md:h-[52px] text-sm sm:text-base text-[#05050a] font-bold hover:bg-white transition-all"
+      className="w-full ml-3 sm:ml-5 rounded-sm h-11 md:h-[52px] text-sm sm:text-base text-[#F2EADC] font-medium bg-[#2A1820] hover:bg-[#3D2E26] transition-colors"
       onClick={() =>
         dispatch(
           addToCart({
@@ -30,7 +30,7 @@ const AddToCartBtn = ({ data }: { data: Product & { quantity: number } }) => {
         )
       }
     >
-      Add to Cart
+      Add to Bag
     </button>
   );
 };

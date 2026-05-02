@@ -26,7 +26,7 @@ const ColorSelection = ({ data }: { data: Product }) => {
 
   return (
     <div className="flex flex-col">
-      <span className="text-sm sm:text-base text-white/60 mb-4">
+      <span className="text-sm sm:text-base text-[#3D2E26]/62 mb-4">
         Select Colour
       </span>
       <div className="flex flex-wrap items-center gap-3 sm:gap-4">
@@ -36,13 +36,14 @@ const ColorSelection = ({ data }: { data: Product }) => {
             type="button"
             className={cn([
               color.code,
-              "rounded-full w-11 sm:w-12 h-11 sm:h-12 flex items-center justify-center border border-white/20",
+              "rounded-full w-11 sm:w-12 h-11 sm:h-12 flex items-center justify-center border border-[#9C7548]/28",
+              colorSelection.name === color.name && "ring-1 ring-[#9C7548] ring-offset-2 ring-offset-[#F2EADC]",
             ])}
             onClick={() => dispatch(setColorSelection(color))}
             aria-label={color.name}
           >
             {colorSelection.name === color.name && (
-              <IoMdCheckmark className="text-base text-white" />
+              <IoMdCheckmark className="text-base text-[#F2EADC]" />
             )}
           </button>
         ))}

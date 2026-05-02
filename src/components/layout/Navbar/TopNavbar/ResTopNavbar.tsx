@@ -29,15 +29,30 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
           height={100}
           width={100}
           alt="menu"
-          className="max-w-[22px] max-h-[22px] invert"
+          className="max-w-[22px] max-h-[22px]"
         />
       </SheetTrigger>
-      <SheetContent side="left" className="overflow-y-auto">
+      <SheetContent
+        side="left"
+        className="overflow-y-auto border-[#9C7548]/20 bg-[#F2EADC] text-[#3D2E26]"
+      >
         <SheetHeader className="mb-10">
           <SheetTitle asChild>
             <SheetClose asChild>
-              <Link href="/" className={cn([integralCF.className, "text-2xl"])}>
-                Moonlite Studio
+              <Link href="/" className="flex items-center gap-3">
+                <span className="flex h-8 w-8 items-center justify-center">
+                  <Image
+                    priority
+                    src="/brand/main-logo.png"
+                    height={40}
+                    width={40}
+                    alt="Moonlite Studio logo"
+                    className="h-full w-full object-contain"
+                  />
+                </span>
+                <span className={cn([integralCF.className, "text-xl text-[#3D2E26]"])}>
+                  Moonlite Studio
+                </span>
               </Link>
             </SheetClose>
           </SheetTitle>
@@ -47,7 +62,10 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
             <React.Fragment key={item.id}>
               {item.type === "MenuItem" && (
                 <SheetClose asChild>
-                  <Link href={item.url ?? "/"} className="mb-4">
+                  <Link
+                    href={item.url ?? "/"}
+                    className="mb-4 text-[#3D2E26]/70 transition-colors hover:text-[#9C7548]"
+                  >
                     {item.label}
                   </Link>
                 </SheetClose>
@@ -56,15 +74,15 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
                 <div className="mb-4 w-full">
                   <Accordion type="single" collapsible>
                     <AccordionItem value={item.label} className="border-none">
-                      <AccordionTrigger className="text-left p-0 py-0.5 font-normal text-base">
+                      <AccordionTrigger className="text-left p-0 py-0.5 font-normal text-base text-[#3D2E26]/70 hover:text-[#9C7548]">
                         {item.label}
                       </AccordionTrigger>
-                      <AccordionContent className="p-4 pb-0 border-l flex flex-col">
+                      <AccordionContent className="p-4 pb-0 border-l border-[#9C7548]/20 flex flex-col">
                         {item.children.map((itemChild, idx) => (
                           <SheetClose
                             key={itemChild.id}
                             asChild
-                            className="w-fit py-2 text-base"
+                            className="w-fit py-2 text-base text-[#3D2E26]/65 transition-colors hover:text-[#9C7548]"
                           >
                             <Link href={itemChild.url ?? "/"}>
                               {itemChild.label}

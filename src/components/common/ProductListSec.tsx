@@ -35,8 +35,8 @@ const ProductListSec = ({
         transition={{ duration: 0.6 }}
         className={cn([
           integralCF.className,
-          isDark ? "text-white" : "text-black",
-          "text-[32px] md:text-5xl mb-8 md:mb-14 capitalize",
+          isDark ? "text-[#3D2E26]" : "text-[#3D2E26]",
+          "text-[32px] md:text-5xl mb-10 md:mb-16 capitalize font-normal",
         ])}
       >
         {title}
@@ -51,9 +51,9 @@ const ProductListSec = ({
           opts={{
             align: "start",
           }}
-          className="w-full mb-6 md:mb-9"
+          className="w-full mb-8 md:mb-10"
         >
-          <CarouselContent className="mx-4 xl:mx-0 space-x-4 sm:space-x-5">
+          <CarouselContent className="mx-4 xl:mx-0 space-x-5 sm:space-x-7">
             {data.map((product) => (
               <CarouselItem
                 key={product.id}
@@ -70,9 +70,9 @@ const ProductListSec = ({
               href={viewAllLink}
               className={cn([
                 isDark
-                  ? "border-white/15 text-white hover:bg-white hover:text-black"
-                  : "border-black/10 text-black hover:bg-black hover:text-white",
-                "w-full inline-block sm:w-[218px] px-[54px] py-4 border rounded-full transition-all font-medium text-sm sm:text-base",
+                  ? "border-[#9C7548]/35 text-[#3D2E26] hover:border-[#9C7548] hover:text-[#9C7548]"
+                  : "border-[#9C7548]/24 text-[#3D2E26] hover:border-[#9C7548] hover:text-[#9C7548]",
+                "w-full inline-block sm:w-[218px] px-[54px] py-4 border rounded-sm transition-colors font-medium text-sm sm:text-base",
               ])}
             >
               View All

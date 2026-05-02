@@ -18,11 +18,11 @@ export type MenuListProps = {
 export function MenuList({ data, label }: MenuListProps) {
   return (
     <NavigationMenuItem>
-      <NavigationMenuTrigger className="font-normal px-3 bg-transparent text-white/78 hover:bg-white/10 hover:text-white focus:bg-white/10 focus:text-white data-[state=open]:bg-white/10 data-[state=open]:text-white">
+      <NavigationMenuTrigger className="font-normal px-3 bg-transparent text-[#3D2E26]/78 hover:bg-transparent hover:text-[#9C7548] focus:bg-transparent focus:text-[#9C7548] data-[state=open]:bg-transparent data-[state=open]:text-[#9C7548]">
         {label}
       </NavigationMenuTrigger>
-      <NavigationMenuContent>
-        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+      <NavigationMenuContent className="border border-[#9C7548]/20 bg-[#F2EADC] text-[#3D2E26] shadow-[0_20px_60px_rgba(42,24,32,0.08)]">
+        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
           {data.map((item) => (
             <ListItem key={item.id} title={item.label} href={item.url ?? "/"}>
               {item.description ?? ""}
@@ -44,13 +44,15 @@ const ListItem = React.forwardRef<
         <Link
           ref={ref}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            "block select-none space-y-1 rounded-sm p-3 leading-none no-underline outline-none transition-colors hover:bg-[#E8DECD]/70 focus:bg-[#E8DECD]/70",
             className
           )}
           {...props}
         >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <div className="text-sm font-medium leading-none text-[#3D2E26]">
+            {title}
+          </div>
+          <p className="line-clamp-2 text-sm leading-snug text-[#3D2E26]/60">
             {children}
           </p>
         </Link>

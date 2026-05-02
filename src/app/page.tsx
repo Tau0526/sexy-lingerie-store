@@ -11,28 +11,28 @@ export default function Home() {
     <>
       <Header />
       <Brands />
-      <main className="bg-[#08080d] pb-[50px] sm:pb-20">
-        <div className="pt-[50px] sm:pt-[72px]">
+        <main className="bg-[#F2EADC] pb-[64px] sm:pb-24">
+        <div className="pt-[64px] sm:pt-24">
           <ProductListSec
             title="New Collection"
             data={newArrivalsData}
-            viewAllLink="/shop#new-arrivals"
+            viewAllLink="/shop"
             theme="dark"
           />
         </div>
         <section
           id="about"
-          className="max-w-frame mx-auto px-4 xl:px-0 my-[50px] sm:my-20"
+          className="max-w-frame mx-auto px-4 xl:px-0 my-[72px] sm:my-28"
         >
-          <div className="grid grid-cols-1 lg:grid-cols-[1.15fr_0.85fr] gap-5">
-            <div className="rounded-[24px] border border-white/10 bg-white/[0.04] p-7 md:p-10">
-              <span className="text-xs font-semibold uppercase tracking-[0.26em] text-[#9bdfff]">
+          <div className="grid grid-cols-1 gap-8 border-y border-[#9C7548]/18 py-12 lg:grid-cols-[1.15fr_0.85fr]">
+            <div className="pr-0 lg:pr-12">
+              <span className="text-xs font-medium uppercase tracking-[0.24em] text-[#9C7548]">
                 Moonlite Studio
               </span>
-              <h2 className="mt-4 mb-4 max-w-[720px] text-3xl md:text-[44px] md:leading-[52px] font-bold text-white">
+              <h2 className="mt-4 mb-4 max-w-[720px] text-3xl font-medium text-[#3D2E26] md:text-[44px] md:leading-[54px]">
                 Private confidence, refined intimacy, and quiet allure.
               </h2>
-              <p className="max-w-[650px] text-sm md:text-base leading-7 text-white/65">
+              <p className="max-w-[650px] text-sm leading-7 text-[#3D2E26]/66 md:text-base">
                 We create elegant intimate apparel for women and couples who
                 want pieces that feel confident, comfortable, and beautifully
                 understated. Designed for moonlit evenings, slow mornings, and
@@ -41,30 +41,30 @@ export default function Home() {
             </div>
             <div
               id="packaging"
-              className="rounded-[24px] border border-[#9bdfff]/20 bg-[radial-gradient(circle_at_top_right,_rgba(135,92,255,0.34),_transparent_38%),linear-gradient(145deg,_#15111d,_#0b0b12)] p-7 md:p-10"
+              className="bg-[#E8DECD] p-7 md:p-10"
             >
-              <span className="text-xs font-semibold uppercase tracking-[0.26em] text-[#d7c7ff]">
+              <span className="text-xs font-medium uppercase tracking-[0.24em] text-[#9C7548]">
                 Discreet UK Packaging
               </span>
-              <h2 className="mt-4 mb-4 text-2xl md:text-[32px] font-bold text-white">
+              <h2 className="mt-4 mb-4 text-2xl font-medium text-[#3D2E26] md:text-[32px]">
                 Plain outside. Beautifully prepared inside.
               </h2>
-              <p className="text-sm md:text-base leading-7 text-white/65">
+              <p className="text-sm leading-7 text-[#3D2E26]/66 md:text-base">
                 Every order is packed with privacy in mind, using plain outer
                 packaging and a careful inner presentation.
               </p>
             </div>
           </div>
         </section>
-        <div className="mb-[50px] sm:mb-20">
+        <div className="mb-[72px] sm:mb-28">
           <ProductListSec
             title="Featured Products"
             data={topSellingData}
-            viewAllLink="/shop#featured"
+            viewAllLink="/shop"
             theme="dark"
           />
         </div>
-        <div className="mb-[50px] sm:mb-20">
+        <div className="mb-[72px] sm:mb-28">
           <DressStyle />
         </div>
         <Reviews data={reviewsData} />

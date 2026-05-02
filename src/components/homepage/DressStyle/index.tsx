@@ -7,7 +7,7 @@ import DressStyleCard from "./DressStyleCard";
 const DressStyle = () => {
   return (
     <div className="px-4 xl:px-0">
-      <section className="max-w-frame mx-auto border border-white/10 bg-[#11101a] px-6 pb-6 pt-10 md:p-[70px] rounded-[28px] text-center">
+      <section className="max-w-frame mx-auto border-y border-[#9C7548]/18 px-0 pb-2 pt-10 text-center md:pt-16">
         <motion.h2
           initial={{ y: "100px", opacity: 0 }}
           whileInView={{ y: "0", opacity: 1 }}
@@ -15,7 +15,7 @@ const DressStyle = () => {
           transition={{ duration: 0.6 }}
           className={cn([
             integralCF.className,
-            "text-[32px] leading-[36px] md:text-5xl mb-8 md:mb-14 capitalize text-white",
+            "text-[32px] leading-[36px] md:text-5xl mb-8 md:mb-14 capitalize font-normal text-[#3D2E26]",
           ])}
         >
           Shop By Category
@@ -29,13 +29,13 @@ const DressStyle = () => {
         >
           <DressStyleCard
             title="Lingerie Sets"
-            url="/shop#lingerie-sets"
-            className="md:max-w-[260px] lg:max-w-[360px] xl:max-w-[407px] h-[190px] bg-[linear-gradient(90deg,rgba(8,8,13,0.72),rgba(8,8,13,0.18)),url('/images/dress-style-1.png')]"
+            url="/shop?category=Lingerie+Sets"
+            className="md:max-w-[260px] lg:max-w-[360px] xl:max-w-[407px] h-[190px] bg-[linear-gradient(90deg,rgba(42,24,32,0.58),rgba(42,24,32,0.08)),url('/images/dress-style-1.png')]"
           />
           <DressStyleCard
             title="Sleepwear"
-            url="/shop#sleepwear"
-            className="md:max-w-[684px] h-[190px] bg-[linear-gradient(90deg,rgba(8,8,13,0.72),rgba(8,8,13,0.18)),url('/images/dress-style-2.png')]"
+            url="/shop?category=Sleepwear"
+            className="md:max-w-[684px] h-[190px] bg-[linear-gradient(90deg,rgba(42,24,32,0.58),rgba(42,24,32,0.08)),url('/images/dress-style-2.png')]"
           />
         </motion.div>
         <motion.div
@@ -47,13 +47,13 @@ const DressStyle = () => {
         >
           <DressStyleCard
             title="Slips & Chemises"
-            url="/shop#slips-chemises"
-            className="md:max-w-[684px] h-[190px] bg-[linear-gradient(90deg,rgba(8,8,13,0.72),rgba(8,8,13,0.18)),url('/images/dress-style-3.png')]"
+            url="/shop?category=Slips+%26+Chemises"
+            className="md:max-w-[684px] h-[190px] bg-[linear-gradient(90deg,rgba(42,24,32,0.58),rgba(42,24,32,0.08)),url('/images/dress-style-3.png')]"
           />
           <DressStyleCard
             title="Accessories"
-            url="/shop#accessories"
-            className="md:max-w-[260px] lg:max-w-[360px] xl:max-w-[407px] h-[190px] bg-[linear-gradient(90deg,rgba(8,8,13,0.72),rgba(8,8,13,0.18)),url('/images/dress-style-4.png')]"
+            url="/shop?category=Accessories"
+            className="md:max-w-[260px] lg:max-w-[360px] xl:max-w-[407px] h-[190px] bg-[linear-gradient(90deg,rgba(42,24,32,0.58),rgba(42,24,32,0.08)),url('/images/dress-style-4.png')]"
           />
         </motion.div>
       </section>

@@ -1,7 +1,6 @@
 import BreadcrumbShop from "@/components/shop-page/BreadcrumbShop";
 import MobileFilters from "@/components/shop-page/filters/MobileFilters";
 import Filters from "@/components/shop-page/filters";
-import { FiSliders } from "react-icons/fi";
 import { allProductsData } from "@/data/products";
 import ProductCard from "@/components/common/ProductCard";
 import Link from "next/link";
@@ -66,58 +65,57 @@ export default function ShopPage({
   });
 
   return (
-    <main className="bg-[#05050a] pb-20 text-white">
+    <main className="bg-[#F2EADC] pb-24 text-[#3D2E26]">
       <div className="max-w-frame mx-auto px-4 xl:px-0">
-        <div className="border-t border-white/10 pt-5 sm:pt-6">
+        <div className="border-t border-[#9C7548]/18 pt-5 sm:pt-6">
           <BreadcrumbShop />
         </div>
 
-        <section className="mb-8 rounded-[8px] border border-white/10 bg-[#0b0b14] px-5 py-8 shadow-[0_20px_80px_rgba(21,20,40,0.35)] sm:px-8">
-          <span className="mb-3 block text-sm text-[#9bdfff]">
+        <section className="mb-10 border-b border-[#9C7548]/18 px-0 py-10 sm:py-14">
+          <span className="mb-3 block text-xs uppercase tracking-[0.24em] text-[#9C7548]">
             Moonlite Studio
           </span>
-          <h1 className="mb-3 text-3xl font-bold leading-tight md:text-5xl">
+          <h1 className="mb-4 text-3xl font-medium leading-tight text-[#3D2E26] md:text-5xl">
             Shop Moonlite Studio
           </h1>
-          <p className="max-w-2xl text-sm leading-6 text-white/65 sm:text-base">
+          <p className="max-w-2xl text-sm leading-7 text-[#3D2E26]/62 sm:text-base">
             Elegant intimate pieces designed for confidence, comfort and quiet
             allure.
           </p>
         </section>
 
-        <div className="flex items-start md:space-x-5">
-          <aside className="hidden min-w-[275px] max-w-[275px] rounded-[8px] border border-white/10 bg-[#0b0b14] px-5 py-5 md:block md:px-6">
-            <div className="flex items-center justify-between">
-              <span className="text-xl font-bold text-white">Filters</span>
-              <FiSliders className="text-2xl text-[#9bdfff]" />
+        <div className="flex items-start md:space-x-8">
+          <aside className="hidden min-w-[220px] max-w-[220px] border-r border-[#9C7548]/14 pr-6 md:block">
+            <div className="mb-4 flex items-center justify-between">
+              <span className="text-xs uppercase tracking-[0.22em] text-[#3D2E26]/50">Refine</span>
             </div>
             <Filters />
           </aside>
 
           <div className="flex w-full flex-col space-y-5">
-            <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <h2 className="text-2xl font-bold md:text-[32px]">
+                  <h2 className="text-2xl font-medium text-[#3D2E26] md:text-[32px]">
                     Explore the Collection
                   </h2>
-                  <span className="mt-2 block text-sm text-white/55">
+                  <span className="mt-2 block text-sm text-[#3D2E26]/55">
                     Showing {products.length} of {allProductsData.length} pieces
                   </span>
                 </div>
                 <MobileFilters />
               </div>
 
-              <div className="flex flex-wrap gap-2">
+              <div className="flex flex-wrap gap-5">
                 {sortOptions.map((option) => (
                   <Link
                     key={option.value}
                     href={getSortHref(option.value, selectedCategory)}
                     className={cn([
-                      "rounded-full border px-4 py-2 text-sm transition-all",
+                      "border-b py-1 text-sm transition-colors",
                       selectedSort === option.value
-                        ? "border-[#9bdfff] bg-[#9bdfff] text-[#05050a]"
-                        : "border-white/10 text-white/65 hover:border-[#9bdfff]/60 hover:text-white",
+                        ? "border-[#9C7548] text-[#3D2E26]"
+                        : "border-transparent text-[#3D2E26]/58 hover:border-[#9C7548]/45 hover:text-[#9C7548]",
                     ])}
                   >
                     {option.label}
@@ -126,16 +124,16 @@ export default function ShopPage({
               </div>
             </div>
 
-            <div className="flex gap-2 overflow-x-auto pb-1 md:hidden">
+            <div className="flex gap-5 overflow-x-auto border-y border-[#9C7548]/14 py-4 md:flex">
               {categories.map((category) => (
                 <Link
                   key={category}
                   href={getCategoryHref(category, selectedSort)}
                   className={cn([
-                    "shrink-0 rounded-full border px-4 py-2 text-sm",
+                    "shrink-0 border-b py-1 text-sm transition-colors",
                     selectedCategory === category
-                      ? "border-[#8b7cf6] bg-[#8b7cf6] text-white"
-                      : "border-white/10 bg-white/5 text-white/70",
+                      ? "border-[#9C7548] text-[#3D2E26]"
+                      : "border-transparent text-[#3D2E26]/58 hover:border-[#9C7548]/45 hover:text-[#9C7548]",
                   ])}
                 >
                   {category}
@@ -143,7 +141,7 @@ export default function ShopPage({
               ))}
             </div>
 
-            <div className="grid w-full grid-cols-1 gap-4 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3 lg:gap-5">
+            <div className="grid w-full grid-cols-1 gap-x-7 gap-y-12 xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-2 lg:grid-cols-3">
               {products.map((product) => (
                 <ProductCard key={product.id} data={product} theme="dark" />
               ))}

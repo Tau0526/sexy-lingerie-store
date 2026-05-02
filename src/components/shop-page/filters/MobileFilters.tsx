@@ -17,16 +17,16 @@ const MobileFilters = () => {
         <DrawerTrigger asChild>
           <button
             type="button"
-            className="h-9 w-9 rounded-full border border-white/10 bg-white/10 p-1 text-white md:hidden"
+            className="h-9 w-9 rounded-sm border border-[#9C7548]/24 bg-[#E8DECD]/70 p-1 text-[#3D2E26] md:hidden"
           >
             <FiSliders className="text-base mx-auto" />
           </button>
         </DrawerTrigger>
-        <DrawerContent className="max-h-[90%] border-white/10 bg-[#0b0b14] text-white">
+        <DrawerContent className="max-h-[90%] border-[#9C7548]/18 bg-[#F2EADC] text-[#3D2E26]">
           <DrawerHeader>
             <div className="flex items-center justify-between">
-              <span className="text-xl font-bold text-white">Filters</span>
-              <FiSliders className="text-2xl text-[#9bdfff]" />
+              <span className="text-xl font-medium text-[#3D2E26]">Filters</span>
+              <FiSliders className="text-2xl text-[#9C7548]" />
             </div>
             <DrawerTitle className="hidden">filters</DrawerTitle>
             <DrawerDescription className="hidden">filters</DrawerDescription>

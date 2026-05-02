@@ -5,23 +5,22 @@ import { integralCF } from "@/styles/fonts";
 import Link from "next/link";
 import React from "react";
 import * as motion from "framer-motion/client";
+import Image from "next/image";
 
 const Header = () => {
   return (
-    <header className="relative overflow-hidden bg-[#08080d] text-white">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_18%,rgba(122,92,255,0.42),transparent_28%),radial-gradient(circle_at_65%_58%,rgba(107,226,255,0.2),transparent_25%),linear-gradient(135deg,#08080d_0%,#11101b_48%,#050507_100%)]" />
-      <div className="absolute right-[8%] top-16 hidden h-48 w-48 rounded-full border border-[#c8b6ff]/20 md:block" />
-      <div className="absolute right-[11%] top-20 hidden h-40 w-40 rounded-full bg-[#d8d0ff]/10 blur-3xl md:block" />
-      <div className="absolute bottom-[-80px] left-[-40px] h-52 w-52 rounded-full bg-[#d5b89c]/10 blur-3xl" />
+    <header className="relative overflow-hidden bg-[#F2EADC] text-[#3D2E26]">
+      <div className="absolute inset-x-0 bottom-0 h-px bg-[#9C7548]/22" />
+      <div className="absolute right-0 top-0 hidden h-[62%] w-[28%] bg-[#E8DECD]/42 md:block" />
 
-      <div className="relative max-w-frame mx-auto grid min-h-[720px] grid-cols-1 items-center px-4 py-16 md:min-h-[760px] md:grid-cols-[1.08fr_0.92fr] md:py-24 xl:px-0">
-        <section className="max-w-[680px]">
+      <div className="relative max-w-frame mx-auto grid min-h-[700px] grid-cols-1 items-center gap-12 px-4 py-16 md:min-h-[760px] md:grid-cols-[1.05fr_0.95fr] md:py-24 xl:px-0">
+        <section className="max-w-[670px]">
           <motion.p
             initial={{ y: "40px", opacity: 0 }}
             whileInView={{ y: "0", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="mb-5 text-xs font-semibold uppercase tracking-[0.32em] text-[#9bdfff]"
+            className="mb-6 inline-flex items-center gap-3 border-b border-[#9C7548]/40 pb-2 text-xs font-medium uppercase tracking-[0.24em] text-[#3D2E26]/62"
           >
             UK intimate apparel boutique
           </motion.p>
@@ -32,20 +31,19 @@ const Header = () => {
             transition={{ delay: 0.15, duration: 0.65 }}
             className={cn([
               integralCF.className,
-              "mb-6 text-[42px] leading-[46px] sm:text-6xl md:text-[72px] md:leading-[76px]",
+              "mb-6 max-w-[650px] text-[38px] font-normal leading-[46px] text-[#3D2E26] sm:text-6xl md:text-[64px] md:leading-[76px]",
             ])}
           >
-            Moonlit Intimates for Confident Nights
+            Silk-soft intimates for moonlit confidence
           </motion.h1>
           <motion.p
             initial={{ y: "50px", opacity: 0 }}
             whileInView={{ y: "0", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.3, duration: 0.6 }}
-            className="mb-8 max-w-[590px] text-sm leading-7 text-white/68 sm:text-base"
+            className="mb-9 max-w-[520px] text-sm leading-7 text-[#3D2E26]/66 sm:text-base"
           >
-            Elegant intimate apparel and sensual sleepwear, designed for
-            confidence, comfort, and quiet allure.
+            Designed for quiet confidence, softness and allure.
           </motion.p>
           <motion.div
             initial={{ y: "45px", opacity: 0 }}
@@ -55,14 +53,14 @@ const Header = () => {
             className="flex flex-col gap-3 sm:flex-row"
           >
             <Link
-              href="/shop#new-arrivals"
-              className="inline-flex h-12 items-center justify-center rounded-full bg-white px-7 text-sm font-medium text-black transition-all hover:bg-[#d7c7ff]"
+              href="/shop"
+              className="inline-flex h-12 items-center justify-center rounded-sm bg-[#2A1820] px-7 text-sm font-medium text-[#F2EADC] transition-colors hover:bg-[#3D2E26]"
             >
               Shop New Collection
             </Link>
             <Link
-              href="/shop#lingerie-sets"
-              className="inline-flex h-12 items-center justify-center rounded-full border border-white/25 px-7 text-sm font-medium text-white transition-all hover:border-[#9bdfff] hover:text-[#9bdfff]"
+              href="/shop?category=Lingerie+Sets"
+              className="inline-flex h-12 items-center justify-center rounded-sm border border-[#9C7548]/45 bg-transparent px-7 text-sm font-medium text-[#3D2E26] transition-colors hover:border-[#9C7548] hover:text-[#9C7548]"
             >
               Explore Lingerie Sets
             </Link>
@@ -72,28 +70,28 @@ const Header = () => {
             whileInView={{ y: "0", opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.6, duration: 0.6 }}
-            className="mt-12 flex flex-wrap items-center gap-y-5 text-white/70 sm:flex-nowrap sm:gap-x-6"
+            className="mt-14 flex flex-wrap items-center gap-y-5 text-[#3D2E26]/58 sm:flex-nowrap sm:gap-x-6"
           >
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-white md:text-3xl">
+              <span className="text-2xl font-medium text-[#3D2E26] md:text-3xl">
                 <AnimatedCounter from={0} to={5} />+
               </span>
               <span className="text-xs uppercase tracking-[0.18em]">
                 Boutique categories
               </span>
             </div>
-            <Separator className="hidden h-12 bg-white/15 sm:block" orientation="vertical" />
+            <Separator className="hidden h-12 bg-[#9C7548]/22 sm:block" orientation="vertical" />
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-white md:text-3xl">
+              <span className="text-2xl font-medium text-[#3D2E26] md:text-3xl">
                 UK
               </span>
               <span className="text-xs uppercase tracking-[0.18em]">
                 Market focused
               </span>
             </div>
-            <Separator className="hidden h-12 bg-white/15 sm:block" orientation="vertical" />
+            <Separator className="hidden h-12 bg-[#9C7548]/22 sm:block" orientation="vertical" />
             <div className="flex flex-col">
-              <span className="text-2xl font-bold text-white md:text-3xl">
+              <span className="text-2xl font-medium text-[#3D2E26] md:text-3xl">
                 18+
               </span>
               <span className="text-xs uppercase tracking-[0.18em]">
@@ -108,15 +106,25 @@ const Header = () => {
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
           transition={{ delay: 0.35, duration: 0.75 }}
-          className="relative mt-14 min-h-[360px] md:mt-0 md:min-h-[520px]"
+          className="relative mt-2 min-h-[340px] md:mt-0 md:min-h-[560px]"
         >
-          <div className="absolute left-1/2 top-1/2 h-[310px] w-[310px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,rgba(196,185,255,0.28),rgba(107,226,255,0.08)_46%,transparent_68%)] blur-sm sm:h-[420px] sm:w-[420px]" />
-          <div className="absolute left-1/2 top-1/2 h-[230px] w-[230px] -translate-x-1/2 -translate-y-1/2 rounded-full border border-white/10 sm:h-[320px] sm:w-[320px]" />
-          <div className="absolute left-1/2 top-1/2 h-[155px] w-[155px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#f3eadf] shadow-[0_0_90px_rgba(206,219,255,0.45)] sm:h-[220px] sm:w-[220px]" />
-          <div className="absolute left-[49%] top-1/2 h-[165px] w-[165px] -translate-y-1/2 rounded-full bg-[#08080d] sm:h-[235px] sm:w-[235px]" />
-          <div className="absolute bottom-[28%] left-[18%] h-12 w-20 rotate-[-18deg] rounded-[90%_10%_90%_10%] border border-[#9bdfff]/50 bg-[#9bdfff]/10 blur-[0.2px]" />
-          <div className="absolute bottom-[33%] right-[18%] h-12 w-20 rotate-[18deg] rounded-[10%_90%_10%_90%] border border-[#c8b6ff]/50 bg-[#c8b6ff]/10 blur-[0.2px]" />
-          <div className="absolute bottom-[21%] left-1/2 h-24 w-[1px] -translate-x-1/2 bg-gradient-to-b from-[#9bdfff]/70 to-transparent" />
+          <div className="absolute right-0 top-8 h-[78%] w-[72%] bg-[#2A1820]" />
+          <div className="absolute left-2 top-20 h-[70%] w-[74%] bg-[#E8DECD]" />
+          <div className="absolute left-8 top-1/2 h-px w-[44%] bg-[#9C7548]/55" />
+          <div className="absolute bottom-12 right-8 h-px w-[34%] bg-[#9C7548]/35" />
+          <div className="absolute left-1/2 top-1/2 flex h-[240px] w-[240px] -translate-x-1/2 -translate-y-1/2 items-center justify-center sm:h-[340px] sm:w-[340px] md:h-[420px] md:w-[420px]">
+            <Image
+              priority
+              src="/brand/main-logo.png"
+              height={420}
+              width={420}
+              alt="Moonlite Studio logo"
+              className="h-full w-full object-contain"
+            />
+          </div>
+          <p className="absolute bottom-5 left-6 max-w-[210px] text-xs uppercase tracking-[0.24em] text-[#3D2E26]/56 md:bottom-10">
+            Mayfair nights, silk-soft mornings
+          </p>
         </motion.section>
       </div>
     </header>

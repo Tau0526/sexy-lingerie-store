@@ -5,11 +5,11 @@ import React from "react";
 
 const TopBanner = () => {
   return (
-    <div className="bg-black text-white text-center py-2 px-2 sm:px-4 xl:px-0 border-b border-white/10">
+    <div className="bg-[#E8DECD] text-[#3D2E26] text-center py-2 px-2 sm:px-4 xl:px-0 border-b border-[#9C7548]/18">
       <div className="relative max-w-frame mx-auto">
         <p className="text-xs sm:text-sm">
           Discreet UK packaging on every Moonlite Studio order.{" "}
-          <Link href="#" className="underline font-medium">
+          <Link href="/shop" className="font-medium text-[#9C7548] underline underline-offset-4">
             Explore New In
           </Link>
         </p>
@@ -26,7 +26,7 @@ const TopBanner = () => {
             height={13}
             width={13}
             alt="close banner"
-            className="invert"
+            className="opacity-70"
           />
         </Button>
       </div>

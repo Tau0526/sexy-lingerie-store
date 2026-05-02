@@ -65,16 +65,16 @@ const Reviews = ({ data }: ReviewsProps) => {
               transition={{ delay: 0.6, duration: 0.6 }}
               className={cn([
                 integralCF.className,
-                "text-[32px] leading-[36px] md:text-5xl capitalize mr-auto text-white",
+                "text-[32px] leading-[36px] md:text-5xl capitalize mr-auto font-normal text-[#3D2E26]",
               ])}
             >
               Confidence Notes
             </motion.h2>
             <div className="flex items-center space-x-1 ml-2">
-              <CarouselPrevious variant="ghost" className="text-2xl text-white hover:text-black">
+              <CarouselPrevious variant="ghost" className="text-2xl text-[#3D2E26]/60 hover:text-[#9C7548]">
                 <FaArrowLeft />
               </CarouselPrevious>
-              <CarouselNext variant="ghost" className="text-2xl text-white hover:text-black">
+              <CarouselNext variant="ghost" className="text-2xl text-[#3D2E26]/60 hover:text-[#9C7548]">
                 <FaArrowRight />
               </CarouselNext>
             </div>
@@ -114,7 +114,7 @@ const Reviews = ({ data }: ReviewsProps) => {
                                 ? 0
                                 : current - 2) === index &&
                               "backdrop-blur-[2px]",
-                          "absolute bg-white/10 right-0 top-0 h-full w-full z-10",
+                          "absolute bg-[#F2EADC]/35 right-0 top-0 h-full w-full z-10",
                         ])}
                       />
                     )

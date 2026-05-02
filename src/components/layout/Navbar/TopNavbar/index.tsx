@@ -26,7 +26,7 @@ const data: NavMenu = [
     id: 2,
     label: "New In",
     type: "MenuItem",
-    url: "/shop#new-arrivals",
+    url: "/shop",
     children: [],
   },
   {
@@ -37,26 +37,26 @@ const data: NavMenu = [
       {
         id: 11,
         label: "Matching Sets",
-        url: "/shop#lingerie-sets",
+        url: "/shop?category=Lingerie+Sets",
         description: "Coordinated pieces with a refined boutique mood",
       },
       {
         id: 12,
-        label: "Lace Sets",
-        url: "/shop#lace-sets",
-        description: "Soft lace, elegant shaping and quiet allure",
+        label: "Slips & Chemises",
+        url: "/shop?category=Slips+%26+Chemises",
+        description: "Moonlit silhouettes with soft drape and quiet allure",
       },
       {
         id: 13,
-        label: "Bodysuits",
-        url: "/shop#bodysuits",
-        description: "Sculpted silhouettes designed for confidence",
+        label: "Sleepwear",
+        url: "/shop?category=Sleepwear",
+        description: "Elegant nightwear for slow evenings and soft mornings",
       },
       {
         id: 14,
-        label: "Briefs",
-        url: "/shop#briefs",
-        description: "Everyday softness with elevated details",
+        label: "Accessories",
+        url: "/shop?category=Accessories",
+        description: "Finishing details for refined private styling",
       },
     ],
   },
@@ -64,14 +64,14 @@ const data: NavMenu = [
     id: 4,
     type: "MenuItem",
     label: "Sleepwear",
-    url: "/shop#sleepwear",
+    url: "/shop?category=Sleepwear",
     children: [],
   },
   {
     id: 5,
     type: "MenuItem",
     label: "Accessories",
-    url: "/shop#accessories",
+    url: "/shop?category=Accessories",
     children: [],
   },
   {
@@ -85,23 +85,38 @@ const data: NavMenu = [
 
 const TopNavbar = () => {
   return (
-    <nav className="sticky top-0 bg-[#08080d]/95 backdrop-blur z-20 border-b border-white/10">
-      <div className="flex relative max-w-frame mx-auto items-center justify-between md:justify-start py-5 md:py-6 px-4 xl:px-0">
-        <div className="flex items-center">
+    <nav className="sticky top-0 z-20 border-b border-[#9C7548]/20 bg-[#F2EADC]/92 backdrop-blur-xl">
+      <div className="relative mx-auto flex max-w-frame items-center justify-between px-4 py-3 md:justify-start md:py-4 xl:px-0">
+        <div className="flex shrink-0 items-center">
           <div className="block md:hidden mr-4">
             <ResTopNavbar data={data} />
           </div>
           <Link
             href="/"
-            className={cn([
-              integralCF.className,
-              "text-xl lg:text-[28px] mb-2 mr-3 lg:mr-10 text-white tracking-wide",
-            ])}
+            className="mr-4 flex shrink-0 items-center gap-3 lg:mr-8"
+            aria-label="Moonlite Studio home"
           >
-            Moonlite Studio
+            <span className="flex h-8 w-8 shrink-0 items-center justify-center md:h-10 md:w-10">
+              <Image
+                priority
+                src="/brand/main-logo.png"
+                height={48}
+                width={48}
+                alt="Moonlite Studio logo"
+                className="h-full w-full object-contain"
+              />
+            </span>
+            <span
+              className={cn([
+                integralCF.className,
+                "whitespace-nowrap text-lg font-normal text-[#3D2E26] md:text-xl lg:text-[23px]",
+              ])}
+            >
+              Moonlite Studio
+            </span>
           </Link>
         </div>
-        <NavigationMenu className="hidden md:flex mr-2 lg:mr-7">
+        <NavigationMenu className="hidden md:flex mr-2 lg:mr-5">
           <NavigationMenuList>
             {data.map((item) => (
               <React.Fragment key={item.id}>
@@ -115,7 +130,7 @@ const TopNavbar = () => {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
-        <InputGroup className="hidden md:flex bg-white/10 border border-white/10 mr-3 lg:mr-10 text-white">
+        <InputGroup className="hidden md:flex max-w-[220px] bg-[#E8DECD]/80 border border-[#9C7548]/15 mr-3 text-[#3D2E26] lg:max-w-[280px]">
           <InputGroup.Text>
             <Image
               priority
@@ -123,38 +138,18 @@ const TopNavbar = () => {
               height={20}
               width={20}
               alt="search"
-              className="min-w-5 min-h-5 invert opacity-70"
+              className="min-w-5 min-h-5 opacity-60"
             />
           </InputGroup.Text>
           <InputGroup.Input
             type="search"
             name="search"
             placeholder="Search for products..."
-            className="bg-transparent text-white placeholder:text-white/45"
+            className="bg-transparent text-[#3D2E26] placeholder:text-[#3D2E26]/45"
           />
         </InputGroup>
-        <div className="flex items-center">
-          <Link href="/search" className="block md:hidden mr-[14px] p-1">
-            <Image
-              priority
-              src="/icons/search-black.svg"
-              height={100}
-              width={100}
-              alt="search"
-              className="max-w-[22px] max-h-[22px] invert"
-            />
-          </Link>
+        <div className="flex shrink-0 items-center">
           <CartBtn />
-          <Link href="/#signin" className="p-1">
-            <Image
-              priority
-              src="/icons/user.svg"
-              height={100}
-              width={100}
-              alt="user"
-              className="max-w-[22px] max-h-[22px] invert"
-            />
-          </Link>
         </div>
       </div>
     </nav>
