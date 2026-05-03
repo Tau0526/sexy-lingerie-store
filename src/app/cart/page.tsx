@@ -84,12 +84,15 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <p className="mt-5 border-l border-[#9C7548]/45 pl-3 text-sm leading-6 text-[#3D2E26]/64">
-                  Free UK delivery over {formatPrice(FREE_DELIVERY_THRESHOLD)}
-                  {amountUntilFreeDelivery > 0
-                    ? `, add ${formatPrice(amountUntilFreeDelivery)} more to qualify.`
-                    : "."}
-                </p>
+                <div className="mt-5 space-y-2 border-l border-[#9C7548]/45 bg-[#F2EADC]/48 px-3 py-3 text-sm leading-6 text-[#3D2E26]/64">
+                  <p>
+                    Free UK delivery over {formatPrice(FREE_DELIVERY_THRESHOLD)}
+                    {amountUntilFreeDelivery > 0
+                      ? `, add ${formatPrice(amountUntilFreeDelivery)} more to qualify.`
+                      : "."}
+                  </p>
+                  <p>Discreet UK packaging prepared for privacy.</p>
+                </div>
 
                 <Button
                   asChild

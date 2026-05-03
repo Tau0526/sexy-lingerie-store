@@ -12,7 +12,7 @@ const shippingSections = [
     body: "Estimated delivery time is 5-10 working days.",
   },
   {
-    title: "Discreet Packaging",
+    title: "Discreet UK Packaging",
     body: "Every order is prepared in plain outer packaging for privacy. The outer parcel does not display product details.",
   },
   {
@@ -42,7 +42,10 @@ export default function ShippingPage() {
           className="max-w-3xl scroll-mt-24 divide-y divide-[#9C7548]/18 border-b border-[#9C7548]/18"
         >
           {shippingSections.map((section) => (
-            <div key={section.title} className="grid gap-4 py-8 transition-colors duration-300 hover:bg-[#E8DECD]/35 md:grid-cols-[220px_1fr]">
+            <div
+              key={section.title}
+              className="grid gap-4 py-8 transition-colors duration-300 hover:bg-[#E8DECD]/35 md:grid-cols-[220px_1fr]"
+            >
               <h2 className="text-lg font-medium text-[#3D2E26]">
                 {section.title}
               </h2>

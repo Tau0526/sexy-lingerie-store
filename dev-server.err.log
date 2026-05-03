@@ -1,2 +1,20 @@
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: EPERM: operation not permitted, rename 'D:\Vibe_coding\sexy_lingerie\next-ecommerce-shopco\.next\cache\webpack\server-development\11.pack.gz_' -> 'D:\Vibe_coding\sexy_lingerie\next-ecommerce-shopco\.next\cache\webpack\server-development\11.pack.gz'
 <w> [webpack.cache.PackFileCacheStrategy] Caching failed for pack: Error: ENOENT: no such file or directory, rename 'D:\Vibe_coding\sexy_lingerie\next-ecommerce-shopco\.next\cache\webpack\client-development\14.pack.gz_' -> 'D:\Vibe_coding\sexy_lingerie\next-ecommerce-shopco\.next\cache\webpack\client-development\14.pack.gz'
+ ⨯ ./src/components/layout/Footer/index.tsx
+Error: Failed to read source code from D:\Vibe_coding\sexy_lingerie\next-ecommerce-shopco\src\components\layout\Footer\index.tsx
+
+Caused by:
+    系统找不到指定的文件。 (os error 2)
+
+Import trace for requested module:
+./src/components/layout/Footer/index.tsx
+./src/app/layout.tsx
+ ⨯ ./src/components/product-page/Header/index.tsx
+Error: Failed to read source code from D:\Vibe_coding\sexy_lingerie\next-ecommerce-shopco\src\components\product-page\Header\index.tsx
+
+Caused by:
+    系统找不到指定的文件。 (os error 2)
+
+Import trace for requested module:
+./src/components/product-page/Header/index.tsx
+./src/app/shop/product/[...slug]/page.tsx

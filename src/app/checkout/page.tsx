@@ -246,7 +246,11 @@ export default function CheckoutPage() {
 
               <div className="mt-6 flex gap-3 border-l border-[#9C7548]/45 bg-[#F2EADC]/68 p-4 text-sm leading-6 text-[#3D2E26]/70">
                 <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-[#9C7548]" />
-                <p>This is a demo checkout. No real payment will be taken.</p>
+                <div className="space-y-1">
+                  <p>This is a demo checkout. No real payment will be taken.</p>
+                  <p>Discreet UK packaging is available for every order.</p>
+                  <p>UK delivery is calculated in your order summary.</p>
+                </div>
               </div>
             </section>
 
@@ -286,13 +290,16 @@ export default function CheckoutPage() {
                   <span>{formatPrice(total)}</span>
                 </div>
               </div>
-              <p className="mt-5 border-l border-[#9C7548]/45 pl-3 text-sm leading-6 text-[#3D2E26]/64">
-                {subtotal >= FREE_DELIVERY_THRESHOLD
-                  ? "Free delivery applied."
-                  : `Free UK delivery over ${formatPrice(
-                      FREE_DELIVERY_THRESHOLD
-                    )}.`}
-              </p>
+              <div className="mt-5 space-y-2 border-l border-[#9C7548]/45 bg-[#F2EADC]/48 px-3 py-3 text-sm leading-6 text-[#3D2E26]/64">
+                <p>
+                  {subtotal >= FREE_DELIVERY_THRESHOLD
+                    ? "Free UK delivery applied."
+                    : `Free UK delivery over ${formatPrice(
+                        FREE_DELIVERY_THRESHOLD
+                      )}.`}
+                </p>
+                <p>Discreet UK packaging prepared for privacy.</p>
+              </div>
               <Button type="submit" className="mt-6 h-12 w-full">
                 Place Mock Order
               </Button>

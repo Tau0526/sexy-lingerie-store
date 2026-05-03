@@ -1,6 +1,7 @@
 import React from "react";
 import { FooterLinks } from "./footer.types";
 import Link from "next/link";
+import CookiePreferencesButton from "@/components/cookie-consent/CookiePreferencesButton";
 
 const footerLinksData: FooterLinks[] = [
   {
@@ -27,6 +28,11 @@ const footerLinksData: FooterLinks[] = [
         label: "Accessories",
         url: "/shop?category=Accessories",
       },
+      {
+        id: 16,
+        label: "Private Edit",
+        url: "/shop?edit=private-edit",
+      },
     ],
   },
   {
@@ -50,34 +56,39 @@ const footerLinksData: FooterLinks[] = [
       },
       {
         id: 24,
-        label: "Discreet Packaging",
-        url: "/#packaging",
+        label: "FAQ",
+        url: "/faq",
       },
       {
         id: 25,
-        label: "FAQ",
-        url: "/faq",
+        label: "Contact",
+        url: "/contact",
       },
     ],
   },
   {
     id: 3,
-    title: "Contact",
+    title: "Contact / Legal",
     children: [
       {
         id: 31,
-        label: "Contact",
-        url: "/contact",
-      },
-      {
-        id: 32,
         label: "Kayee7601@gmail.com",
         url: "mailto:Kayee7601@gmail.com",
       },
       {
-        id: 33,
+        id: 32,
         label: "Instagram: Moonlite.studio_",
         url: "https://instagram.com/Moonlite.studio_",
+      },
+      {
+        id: 33,
+        label: "Privacy Policy",
+        url: "/privacy-policy",
+      },
+      {
+        id: 34,
+        label: "Cookie Policy",
+        url: "/cookie-policy",
       },
     ],
   },
@@ -87,8 +98,8 @@ const LinksSection = () => {
   return (
     <>
       {footerLinksData.map((item) => (
-        <section className="flex flex-col mt-5" key={item.id}>
-          <h3 className="font-medium text-sm md:text-base uppercase mb-6 text-[#F2EADC]">
+        <section className="mt-5 flex flex-col" key={item.id}>
+          <h3 className="mb-6 text-sm font-medium uppercase text-[#F2EADC] md:text-base">
             {item.title}
           </h3>
           {item.children.map((link) => (
@@ -100,6 +111,9 @@ const LinksSection = () => {
               {link.label}
             </Link>
           ))}
+          {item.title === "Contact / Legal" && (
+            <CookiePreferencesButton className="moonlite-link mb-4 w-fit text-left text-sm text-[#E8DECD]/58 md:text-base" />
+          )}
         </section>
       ))}
     </>

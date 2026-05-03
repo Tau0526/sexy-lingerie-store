@@ -7,6 +7,7 @@ import Link from "next/link";
 import LinksSection from "./LinksSection";
 import Image from "next/image";
 import LayoutSpacing from "./LayoutSpacing";
+import NewsletterMock from "@/components/homepage/NewsletterMock";
 
 const socialsData: SocialNetworks[] = [
   {
@@ -25,7 +26,7 @@ const Footer = () => {
       <div className="pointer-events-none absolute right-[-8%] top-[-24%] h-[360px] w-[360px] rounded-full bg-[#9C7548]/12 blur-3xl" />
       <div className="mx-auto max-w-frame">
         <nav className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-4 lg:max-w-[360px]">
+          <div className="lg:col-span-4 lg:max-w-[380px]">
             <Link href="/" className="mb-5 flex w-fit items-center gap-3">
               <span className="flex h-8 w-8 items-center justify-center">
                 <Image
@@ -46,12 +47,15 @@ const Footer = () => {
                 Moonlite Studio
               </span>
             </Link>
-            <p className="mb-5 text-sm leading-6 text-[#E8DECD]/72">
-              Moonlit intimate pieces designed for quiet confidence and refined
+            <p className="mb-4 text-sm leading-6 text-[#E8DECD]/72">
+              Intimate pieces designed for softness, discretion and quiet
               allure.
             </p>
-            <p className="mb-5 border-l border-[#9C7548]/45 bg-[#F2EADC]/5 px-4 py-3 text-sm text-[#E8DECD]/78">
-              Discreet UK packaging available.
+            <p className="mb-5 font-serif text-lg italic leading-7 text-[#C9A28F]">
+              Pamper Yourself, Embrace Your Desires
+            </p>
+            <p className="mb-5 border-l border-[#9C7548]/45 bg-[#F2EADC]/5 px-4 py-3 text-sm leading-6 text-[#E8DECD]/78">
+              Discreet UK packaging available. Free UK delivery over £50.
             </p>
             <Link
               href="mailto:Kayee7601@gmail.com"
@@ -83,6 +87,10 @@ const Footer = () => {
             <LinksSection />
           </div>
         </nav>
+
+        <div className="mt-10 border-t border-[#9C7548]/22 pt-8">
+          <NewsletterMock variant="footer" />
+        </div>
 
         <hr className="mb-6 mt-10 h-[1px] border-t-[#9C7548]/22" />
         <div className="mb-2 flex flex-col items-center justify-between gap-3 sm:flex-row">

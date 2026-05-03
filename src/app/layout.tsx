@@ -5,6 +5,7 @@ import TopBanner from "@/components/layout/Banner/TopBanner";
 import TopNavbar from "@/components/layout/Navbar/TopNavbar";
 import Footer from "@/components/layout/Footer";
 import AgeGate from "@/components/age-gate/AgeGate";
+import CookieConsent from "@/components/cookie-consent/CookieConsent";
 import HolyLoader from "holy-loader";
 import Providers from "./providers";
 
@@ -34,6 +35,7 @@ export default function RootLayout({
           {children}
         </Providers>
         <Footer />
+        <CookieConsent />
       </body>
     </html>
   );

@@ -44,15 +44,15 @@ const careItems = [
     icon: Shirt,
     title: "Delicate Lace Care",
     copy: "Hand wash cold and lay flat to dry.",
-    href: "/size-guide",
+    href: "/returns",
     linkLabel: "Care notes",
   },
   {
     icon: Ruler,
-    title: "Easy Guidance",
-    copy: "Size, shipping and returns information available before checkout.",
-    href: "/returns",
-    linkLabel: "Returns",
+    title: "Size Guidance",
+    copy: "A simple size guide to help you choose with confidence.",
+    href: "/size-guide",
+    linkLabel: "Size Guide",
   },
 ];
 
