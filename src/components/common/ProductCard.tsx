@@ -12,20 +12,14 @@ type ProductCardProps = {
 const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
   const currency = "\u00a3";
   const isDark = theme === "dark";
-  const discountedPrice =
-    data.discount.percentage > 0
-      ? Math.round(data.price - (data.price * data.discount.percentage) / 100)
-      : data.discount.amount > 0
-      ? data.price - data.discount.amount
-      : data.price;
   const rawLabel = data.tag ?? (data.isNew ? "New In" : "");
-  const label = rawLabel === "New In" ? "New arrival" : rawLabel;
+  const label = rawLabel === "New In" ? "Moonlite edit" : rawLabel;
 
   return (
     <Link
       href={`/shop/product/${data.id}/${data.slug}`}
       className={cn([
-        "group flex h-full flex-col border border-[#9C7548]/14 bg-[#F2EADC]/48 p-2.5 shadow-[0_18px_46px_rgba(42,24,32,0.05)] transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-[#9C7548]/42 hover:bg-[#F2EADC]/74 hover:shadow-[0_26px_70px_rgba(42,24,32,0.10)]",
+        "group flex h-full flex-col border border-transparent bg-transparent pb-1 transition-all duration-500 ease-out hover:border-[#9C7548]/30",
         isDark
           ? "text-[#3D2E26]"
           : "text-[#3D2E26]",
@@ -33,13 +27,13 @@ const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
     >
       <div
         className={cn([
-          "relative w-full aspect-[4/5] overflow-hidden bg-[#E8DECD]",
+          "relative aspect-[4/5] w-full overflow-hidden bg-[#E8DECD]",
           isDark ? "bg-[#E8DECD]" : "bg-[#E8DECD]",
         ])}
       >
-        <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_20%,rgba(242,234,220,0.14),transparent_48%),linear-gradient(180deg,transparent_42%,rgba(42,24,32,0.28))] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(242,234,220,0)_58%,rgba(42,24,32,0.22))] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100" />
         {label && (
-          <span className="absolute left-3 top-3 z-[2] border border-[#9C7548]/22 bg-[#F2EADC]/82 px-2.5 py-1 font-serif text-[11px] italic text-[#9C7548] shadow-[0_8px_24px_rgba(42,24,32,0.08)] backdrop-blur">
+          <span className="absolute left-3 top-3 z-[2] border border-[#9C7548]/22 bg-[#F2EADC]/82 px-2.5 py-1 font-serif text-[11px] italic text-[#9C7548] backdrop-blur">
             {label}
           </span>
         )}
@@ -47,15 +41,15 @@ const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
           src={data.srcUrl}
           width={295}
           height={298}
-          className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.035]"
+          className="h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.035] group-hover:opacity-95"
           alt={data.srcAlt ?? `${data.title} product image`}
           priority
         />
-        <span className="absolute bottom-3 right-3 z-[2] translate-y-2 border border-[#F2EADC]/55 bg-[#2A1820]/42 px-3 py-1.5 text-[11px] uppercase tracking-[0.18em] text-[#F2EADC] opacity-0 backdrop-blur transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
-          Explore piece
+        <span className="absolute bottom-3 right-3 z-[2] translate-y-2 border-b border-[#F2EADC]/70 pb-1 text-[11px] uppercase tracking-[0.18em] text-[#F2EADC] opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+          View piece
         </span>
       </div>
-      <div className="flex flex-1 flex-col px-1 pb-1 pt-4">
+      <div className="flex flex-1 flex-col px-1 pt-4">
         <span
           className={cn([
             "mb-2 text-[11px] uppercase tracking-[0.18em]",
@@ -66,14 +60,14 @@ const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
         </span>
         <strong
           className={cn([
-            "moonlite-link w-fit text-base font-medium leading-tight xl:text-lg",
+            "relative w-fit text-base font-medium leading-tight after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#9C7548] after:transition-all after:duration-500 group-hover:after:w-full xl:text-lg",
             isDark ? "text-[#3D2E26]" : "text-[#3D2E26]",
           ])}
         >
           {data.title}
         </strong>
-        <p className="mt-2 line-clamp-2 text-sm leading-6 text-[#3D2E26]/56">
-          {data.description}
+        <p className="mt-2 text-sm leading-6 text-[#3D2E26]/56">
+          Lace · Adjustable fit · Discreet packaging
         </p>
         <div className="mt-4 flex items-end justify-between gap-3 border-t border-[#9C7548]/14 pt-3">
           <span
@@ -84,10 +78,10 @@ const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
             }
           >
             {currency}
-            {discountedPrice.toFixed(2)}
+            {data.price.toFixed(2)}
           </span>
           <span className="text-[11px] uppercase tracking-[0.18em] text-[#9C7548]/78 transition-colors duration-300 group-hover:text-[#9C7548]">
-            View details
+            Explore piece
           </span>
         </div>
       </div>

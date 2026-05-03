@@ -10,12 +10,31 @@ import { cn } from "@/lib/utils";
 import { Product } from "@/types/product.types";
 import React, { useEffect } from "react";
 
+const colourHexMap: Record<string, string> = {
+  black: "#1F1A17",
+  blue: "#2F5F96",
+  red: "#7F2732",
+  white: "#F4EFE7",
+  ivory: "#F2EADC",
+  pink: "#C9A28F",
+  purple: "#6D5872",
+};
+
+const getSwatchColour = (color: Color) => {
+  const hexFromClass = color.code.match(/#(?:[0-9a-fA-F]{3}){1,2}/)?.[0];
+
+  if (hexFromClass) return hexFromClass;
+
+  return colourHexMap[color.name.toLowerCase()] ?? "#9C7548";
+};
+
 const ColorSelection = ({ data }: { data: Product }) => {
   const { colorSelection } = useAppSelector(
     (state: RootState) => state.products
   );
   const dispatch = useAppDispatch();
   const colorsData: Color[] = data.colors;
+  const selectedColorName = colorSelection.name;
 
   useEffect(() => {
     dispatch(setColorSelection({ name: "", code: "" }));
@@ -26,30 +45,44 @@ const ColorSelection = ({ data }: { data: Product }) => {
       <span className="mb-4 text-sm text-[#3D2E26]/70 sm:text-base">
         Select colour
       </span>
-      <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-        {colorsData.map((color, index) => (
-          <button
-            key={index}
-            type="button"
-            className={cn([
-              "flex min-h-11 items-center gap-2 rounded-sm border border-[#9C7548]/28 bg-[#F2EADC]/45 px-3 text-sm text-[#3D2E26] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[#9C7548]/65 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#9C7548] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F2EADC] sm:px-4",
-              colorSelection.name === color.name &&
-                "border-[#2A1820] bg-[#E8DECD] text-[#2A1820]",
-            ])}
-            onClick={() => dispatch(setColorSelection(color))}
-            aria-pressed={colorSelection.name === color.name}
-          >
-            <span
-              className={cn(
-                color.code,
-                "h-3.5 w-3.5 rounded-full border border-[#3D2E26]/20 saturate-50"
-              )}
-              aria-hidden="true"
-            />
-            {color.name}
-          </button>
-        ))}
+      <div
+        className="flex flex-wrap items-center gap-3"
+        role="radiogroup"
+        aria-label="Select colour"
+      >
+        {colorsData.map((color) => {
+          const isSelected = selectedColorName === color.name;
+          const swatchColour = getSwatchColour(color);
+
+          return (
+            <button
+              key={color.name}
+              type="button"
+              className={cn([
+                "flex h-11 w-11 items-center justify-center rounded-full border border-[#9C7548]/30 bg-[#F2EADC]/45 p-1 transition-all duration-300 ease-out hover:scale-105 hover:border-[#9C7548]/70 hover:shadow-[0_8px_22px_rgba(42,24,32,0.10)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#9C7548] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F2EADC]",
+                isSelected &&
+                  "border-[#2A1820]/75 bg-[#E8DECD] shadow-[0_8px_24px_rgba(42,24,32,0.10)] ring-1 ring-[#2A1820]/70 ring-offset-2 ring-offset-[#F2EADC]",
+              ])}
+              onClick={() => dispatch(setColorSelection(color))}
+              aria-label={`Select colour ${color.name}`}
+              aria-checked={isSelected}
+              role="radio"
+              title={color.name}
+            >
+              <span
+                className="h-full w-full rounded-full border border-[#3D2E26]/18"
+                style={{ backgroundColor: swatchColour }}
+                aria-hidden="true"
+              />
+            </button>
+          );
+        })}
       </div>
+      {selectedColorName && (
+        <span className="mt-3 text-xs text-[#3D2E26]/50">
+          Selected: {selectedColorName}
+        </span>
+      )}
     </div>
   );
 };

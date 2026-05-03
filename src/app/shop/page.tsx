@@ -5,13 +5,28 @@ import Link from "next/link";
 import { ProductCategory } from "@/types/product.types";
 import { cn } from "@/lib/utils";
 
-const categories: Array<ProductCategory | "All"> = [
-  "All",
-  "Lingerie Sets",
-  "Sleepwear",
-  "Slips & Chemises",
-  "Costumes",
-  "Accessories",
+type CollectionFilter = {
+  label: string;
+  value: string;
+  category?: ProductCategory;
+  matches?: (category: ProductCategory | "All", title: string) => boolean;
+};
+
+const collectionFilters: CollectionFilter[] = [
+  { label: "All", value: "all" },
+  { label: "Lingerie Sets", value: "lingerie-sets", category: "Lingerie Sets" },
+  {
+    label: "Noir Lace",
+    value: "noir-lace",
+    matches: (_category, title) => title.toLowerCase().includes("black"),
+  },
+  { label: "Soft Sleepwear", value: "soft-sleepwear", category: "Sleepwear" },
+  { label: "Accessories", value: "accessories", category: "Accessories" },
+  {
+    label: "Private Edit",
+    value: "private-edit",
+    matches: () => true,
+  },
 ];
 
 const sortOptions = [
@@ -20,9 +35,9 @@ const sortOptions = [
   { label: "Price High", value: "high-price" },
 ];
 
-const getCategoryHref = (category: ProductCategory | "All", sort: string) => {
+const getFilterHref = (filter: CollectionFilter, sort: string) => {
   const params = new URLSearchParams();
-  if (category !== "All") params.set("category", category);
+  if (filter.value !== "all") params.set("edit", filter.value);
   if (sort !== "featured") params.set("sort", sort);
 
   return `/shop${params.toString() ? `?${params.toString()}` : ""}`;
@@ -30,10 +45,10 @@ const getCategoryHref = (category: ProductCategory | "All", sort: string) => {
 
 const getSortHref = (
   sort: string,
-  category: ProductCategory | "All"
+  filterValue: string
 ) => {
   const params = new URLSearchParams();
-  if (category !== "All") params.set("category", category);
+  if (filterValue !== "all") params.set("edit", filterValue);
   if (sort !== "featured") params.set("sort", sort);
 
   return `/shop${params.toString() ? `?${params.toString()}` : ""}`;
@@ -42,20 +57,26 @@ const getSortHref = (
 export default function ShopPage({
   searchParams,
 }: {
-  searchParams?: { category?: string; sort?: string };
+  searchParams?: { category?: string; edit?: string; sort?: string };
 }) {
-  const selectedCategory = categories.includes(
-    searchParams?.category as ProductCategory
-  )
-    ? (searchParams?.category as ProductCategory)
-    : "All";
+  const categoryFilter = collectionFilters.find(
+    (filter) => filter.category === searchParams?.category
+  );
+  const selectedFilter =
+    collectionFilters.find((filter) => filter.value === searchParams?.edit) ??
+    categoryFilter ??
+    collectionFilters[0];
   const selectedSort = searchParams?.sort ?? "featured";
   const filteredProducts =
-    selectedCategory === "All"
+    selectedFilter.value === "all"
       ? allProductsData
-      : allProductsData.filter(
-          (product) => product.category === selectedCategory
-        );
+      : allProductsData.filter((product) => {
+          if (selectedFilter.matches) {
+            return selectedFilter.matches(product.category, product.title);
+          }
+
+          return product.category === selectedFilter.category;
+        });
   const products = [...filteredProducts].sort((first, second) => {
     if (selectedSort === "low-price") return first.price - second.price;
     if (selectedSort === "high-price") return second.price - first.price;
@@ -63,37 +84,34 @@ export default function ShopPage({
   });
 
   return (
-    <main className="silk-page pb-24 text-[#3D2E26]">
+    <main className="silk-page overflow-hidden pb-24 text-[#3D2E26]">
       <div className="max-w-frame mx-auto px-4 xl:px-0">
         <div className="border-t border-[#9C7548]/18 pt-5 sm:pt-6">
           <BreadcrumbShop />
         </div>
 
-        <section className="moonlite-reveal relative mb-10 overflow-hidden border-b border-[#9C7548]/18 px-0 py-10 sm:py-14">
-          <div className="absolute right-0 top-10 hidden h-32 w-32 border border-[#9C7548]/18 md:block" />
-          <div className="grid gap-8 lg:grid-cols-[1fr_320px] lg:items-end">
+        <section className="moonlite-reveal relative mb-8 overflow-hidden border-b border-[#9C7548]/18 bg-[#F2EADC]/38 py-9 sm:py-12 lg:py-14">
+          <div className="absolute right-7 top-8 hidden h-24 w-px bg-[#9C7548]/24 md:block" />
+          <div className="absolute right-7 top-8 hidden h-px w-24 bg-[#9C7548]/24 md:block" />
+          <div className="grid gap-7 px-5 sm:px-7 lg:grid-cols-[1fr_340px] lg:items-end">
             <div>
-              <span className="mb-3 block text-xs uppercase tracking-[0.24em] text-[#9C7548]">
-                Moonlite Studio collection
+              <span className="mb-3 block text-[11px] uppercase tracking-[0.24em] text-[#9C7548]">
+                01 / Collection
               </span>
-              <h1 className="mb-4 max-w-3xl text-3xl font-medium leading-tight text-[#3D2E26] md:text-5xl">
-                Shop Moonlite Studio
-                <span className="block font-serif italic text-[#9C7548]">
-                  A refined edit of intimate essentials
-                </span>
+              <h1 className="mb-4 max-w-3xl text-4xl font-medium leading-[1.05] text-[#3D2E26] md:text-6xl">
+                The Moonlite Collection
               </h1>
-              <p className="max-w-2xl text-sm leading-7 text-[#3D2E26]/62 sm:text-base">
-                Elegant intimate pieces designed for confidence, comfort and quiet
-                allure. Curated for slow evenings, discreet delivery and a softer
-                kind of confidence.
+              <p className="max-w-2xl text-sm leading-7 text-[#3D2E26]/68 sm:text-base">
+                A curated edit of lace pieces designed for softness, confidence
+                and intimate evenings. Pamper Yourself, Embrace Your Desires.
               </p>
             </div>
-            <div className="border-l border-[#9C7548]/26 bg-[#F2EADC]/42 px-5 py-4">
-              <span className="mb-2 block text-[11px] uppercase tracking-[0.22em] text-[#3D2E26]/48">
-                Boutique note
+            <div className="border-l border-[#9C7548]/26 bg-[#E8DECD]/34 px-5 py-4">
+              <span className="mb-2 block text-[11px] uppercase tracking-[0.22em] text-[#9C7548]">
+                Curated Intimates
               </span>
-              <p className="font-serif text-xl italic leading-8 text-[#3D2E26]/78">
-                Curated pieces for quiet confidence.
+              <p className="font-serif text-xl italic leading-8 text-[#3D2E26]/76">
+                Delicate lace, quiet confidence and discreet UK delivery.
               </p>
             </div>
           </div>
@@ -101,14 +119,14 @@ export default function ShopPage({
 
         <div className="flex items-start">
           <div className="flex w-full flex-col space-y-7">
-            <div className="flex flex-col gap-5 border border-[#9C7548]/14 bg-[#F2EADC]/34 px-4 py-5 shadow-[0_18px_60px_rgba(42,24,32,0.04)] sm:px-6 lg:flex-row lg:items-end lg:justify-between">
+            <div className="flex flex-col gap-5 border-y border-[#9C7548]/16 bg-[#E8DECD]/20 px-1 py-5 sm:px-0 lg:flex-row lg:items-end lg:justify-between">
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <span className="mb-2 block text-[11px] uppercase tracking-[0.22em] text-[#9C7548]">
-                    01 / Collection
+                    The Edit
                   </span>
                   <h2 className="text-2xl font-medium text-[#3D2E26] md:text-[32px]">
-                    Explore the Collection
+                    Explore the Pieces
                   </h2>
                   <span className="mt-2 block text-sm text-[#3D2E26]/55">
                     Showing {products.length} of {allProductsData.length} pieces
@@ -116,16 +134,16 @@ export default function ShopPage({
                 </div>
               </div>
 
-              <div className="flex flex-wrap gap-2 border border-[#9C7548]/14 bg-[#E8DECD]/42 p-1">
+              <div className="flex flex-wrap gap-x-5 gap-y-2">
                 {sortOptions.map((option) => (
                   <Link
                     key={option.value}
-                    href={getSortHref(option.value, selectedCategory)}
+                    href={getSortHref(option.value, selectedFilter.value)}
                     className={cn([
-                      "px-3 py-2 text-sm transition-all duration-300",
+                      "border-b pb-1 text-sm transition-all duration-300",
                       selectedSort === option.value
-                        ? "bg-[#F2EADC] text-[#3D2E26] shadow-[0_8px_22px_rgba(42,24,32,0.06)]"
-                        : "text-[#3D2E26]/58 hover:bg-[#F2EADC]/60 hover:text-[#9C7548]",
+                        ? "border-[#9C7548] text-[#3D2E26]"
+                        : "border-transparent text-[#3D2E26]/52 hover:border-[#9C7548]/45 hover:text-[#3D2E26]",
                     ])}
                   >
                     {option.label}
@@ -134,47 +152,117 @@ export default function ShopPage({
               </div>
             </div>
 
-            <div className="flex gap-3 overflow-x-auto border-y border-[#9C7548]/14 py-4">
-              {categories.map((category) => (
+            <nav
+              className="flex gap-5 overflow-x-auto border-b border-[#9C7548]/14 pb-4"
+              aria-label="Collection filters"
+            >
+              {collectionFilters.map((filter) => (
                 <Link
-                  key={category}
-                  href={getCategoryHref(category, selectedSort)}
+                  key={filter.value}
+                  href={getFilterHref(filter, selectedSort)}
                   className={cn([
-                    "shrink-0 border px-4 py-2 text-sm transition-all duration-300",
-                    selectedCategory === category
-                      ? "border-[#9C7548]/55 bg-[#2A1820] text-[#F2EADC]"
-                      : "border-[#9C7548]/14 bg-[#F2EADC]/28 text-[#3D2E26]/62 hover:border-[#9C7548]/45 hover:bg-[#F2EADC]/70 hover:text-[#9C7548]",
+                    "shrink-0 border-b py-2 text-sm transition-all duration-300",
+                    selectedFilter.value === filter.value
+                      ? "border-[#9C7548] text-[#3D2E26]"
+                      : "border-transparent text-[#3D2E26]/55 hover:border-[#9C7548]/45 hover:text-[#3D2E26]",
                   ])}
                 >
-                  {category}
+                  {filter.label}
                 </Link>
               ))}
-            </div>
+            </nav>
 
-            <div className="grid w-full grid-cols-1 gap-x-8 gap-y-14 xs:grid-cols-2 md:grid-cols-3">
-              {products.map((product) => (
-                <ProductCard key={product.id} data={product} theme="dark" />
-              ))}
-            </div>
+            {products.length > 0 ? (
+              <div className="grid w-full grid-cols-1 gap-x-8 gap-y-14 xs:grid-cols-2 md:grid-cols-3">
+                {products.map((product) => (
+                  <ProductCard key={product.id} data={product} theme="dark" />
+                ))}
+              </div>
+            ) : (
+              <div className="border-y border-[#9C7548]/16 bg-[#F2EADC]/30 px-5 py-10 text-center">
+                <p className="text-sm leading-7 text-[#3D2E26]/62">
+                  This edit is being prepared. Explore the full Moonlite
+                  collection while new pieces are added.
+                </p>
+                <Link
+                  href="/shop"
+                  className="moonlite-link mt-4 inline-flex text-sm font-medium text-[#3D2E26]"
+                >
+                  View all pieces
+                </Link>
+              </div>
+            )}
 
-            <section className="grid gap-3 border-t border-[#9C7548]/18 pt-8 sm:grid-cols-3">
+            <section className="border-y border-[#9C7548]/18 bg-[#E8DECD]/24 px-5 py-8 sm:px-6">
+              <div className="mb-6 max-w-2xl">
+                <span className="mb-2 block text-[11px] uppercase tracking-[0.22em] text-[#9C7548]">
+                  Service Notes
+                </span>
+                <h2 className="text-2xl font-medium text-[#3D2E26]">
+                  Fit & Care
+                </h2>
+                <p className="mt-2 text-sm leading-7 text-[#3D2E26]/62">
+                  Size guidance, discreet delivery and delicate lace care for
+                  every Moonlite piece.
+                </p>
+              </div>
+              <div className="grid gap-6 sm:grid-cols-3">
               {[
-                "Discreet UK Packaging",
-                "Refined Boutique Edit",
-                "Carefully Selected Pieces",
+                {
+                  title: "Find Your Fit",
+                  text: "A simple size guide to help you choose with confidence.",
+                  link: "View Size Guide",
+                  href: "/size-guide",
+                },
+                {
+                  title: "Discreet UK Delivery",
+                  text: "Plain outer packaging prepared for privacy.",
+                  link: "Shipping Details",
+                  href: "/shipping",
+                },
+                {
+                  title: "Delicate Care",
+                  text: "Hand wash cold and lay flat to dry.",
+                  link: "Care & Returns",
+                  href: "/returns",
+                },
               ].map((item, index) => (
                 <div
-                  key={item}
-                  className="border border-[#9C7548]/14 bg-[#F2EADC]/32 px-5 py-5"
+                  key={item.title}
+                  className="border-t border-[#9C7548]/18 pt-5"
                 >
                   <span className="mb-3 block text-[11px] uppercase tracking-[0.22em] text-[#9C7548]">
-                    0{index + 2}
+                    0{index + 1}
                   </span>
                   <h3 className="text-base font-medium text-[#3D2E26]">
-                    {item}
+                    {item.title}
                   </h3>
+                  <p className="mt-2 min-h-12 text-sm leading-6 text-[#3D2E26]/58">
+                    {item.text}
+                  </p>
+                  <Link
+                    href={item.href}
+                    className="moonlite-link mt-4 inline-flex text-sm font-medium text-[#3D2E26]"
+                  >
+                    {item.link} -&gt;
+                  </Link>
                 </div>
               ))}
+              </div>
+            </section>
+
+            <section className="bg-[#2A1820] px-5 py-9 text-[#F2EADC] sm:px-8 sm:py-10">
+              <span className="mb-3 block text-[11px] uppercase tracking-[0.22em] text-[#C9A28F]">
+                Collection Note
+              </span>
+              <h2 className="max-w-2xl text-2xl font-medium sm:text-3xl">
+                A Quiet Edit of Moonlit Pieces
+              </h2>
+              <p className="mt-4 max-w-3xl text-sm leading-7 text-[#F2EADC]/72 sm:text-base">
+                A refined selection of intimate lace pieces designed for
+                softness, discretion and quiet confidence. Each Moonlite Studio
+                piece is chosen to feel personal, polished and gently alluring.
+              </p>
             </section>
           </div>
         </div>

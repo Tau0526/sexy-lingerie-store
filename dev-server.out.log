@@ -89,3 +89,12 @@
  ✓ Compiled in 2.2s (1669 modules)
  GET / 200 in 302ms
  GET /shop 200 in 73ms
+ ✓ Compiled in 2.3s (791 modules)
+ ✓ Compiled in 298ms (791 modules)
+ ✓ Compiled in 291ms (791 modules)
+ ✓ Compiled in 2.2s (1677 modules)
+ ✓ Compiled in 601ms (1677 modules)
+ GET / 200 in 354ms
+ ✓ Compiled in 373ms (1677 modules)
+ ✓ Compiled in 483ms (1677 modules)
+ ✓ Compiled in 339ms (1677 modules)
