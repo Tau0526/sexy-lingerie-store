@@ -1,7 +1,15 @@
 import ProductListSec from "@/components/common/ProductListSec";
+import AnnouncementBar from "@/components/homepage/AnnouncementBar";
 import Brands from "@/components/homepage/Brands";
 import DressStyle from "@/components/homepage/DressStyle";
 import Header from "@/components/homepage/Header";
+import {
+  CareDiscretionSection,
+  FitGuideSection,
+  HomeNewsletterSection,
+  MoonliteNotesSection,
+  ShopByMoodSection,
+} from "@/components/homepage/HomeEnhancements";
 import Reviews from "@/components/homepage/Reviews";
 import { newArrivalsData, topSellingData } from "@/data/products";
 import { reviewsData } from "@/data/reviews";
@@ -9,9 +17,11 @@ import { reviewsData } from "@/data/reviews";
 export default function Home() {
   return (
     <>
+      <AnnouncementBar />
       <Header />
       <Brands />
-        <main className="silk-page pb-[64px] sm:pb-24">
+      <main className="silk-page pb-[64px] sm:pb-24">
+        <ShopByMoodSection />
         <div className="pt-[64px] sm:pt-24">
           <ProductListSec
             title="New Collection"
@@ -56,6 +66,7 @@ export default function Home() {
             </div>
           </div>
         </section>
+        <FitGuideSection />
         <div className="mb-[72px] sm:mb-28">
           <ProductListSec
             title="Featured Products"
@@ -64,10 +75,13 @@ export default function Home() {
             theme="dark"
           />
         </div>
+        <CareDiscretionSection />
         <div className="mb-[72px] sm:mb-28">
           <DressStyle />
         </div>
+        <MoonliteNotesSection />
         <Reviews data={reviewsData} />
+        <HomeNewsletterSection />
       </main>
     </>
   );

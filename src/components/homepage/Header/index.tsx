@@ -37,7 +37,7 @@ const Header = () => {
               "mb-6 max-w-[700px] text-[38px] font-normal leading-[46px] text-[#3D2E26] sm:text-6xl md:text-[68px] md:leading-[78px]",
             ])}
           >
-            Moonlit Intimates
+            Moonlite Intimates
             <span className="block font-serif italic normal-case text-[#9C7548]">
               for Confident Nights
             </span>
