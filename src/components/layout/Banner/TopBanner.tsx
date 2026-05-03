@@ -1,9 +1,15 @@
+"use client";
+
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const TopBanner = () => {
+  const [isVisible, setIsVisible] = React.useState(true);
+
+  if (!isVisible) return null;
+
   return (
     <div className="bg-[#E8DECD] text-[#3D2E26] text-center py-2 px-2 sm:px-4 xl:px-0 border-b border-[#9C7548]/18">
       <div className="relative max-w-frame mx-auto">
@@ -18,14 +24,15 @@ const TopBanner = () => {
           className="hover:bg-transparent absolute right-0 top-1/2 -translate-y-1/2 w-fit h-fit p-1 hidden sm:flex"
           size="icon"
           type="button"
-          aria-label="close banner"
+          onClick={() => setIsVisible(false)}
+          aria-label="Close announcement banner"
         >
           <Image
             priority
             src="/icons/times.svg"
             height={13}
             width={13}
-            alt="close banner"
+            alt=""
             className="opacity-70"
           />
         </Button>

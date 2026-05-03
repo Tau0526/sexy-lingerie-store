@@ -195,7 +195,7 @@ export default function CheckoutPage() {
                   </label>
                   <div
                     id="country"
-                    className="h-12 border border-[#9C7548]/28 bg-[#F2EADC]/78 px-3 py-3 text-sm text-[#3D2E26]/78"
+                    className="moonlite-field flex h-12 items-center px-3 py-3 text-sm text-[#3D2E26]/78"
                   >
                     United Kingdom
                   </div>
@@ -239,7 +239,7 @@ export default function CheckoutPage() {
                       updateField("orderNote", event.target.value)
                     }
                     rows={4}
-                    className="w-full resize-none border border-[#9C7548]/28 bg-[#F2EADC]/78 px-3 py-3 text-sm text-[#3D2E26] outline-none transition-all duration-300 placeholder:text-[#3D2E26]/38 hover:border-[#9C7548]/50 focus:border-[#2A1820] focus:ring-1 focus:ring-[#9C7548]/45"
+                    className="moonlite-field w-full resize-none px-3 py-3 text-sm outline-none"
                   />
                 </div>
               </div>
@@ -343,7 +343,7 @@ const Field = ({
       type={type}
       value={value}
       onChange={(event) => onChange(event.target.value)}
-      className="h-12 w-full border border-[#9C7548]/28 bg-[#F2EADC]/78 px-3 text-sm text-[#3D2E26] outline-none transition-all duration-300 placeholder:text-[#3D2E26]/38 hover:border-[#9C7548]/50 focus:border-[#2A1820] focus:ring-1 focus:ring-[#9C7548]/45"
+      className="moonlite-field h-12 w-full px-3 text-sm outline-none"
     />
     {error && <p className="mt-2 text-xs text-[#6F2F2B]">{error}</p>}
   </div>

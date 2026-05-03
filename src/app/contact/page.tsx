@@ -65,7 +65,7 @@ export default function ContactPage() {
                 <input
                   type="text"
                   name="name"
-                  className="h-12 w-full rounded-sm border border-[#9C7548]/28 bg-[#F2EADC]/72 px-4 text-[#3D2E26] outline-none transition-all duration-300 hover:border-[#9C7548]/50 focus:border-[#2A1820] focus:ring-1 focus:ring-[#9C7548]/45"
+                  className="moonlite-field h-12 w-full px-4 outline-none"
                 />
               </label>
               <label className="block">
@@ -73,7 +73,7 @@ export default function ContactPage() {
                 <input
                   type="email"
                   name="email"
-                  className="h-12 w-full rounded-sm border border-[#9C7548]/28 bg-[#F2EADC]/72 px-4 text-[#3D2E26] outline-none transition-all duration-300 hover:border-[#9C7548]/50 focus:border-[#2A1820] focus:ring-1 focus:ring-[#9C7548]/45"
+                  className="moonlite-field h-12 w-full px-4 outline-none"
                 />
               </label>
               <label className="block">
@@ -81,7 +81,7 @@ export default function ContactPage() {
                 <textarea
                   name="message"
                   rows={6}
-                  className="w-full rounded-sm border border-[#9C7548]/28 bg-[#F2EADC]/72 px-4 py-3 text-[#3D2E26] outline-none transition-all duration-300 hover:border-[#9C7548]/50 focus:border-[#2A1820] focus:ring-1 focus:ring-[#9C7548]/45"
+                  className="moonlite-field w-full px-4 py-3 outline-none"
                 />
               </label>
             </div>

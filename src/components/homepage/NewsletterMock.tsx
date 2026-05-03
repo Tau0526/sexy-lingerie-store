@@ -56,7 +56,7 @@ const NewsletterMock = ({ variant = "section" }: { variant?: "section" | "footer
               type="email"
               required
               placeholder="Email address"
-              className="h-[52px] min-w-0 flex-1 border border-[#F2EADC]/24 bg-[#F2EADC]/8 px-4 text-sm text-[#F2EADC] outline-none transition-all duration-300 placeholder:text-[#F2EADC]/42 focus:border-[#C9A28F]/70 focus:bg-[#F2EADC]/12"
+              className="moonlite-field-dark h-[52px] min-w-0 flex-1 px-4 text-sm outline-none"
             />
             <Button type="submit" size="lg" className="shrink-0">
               Join the List

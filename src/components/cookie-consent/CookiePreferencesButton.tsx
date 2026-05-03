@@ -8,7 +8,12 @@ const CookiePreferencesButton = ({ className }: { className?: string }) => {
   };
 
   return (
-    <button type="button" onClick={handleOpenPreferences} className={className}>
+    <button
+      type="button"
+      onClick={handleOpenPreferences}
+      className={className}
+      aria-label="Open cookie preferences"
+    >
       Cookie Preferences
     </button>
   );

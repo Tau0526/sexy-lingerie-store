@@ -46,10 +46,10 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
           <SheetTitle asChild>
             <SheetClose asChild>
               <Link href="/" className="flex items-center gap-3">
-                <span className="flex h-14 w-14 items-center justify-center">
+                <span className="flex h-16 w-16 items-center justify-center">
                   <Image
                     priority
-                    src="/images/Main_logo颜色版_01.png"
+                    src="/brand/main-logo.png"
                     height={96}
                     width={96}
                     alt="Moonlite Studio logo"

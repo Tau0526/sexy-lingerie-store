@@ -130,9 +130,9 @@ const Header = () => {
             <div className="flex h-full w-full items-center justify-center">
               <Image
                 priority
-                src="/images/Main_logo颜色版_01.png"
-                height={420}
-                width={420}
+                src="/brand/main-logo.png"
+                height={520}
+                width={520}
                 alt="Moonlite Studio logo"
                 className="h-auto w-[78%] max-w-[360px] object-contain drop-shadow-[0_24px_52px_rgba(42,24,32,0.14)]"
               />

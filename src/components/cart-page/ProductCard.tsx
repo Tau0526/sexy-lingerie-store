@@ -20,12 +20,15 @@ type ProductCardProps = {
 const ProductCard = ({ data }: ProductCardProps) => {
   const dispatch = useAppDispatch();
   const unitPrice = getItemUnitPrice(data);
+  const productHref = `/shop/product/${data.id}/${data.name
+    .toLowerCase()
+    .replace(/\s+/g, "-")}`;
 
   return (
-    <div className="group flex flex-col gap-4 p-2 transition-colors duration-300 hover:bg-[#F2EADC]/38 sm:flex-row sm:items-start">
+    <div className="group flex flex-col gap-4 p-2 transition-colors duration-300 hover:bg-[#F2EADC]/38 xs:flex-row xs:items-start">
       <Link
-        href={`/shop/product/${data.id}/${data.name.split(" ").join("-")}`}
-        className="aspect-[4/5] w-full max-w-[132px] shrink-0 overflow-hidden border border-[#9C7548]/14 bg-[#F2EADC] sm:aspect-square"
+        href={productHref}
+        className="aspect-[4/5] w-full overflow-hidden border border-[#9C7548]/14 bg-[#F2EADC] xs:max-w-[132px] xs:shrink-0 xs:aspect-square"
       >
         <Image
           src={data.srcUrl}
@@ -39,7 +42,7 @@ const ProductCard = ({ data }: ProductCardProps) => {
       <div className="flex w-full self-stretch flex-col gap-3">
         <div className="flex items-start justify-between gap-4">
           <Link
-            href={`/shop/product/${data.id}/${data.name.split(" ").join("-")}`}
+            href={productHref}
             className="moonlite-link text-base font-medium text-[#3D2E26] xl:text-xl"
           >
             {data.name}

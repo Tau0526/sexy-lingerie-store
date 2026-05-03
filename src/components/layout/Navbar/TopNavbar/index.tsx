@@ -96,10 +96,10 @@ const TopNavbar = () => {
             className="mr-3 flex min-w-0 shrink-0 items-center gap-3 sm:gap-3.5 lg:mr-8"
             aria-label="Moonlite Studio home"
           >
-            <span className="flex h-11 w-11 shrink-0 items-center justify-center md:h-[50px] md:w-[50px]">
+            <span className="flex h-12 w-12 shrink-0 items-center justify-center md:h-[58px] md:w-[58px]">
               <Image
                 priority
-                src="/images/Main_logo颜色版_01.png"
+                src="/brand/main-logo.png"
                 height={96}
                 width={96}
                 alt="Moonlite Studio logo"
@@ -130,7 +130,7 @@ const TopNavbar = () => {
             ))}
           </NavigationMenuList>
         </NavigationMenu>
-        <InputGroup className="mr-3 hidden max-w-[240px] border border-[#9C7548]/15 bg-[#E8DECD]/80 text-[#3D2E26] xl:flex">
+        <InputGroup className="mr-3 hidden max-w-[240px] text-[#3D2E26] xl:flex">
           <InputGroup.Text>
             <Image
               priority
@@ -144,8 +144,9 @@ const TopNavbar = () => {
           <InputGroup.Input
             type="search"
             name="search"
+            aria-label="Search pieces"
             placeholder="Search pieces..."
-            className="bg-transparent text-[#3D2E26] placeholder:text-[#3D2E26]/45"
+            className="text-[#3D2E26]"
           />
         </InputGroup>
         <div className="flex shrink-0 items-center">

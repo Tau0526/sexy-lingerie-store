@@ -34,6 +34,7 @@ const SizeSelection = ({ data }: { data: Product }) => {
                 "border-[#2A1820] bg-[#2A1820] font-medium text-[#F2EADC]",
             ])}
             onClick={() => dispatch(setSizeSelection(size))}
+            aria-pressed={sizeSelection === size}
           >
             {size}
           </button>

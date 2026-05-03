@@ -28,12 +28,12 @@ const Footer = () => {
         <nav className="grid gap-10 lg:grid-cols-12">
           <div className="lg:col-span-4 lg:max-w-[380px]">
             <Link href="/" className="mb-5 flex w-fit items-center gap-3">
-              <span className="flex h-8 w-8 items-center justify-center">
+              <span className="flex h-10 w-10 items-center justify-center">
                 <Image
                   priority
-                  src="/images/Main_logo颜色版_01.png"
-                  height={36}
-                  width={36}
+                  src="/brand/main-logo.png"
+                  height={48}
+                  width={48}
                   alt="Moonlite Studio logo"
                   className="h-full w-full object-contain"
                 />
