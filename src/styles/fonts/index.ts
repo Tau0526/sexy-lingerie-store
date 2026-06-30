@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Cormorant_Garamond } from "next/font/google";
 
 const integralCF = localFont({
   src: [
@@ -34,4 +35,12 @@ const satoshi = localFont({
   variable: "--font-satoshi",
 });
 
-export { integralCF, satoshi };
+const moonliteLogo = Cormorant_Garamond({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  style: ["normal"],
+  fallback: ["Georgia", "serif"],
+  variable: "--font-moonlite-logo",
+});
+
+export { integralCF, moonliteLogo, satoshi };

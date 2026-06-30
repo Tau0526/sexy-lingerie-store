@@ -3,19 +3,19 @@ import Link from "next/link";
 const sections = [
   {
     title: "Introduction",
-    body: "Moonlite Studio is currently a demo e-commerce website for intimate apparel. This page explains the types of information that may be collected in this demo version.",
+    body: "Moonlite Studio is currently a brand showcase and enquiry website for intimate apparel. This page explains the types of information that may be collected.",
   },
   {
     title: "Information you provide",
-    body: "This may include contact form details, checkout form details entered during the mock checkout, and a newsletter email entered into the demo form.",
+    body: "This may include contact form details and a newsletter email entered into the demo form.",
   },
   {
-    title: "Demo checkout notice",
-    body: "No real payment is taken on this website. Payment card details are not collected.",
+    title: "Payment notice",
+    body: "Online ordering and payment are not currently available on this website. Payment card details are not collected.",
   },
   {
     title: "Cookies and localStorage",
-    body: "The site may use localStorage to remember age confirmation, cookie preferences, cart contents and demo preferences.",
+    body: "The site may use localStorage to remember age confirmation, cookie preferences and demo preferences.",
   },
   {
     title: "Future updates",

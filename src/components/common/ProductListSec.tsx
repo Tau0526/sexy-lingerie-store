@@ -26,13 +26,13 @@ const ProductListSec = ({
   const isDark = theme === "dark";
 
   return (
-    <section className="max-w-frame mx-auto text-center">
+    <section className="max-w-frame mx-auto px-4 text-center xl:px-0">
       <motion.p
         initial={{ y: "28px", opacity: 0 }}
         whileInView={{ y: "0", opacity: 1 }}
         viewport={{ once: true }}
         transition={{ duration: 0.5 }}
-        className="mb-3 text-xs font-medium uppercase tracking-[0.24em] text-[#9C7548]"
+        className="mb-3 text-xs font-medium uppercase tracking-[0.24em] text-moonlite-bronze"
       >
         {title === "New Collection" ? "01 / New Collection" : "02 / Moonlite Edit"}
       </motion.p>
@@ -42,12 +42,13 @@ const ProductListSec = ({
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
         className={cn([
-          isDark ? "text-[#3D2E26]" : "text-[#3D2E26]",
-          "mb-10 text-[30px] font-medium capitalize leading-tight md:mb-14 md:text-[44px]",
+          isDark ? "text-moonlite-espresso" : "text-moonlite-espresso",
+          "mb-4 text-lg font-medium uppercase leading-tight tracking-[0.28em] md:text-xl",
         ])}
       >
         {title}
       </motion.h2>
+      <span className="mx-auto mb-10 block h-px w-20 bg-moonlite-bronze/60 md:mb-12" />
       <motion.div
         initial={{ y: "100px", opacity: 0 }}
         whileInView={{ y: "0", opacity: 1 }}
@@ -58,9 +59,9 @@ const ProductListSec = ({
           opts={{
             align: "start",
           }}
-          className="w-full mb-8 md:mb-10"
+          className="mb-8 w-full md:mb-10"
         >
-          <CarouselContent className="mx-4 space-x-5 sm:space-x-8 xl:mx-0">
+          <CarouselContent className="space-x-5 sm:space-x-8">
             {data.map((product) => (
               <CarouselItem
                 key={product.id}

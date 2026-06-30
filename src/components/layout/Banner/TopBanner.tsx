@@ -2,7 +2,6 @@
 
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
-import Link from "next/link";
 import React from "react";
 
 const TopBanner = () => {
@@ -11,17 +10,14 @@ const TopBanner = () => {
   if (!isVisible) return null;
 
   return (
-    <div className="bg-[#E8DECD] text-[#3D2E26] text-center py-2 px-2 sm:px-4 xl:px-0 border-b border-[#9C7548]/18">
+    <div className="border-b border-moonlite-gold/20 bg-moonlite-espresso px-2 py-1.5 text-center text-moonlite-ivory sm:px-4 xl:px-0">
       <div className="relative max-w-frame mx-auto">
-        <p className="text-xs sm:text-sm">
-          Discreet UK packaging on every Moonlite Studio order.{" "}
-          <Link href="/shop" className="font-medium text-[#9C7548] underline underline-offset-4">
-            Explore New In
-          </Link>
+        <p className="text-[10px] font-medium uppercase leading-4 tracking-[0.18em] text-moonlite-ivory/92 sm:text-[11px]">
+          FREE UK DELIVERY OVER £50 | 100% DISCREET PACKAGING
         </p>
         <Button
           variant="ghost"
-          className="hover:bg-transparent absolute right-0 top-1/2 -translate-y-1/2 w-fit h-fit p-1 hidden sm:flex"
+          className="absolute right-0 top-1/2 hidden h-fit w-fit -translate-y-1/2 p-1 text-moonlite-ivory/70 hover:bg-transparent hover:text-moonlite-champagne sm:flex"
           size="icon"
           type="button"
           onClick={() => setIsVisible(false)}

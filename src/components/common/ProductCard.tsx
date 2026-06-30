@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/types/product.types";
 import { cn } from "@/lib/utils";
+import { Heart } from "lucide-react";
 
 type ProductCardProps = {
   data: Product;
@@ -10,46 +11,47 @@ type ProductCardProps = {
 };
 
 const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
-  const currency = "\u00a3";
   const isDark = theme === "dark";
   const rawLabel = data.tag ?? (data.isNew ? "New In" : "");
   const label = rawLabel === "New In" ? "Moonlite edit" : rawLabel;
+  const currency = "\u00a3";
 
   return (
     <Link
       href={`/shop/product/${data.id}/${data.slug}`}
       className={cn([
-        "group flex h-full flex-col border border-transparent bg-transparent pb-1 transition-all duration-500 ease-out hover:border-[#9C7548]/30",
-        isDark
-          ? "text-[#3D2E26]"
-          : "text-[#3D2E26]",
+        "group flex h-full min-w-0 flex-col bg-transparent pb-1 text-center outline-none transition-all duration-500 ease-out focus-visible:ring-2 focus-visible:ring-moonlite-gold focus-visible:ring-offset-2 focus-visible:ring-offset-moonlite-ivory",
+        isDark ? "text-[#3D2E26]" : "text-[#3D2E26]",
       ])}
     >
       <div
         className={cn([
-          "relative aspect-[4/5] w-full overflow-hidden bg-[#E8DECD]",
-          isDark ? "bg-[#E8DECD]" : "bg-[#E8DECD]",
+          "relative mb-4 aspect-[4/5] w-full overflow-hidden rounded-md bg-[#F8F1E8] transition-colors duration-500 group-hover:bg-[#F4E9DC]",
+          isDark ? "bg-[#F7F0E7]" : "bg-[#F7F0E7]",
         ])}
       >
-        <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(242,234,220,0)_58%,rgba(42,24,32,0.22))] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100" />
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-[linear-gradient(180deg,rgba(250,247,241,0)_58%,rgba(61,46,38,0.08))] opacity-0 transition-opacity duration-500 ease-out group-hover:opacity-100" />
         {label && (
-          <span className="absolute left-3 top-3 z-[2] border border-[#9C7548]/22 bg-[#F2EADC]/82 px-2.5 py-1 font-serif text-[11px] italic text-[#9C7548] backdrop-blur">
+          <span className="absolute left-3 top-3 z-[2] border border-[#D8B98A]/52 bg-[#FAF7F1]/84 px-2.5 py-1 font-serif text-[11px] italic text-[#9C7548] backdrop-blur">
             {label}
           </span>
         )}
+        <span className="absolute right-3 top-3 z-[2] flex h-8 w-8 items-center justify-center rounded-full bg-moonlite-card/84 text-moonlite-bronze shadow-[0_8px_18px_rgba(61,46,38,0.08)] backdrop-blur">
+          <Heart size={15} strokeWidth={1.6} />
+        </span>
         <Image
           src={data.srcUrl}
           width={295}
           height={298}
-          className="h-full w-full object-cover transition-all duration-700 ease-out group-hover:scale-[1.035] group-hover:opacity-95"
+          className="h-full w-full object-contain p-5 transition-all duration-700 ease-out group-hover:scale-[1.035] group-hover:opacity-95"
           alt={data.srcAlt ?? `${data.title} product image`}
           priority
         />
-        <span className="absolute bottom-3 right-3 z-[2] translate-y-2 border-b border-[#F2EADC]/70 pb-1 text-[11px] uppercase tracking-[0.18em] text-[#F2EADC] opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+        <span className="absolute bottom-3 right-3 z-[2] translate-y-2 border-b border-moonlite-bronze/70 pb-1 text-[11px] uppercase tracking-[0.18em] text-moonlite-bronze opacity-0 transition-all duration-500 ease-out group-hover:translate-y-0 group-hover:opacity-100">
           View piece
         </span>
       </div>
-      <div className="flex flex-1 flex-col px-1 pt-4">
+      <div className="flex flex-1 flex-col items-center px-1">
         <span
           className={cn([
             "mb-2 text-[11px] uppercase tracking-[0.18em]",
@@ -60,29 +62,27 @@ const ProductCard = ({ data, theme = "light" }: ProductCardProps) => {
         </span>
         <strong
           className={cn([
-            "relative w-fit text-base font-medium leading-tight after:absolute after:-bottom-1 after:left-0 after:h-px after:w-0 after:bg-[#9C7548] after:transition-all after:duration-500 group-hover:after:w-full xl:text-lg",
+            "relative min-h-12 text-center text-base font-medium leading-6 after:absolute after:-bottom-1 after:left-1/2 after:h-px after:w-0 after:-translate-x-1/2 after:bg-[#9C7548] after:transition-all after:duration-500 group-hover:after:w-full xl:text-lg",
             isDark ? "text-[#3D2E26]" : "text-[#3D2E26]",
           ])}
         >
           {data.title}
         </strong>
-        <p className="mt-2 text-sm leading-6 text-[#3D2E26]/56">
-          Lace · Adjustable fit · Discreet packaging
-        </p>
-        <div className="mt-4 flex items-end justify-between gap-3 border-t border-[#9C7548]/14 pt-3">
-          <span
-            className={
-              isDark
-                ? "text-base font-medium text-[#3D2E26]"
-                : "text-base font-medium text-[#3D2E26]"
-            }
-          >
-            {currency}
-            {data.price.toFixed(2)}
-          </span>
-          <span className="text-[11px] uppercase tracking-[0.18em] text-[#9C7548]/78 transition-colors duration-300 group-hover:text-[#9C7548]">
-            Explore piece
-          </span>
+        <span className="mt-2 text-sm text-moonlite-taupe">
+          {currency}
+          {data.price.toFixed(2)}
+        </span>
+        <div className="mt-3 flex justify-center gap-2">
+          {data.colors.slice(0, 3).map((color) => (
+            <span
+              key={color.name}
+              className={cn(
+                "h-2.5 w-2.5 rounded-full border border-moonlite-border/70",
+                color.code
+              )}
+              title={color.name}
+            />
+          ))}
         </div>
       </div>
     </Link>

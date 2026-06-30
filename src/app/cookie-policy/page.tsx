@@ -7,7 +7,7 @@ const sections = [
   },
   {
     title: "What this demo site uses",
-    body: "Moonlite Studio may use localStorage for age gate confirmation, cookie preference choice, cart data and demo newsletter preferences if applicable.",
+    body: "Moonlite Studio may use localStorage for age gate confirmation, cookie preference choice and demo newsletter preferences if applicable.",
   },
   {
     title: "Cookie categories",

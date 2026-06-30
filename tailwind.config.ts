@@ -33,6 +33,20 @@ const config: Config = {
         sm: "calc(var(--radius) - 4px)",
       },
       colors: {
+        moonlite: {
+          ivory: "#FBF7EF",
+          cream: "#F5EBDD",
+          parchment: "#EDE0CE",
+          card: "#FFFBF5",
+          espresso: "#2F211B",
+          cocoa: "#4B352A",
+          taupe: "#7B6757",
+          bronze: "#9B7143",
+          gold: "#C9A86A",
+          champagne: "#E3CFA6",
+          border: "#DAC7AC",
+          hover: "#825A35",
+        },
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         card: {
@@ -95,6 +109,11 @@ const config: Config = {
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+      },
+      boxShadow: {
+        "moonlite-soft": "0 18px 45px rgba(47, 33, 27, 0.07)",
+        "moonlite-card": "0 12px 30px rgba(47, 33, 27, 0.055)",
+        "moonlite-focus": "0 0 0 3px rgba(201, 168, 106, 0.28)",
       },
     },
   },

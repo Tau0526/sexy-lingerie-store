@@ -21,11 +21,11 @@ export default function ProductPage({
   }
 
   return (
-    <main className="silk-page pb-20 text-[#3D2E26]">
+    <main className="silk-page overflow-x-hidden pb-20 text-moonlite-espresso">
       <div className="max-w-frame mx-auto px-4 xl:px-0">
-        <hr className="h-[1px] border-t-[#9C7548]/18 mb-5 sm:mb-6" />
+        <hr className="mb-5 h-[1px] border-t-moonlite-border/60 sm:mb-6" />
         <BreadcrumbProduct title={productData?.title ?? "product"} />
-        <section className="mb-11">
+        <section className="mb-11 rounded-md border-y border-moonlite-border/60 bg-moonlite-card/30 px-0 py-6 sm:py-8">
           <Header data={productData} />
         </section>
       </div>

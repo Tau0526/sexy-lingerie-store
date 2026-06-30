@@ -5,6 +5,10 @@ export type MenuItem = {
   type: "MenuItem" | "MenuList";
   label: string;
   url?: string;
+  description?: string | React.ReactNode;
+  featuredTitle?: string;
+  featuredText?: string;
+  featuredHref?: string;
   children:
     | (Omit<MenuItem, "children" | "type"> & {
         description?: string | React.ReactNode;

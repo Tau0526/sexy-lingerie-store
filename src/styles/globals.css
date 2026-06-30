@@ -3,16 +3,28 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 61, 46, 38;
-  --background-start-rgb: 242, 234, 220;
-  --background-end-rgb: 242, 234, 220;
+  --moonlite-ivory: #FBF7EF;
+  --moonlite-cream: #F5EBDD;
+  --moonlite-parchment: #EDE0CE;
+  --moonlite-card: #FFFBF5;
+  --moonlite-espresso: #2F211B;
+  --moonlite-cocoa: #4B352A;
+  --moonlite-taupe: #7B6757;
+  --moonlite-bronze: #9B7143;
+  --moonlite-gold: #C9A86A;
+  --moonlite-champagne: #E3CFA6;
+  --moonlite-border: #DAC7AC;
+  --moonlite-hover: #825A35;
+  --foreground-rgb: 47, 33, 27;
+  --background-start-rgb: 251, 247, 239;
+  --background-end-rgb: 245, 235, 221;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --foreground-rgb: 61, 46, 38;
-    --background-start-rgb: 242, 234, 220;
-    --background-end-rgb: 242, 234, 220;
+    --foreground-rgb: 47, 33, 27;
+    --background-start-rgb: 251, 247, 239;
+    --background-end-rgb: 245, 235, 221;
   }
 }
 
@@ -23,9 +35,9 @@
 
   .silk-page {
     background:
-      radial-gradient(circle at 12% 8%, rgba(201, 162, 143, 0.24), transparent 30rem),
-      radial-gradient(circle at 86% 16%, rgba(156, 117, 72, 0.14), transparent 28rem),
-      linear-gradient(135deg, #F2EADC 0%, #E8DECD 48%, #F2EADC 100%);
+      radial-gradient(circle at 12% 8%, rgba(227, 207, 166, 0.18), transparent 32rem),
+      radial-gradient(circle at 86% 16%, rgba(155, 113, 67, 0.09), transparent 30rem),
+      linear-gradient(135deg, var(--moonlite-ivory) 0%, var(--moonlite-cream) 52%, var(--moonlite-parchment) 100%);
   }
 
   .moonlite-reveal {
@@ -37,7 +49,7 @@
   }
 
   .moonlite-link {
-    background-image: linear-gradient(#9C7548, #9C7548);
+    background-image: linear-gradient(var(--moonlite-bronze), var(--moonlite-bronze));
     background-position: 0 100%;
     background-repeat: no-repeat;
     background-size: 0 1px;
@@ -45,7 +57,7 @@
   }
 
   .moonlite-link:hover {
-    color: #9C7548;
+    color: var(--moonlite-bronze);
     background-size: 100% 1px;
   }
 
@@ -60,7 +72,7 @@
     position: absolute;
     inset: 0;
     z-index: -1;
-    background: linear-gradient(110deg, transparent 20%, rgba(242, 234, 220, 0.16) 48%, transparent 76%);
+    background: linear-gradient(110deg, transparent 20%, rgba(255, 251, 245, 0.24) 48%, transparent 76%);
     transform: translateX(-120%);
     transition: transform 520ms ease-out;
   }
@@ -72,14 +84,14 @@
 
 @layer components {
   .moonlite-field {
-    border: 1px solid #B58F62;
+    border: 1px solid var(--moonlite-border);
     border-radius: 2px;
-    background: #F4EBDD;
-    color: #3D2E26;
+    background: var(--moonlite-card);
+    color: var(--moonlite-espresso);
     box-shadow:
-      inset 0 1px 0 rgba(255, 250, 242, 0.62),
-      0 1px 0 rgba(61, 46, 38, 0.08),
-      0 8px 18px rgba(42, 24, 32, 0.045);
+      inset 0 1px 0 rgba(255, 255, 255, 0.7),
+      0 1px 0 rgba(47, 33, 27, 0.035),
+      0 10px 24px rgba(47, 33, 27, 0.04);
     transition:
       background-color 240ms ease,
       border-color 240ms ease,
@@ -87,40 +99,40 @@
   }
 
   .moonlite-field::placeholder {
-    color: #8A7665;
+    color: var(--moonlite-taupe);
   }
 
   .moonlite-field:hover {
-    border-color: #9C7548;
-    background: #F7EFE4;
+    border-color: var(--moonlite-bronze);
+    background: var(--moonlite-ivory);
   }
 
   .moonlite-field:focus,
   .moonlite-field:focus-visible,
   .moonlite-field:focus-within {
-    border-color: #7E5732;
-    background: #FAF3EA;
+    border-color: var(--moonlite-gold);
+    background: var(--moonlite-card);
     box-shadow:
-      inset 0 1px 0 rgba(255, 250, 242, 0.74),
-      0 0 0 2px rgba(156, 117, 72, 0.3),
-      0 10px 24px rgba(42, 24, 32, 0.08);
+      inset 0 1px 0 rgba(255, 255, 255, 0.78),
+      0 0 0 3px rgba(201, 168, 106, 0.24),
+      0 12px 28px rgba(47, 33, 27, 0.06);
     outline: none;
   }
 
   .moonlite-field:disabled,
   .moonlite-field[aria-disabled="true"],
   .moonlite-field[readonly] {
-    background: #EDE3D5;
-    color: rgba(61, 46, 38, 0.58);
+    background: var(--moonlite-cream);
+    color: rgba(47, 33, 27, 0.58);
     cursor: not-allowed;
     opacity: 0.75;
   }
 
   .moonlite-field-dark {
-    border: 1px solid rgba(201, 184, 159, 0.36);
+    border: 1px solid rgba(227, 207, 166, 0.38);
     border-radius: 2px;
-    background: rgba(237, 227, 213, 0.13);
-    color: #F2EADC;
+    background: rgba(245, 235, 221, 0.13);
+    color: var(--moonlite-cream);
     transition:
       background-color 240ms ease,
       border-color 240ms ease,
@@ -128,21 +140,61 @@
   }
 
   .moonlite-field-dark::placeholder {
-    color: rgba(232, 222, 205, 0.62);
+    color: rgba(237, 224, 206, 0.66);
   }
 
   .moonlite-field-dark:hover {
-    border-color: rgba(201, 162, 143, 0.62);
-    background: rgba(237, 227, 213, 0.16);
+    border-color: rgba(227, 207, 166, 0.68);
+    background: rgba(245, 235, 221, 0.16);
   }
 
   .moonlite-field-dark:focus,
   .moonlite-field-dark:focus-visible,
   .moonlite-field-dark:focus-within {
-    border-color: rgba(201, 162, 143, 0.78);
-    background: rgba(237, 227, 213, 0.18);
-    box-shadow: 0 0 0 1px rgba(201, 162, 143, 0.24);
+    border-color: rgba(227, 207, 166, 0.82);
+    background: rgba(245, 235, 221, 0.18);
+    box-shadow: 0 0 0 2px rgba(201, 168, 106, 0.2);
     outline: none;
+  }
+
+  .moonlite-card {
+    border: 1px solid rgba(218, 199, 172, 0.68);
+    background: rgba(255, 251, 245, 0.76);
+    box-shadow: 0 12px 30px rgba(47, 33, 27, 0.055);
+  }
+
+  .moonlite-button-primary {
+    border: 1px solid var(--moonlite-bronze);
+    background: var(--moonlite-bronze);
+    color: var(--moonlite-ivory);
+    box-shadow: 0 10px 24px rgba(47, 33, 27, 0.08);
+    transition:
+      background-color 240ms ease,
+      border-color 240ms ease,
+      box-shadow 240ms ease,
+      transform 240ms ease;
+  }
+
+  .moonlite-button-primary:hover {
+    border-color: var(--moonlite-hover);
+    background: var(--moonlite-hover);
+    box-shadow: 0 12px 28px rgba(47, 33, 27, 0.1);
+  }
+
+  .moonlite-button-secondary {
+    border: 1px solid rgba(218, 199, 172, 0.7);
+    background: rgba(255, 251, 245, 0.56);
+    color: var(--moonlite-espresso);
+    transition:
+      background-color 240ms ease,
+      border-color 240ms ease,
+      color 240ms ease;
+  }
+
+  .moonlite-button-secondary:hover {
+    border-color: rgba(155, 113, 67, 0.72);
+    background: rgba(245, 235, 221, 0.76);
+    color: var(--moonlite-bronze);
   }
 }
 
@@ -171,25 +223,25 @@
 
 @layer base {
   :root {
-    --background: 36 46% 91%;
-    --foreground: 24 23% 19%;
-    --card: 37 35% 86%;
-    --card-foreground: 24 23% 19%;
-    --popover: 37 35% 86%;
-    --popover-foreground: 24 23% 19%;
-    --primary: 334 28% 13%;
-    --primary-foreground: 36 46% 91%;
-    --secondary: 37 35% 86%;
-    --secondary-foreground: 24 23% 19%;
-    --muted: 37 35% 86%;
-    --muted-foreground: 25 15% 39%;
-    --accent: 33 37% 45%;
-    --accent-foreground: 36 46% 91%;
+    --background: 40 60% 96%;
+    --foreground: 22 27% 15%;
+    --card: 38 100% 98%;
+    --card-foreground: 22 27% 15%;
+    --popover: 38 100% 98%;
+    --popover-foreground: 22 27% 15%;
+    --primary: 31 40% 44%;
+    --primary-foreground: 40 47% 96%;
+    --secondary: 37 58% 91%;
+    --secondary-foreground: 22 27% 15%;
+    --muted: 37 58% 91%;
+    --muted-foreground: 27 17% 41%;
+    --accent: 41 44% 61%;
+    --accent-foreground: 40 47% 96%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
-    --border: 33 37% 45%;
-    --input: 37 35% 86%;
-    --ring: 33 37% 45%;
+    --border: 34 39% 76%;
+    --input: 38 100% 98%;
+    --ring: 41 44% 61%;
     --chart-1: 12 76% 61%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
@@ -231,18 +283,19 @@
   }
   body {
     @apply bg-background text-foreground;
-    background-color: #F2EADC;
+    overflow-x: hidden;
+    background-color: var(--moonlite-ivory);
     background-image:
-      radial-gradient(circle at 10% -10%, rgba(201, 162, 143, 0.18), transparent 30rem),
-      linear-gradient(180deg, #F2EADC 0%, #E8DECD 120%);
-    color: #3D2E26;
+      radial-gradient(circle at 10% -10%, rgba(227, 207, 166, 0.12), transparent 32rem),
+      linear-gradient(180deg, var(--moonlite-ivory) 0%, var(--moonlite-cream) 62%, var(--moonlite-parchment) 145%);
+    color: var(--moonlite-espresso);
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
   }
 
   ::selection {
-    background: rgba(156, 117, 72, 0.22);
-    color: #2A1820;
+    background: rgba(201, 168, 106, 0.28);
+    color: var(--moonlite-espresso);
   }
 
   a,
@@ -250,6 +303,6 @@
   input,
   textarea,
   select {
-    outline-color: rgba(156, 117, 72, 0.6);
+    outline-color: rgba(201, 168, 106, 0.72);
   }
 }

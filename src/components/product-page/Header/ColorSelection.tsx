@@ -42,7 +42,7 @@ const ColorSelection = ({ data }: { data: Product }) => {
 
   return (
     <div className="flex flex-col">
-      <span className="mb-4 text-sm text-[#3D2E26]/70 sm:text-base">
+      <span className="mb-4 text-sm text-moonlite-taupe sm:text-base">
         Select colour
       </span>
       <div
@@ -59,9 +59,9 @@ const ColorSelection = ({ data }: { data: Product }) => {
               key={color.name}
               type="button"
               className={cn([
-                "flex h-11 w-11 items-center justify-center rounded-full border border-[#9C7548]/30 bg-[#F2EADC]/45 p-1 transition-all duration-300 ease-out hover:scale-105 hover:border-[#9C7548]/70 hover:shadow-[0_8px_22px_rgba(42,24,32,0.10)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#9C7548] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F2EADC]",
+                "flex h-11 w-11 items-center justify-center rounded-full border border-moonlite-border/80 bg-moonlite-card/60 p-1 transition-all duration-300 ease-out hover:scale-105 hover:border-moonlite-bronze/70 hover:shadow-[0_8px_22px_rgba(47,33,27,0.08)] focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-moonlite-bronze focus-visible:ring-offset-2 focus-visible:ring-offset-moonlite-ivory",
                 isSelected &&
-                  "border-[#2A1820]/75 bg-[#E8DECD] shadow-[0_8px_24px_rgba(42,24,32,0.10)] ring-1 ring-[#2A1820]/70 ring-offset-2 ring-offset-[#F2EADC]",
+                  "border-moonlite-bronze bg-moonlite-cream shadow-[0_8px_24px_rgba(47,33,27,0.08)] ring-1 ring-moonlite-bronze/70 ring-offset-2 ring-offset-moonlite-ivory",
               ])}
               onClick={() => dispatch(setColorSelection(color))}
               aria-label={`Select colour ${color.name}`}
@@ -70,7 +70,7 @@ const ColorSelection = ({ data }: { data: Product }) => {
               title={color.name}
             >
               <span
-                className="h-full w-full rounded-full border border-[#3D2E26]/18"
+                className="h-full w-full rounded-full border border-moonlite-espresso/18"
                 style={{ backgroundColor: swatchColour }}
                 aria-hidden="true"
               />
@@ -79,7 +79,7 @@ const ColorSelection = ({ data }: { data: Product }) => {
         })}
       </div>
       {selectedColorName && (
-        <span className="mt-3 text-xs text-[#3D2E26]/50">
+        <span className="mt-3 text-xs text-moonlite-taupe">
           Selected: {selectedColorName}
         </span>
       )}

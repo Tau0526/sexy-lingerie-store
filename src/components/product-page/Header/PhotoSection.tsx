@@ -22,10 +22,10 @@ const PhotoSection = ({ data }: { data: Product }) => {
               key={index}
               type="button"
               className={cn(
-                "aspect-square w-[86px] shrink-0 overflow-hidden border bg-[#E8DECD] transition-all duration-500 ease-out hover:border-[#9C7548]/55 hover:opacity-90 sm:w-[104px] lg:w-[112px] xl:w-[128px]",
+                "aspect-square w-[78px] shrink-0 overflow-hidden rounded-md border bg-moonlite-cream transition-all duration-500 ease-out hover:border-moonlite-bronze/55 hover:opacity-90 sm:w-[96px] lg:w-[104px] xl:w-[118px]",
                 selected === photo
-                  ? "border-[#9C7548] ring-1 ring-[#9C7548]/35"
-                  : "border-[#9C7548]/18"
+                  ? "border-moonlite-bronze ring-1 ring-moonlite-bronze/35"
+                  : "border-moonlite-border/70"
               )}
               onClick={() => setSelected(photo)}
               aria-label={`Show ${
@@ -48,14 +48,14 @@ const PhotoSection = ({ data }: { data: Product }) => {
         </div>
       )}
 
-      <div className="relative mb-3 flex min-h-[360px] w-full items-center justify-center overflow-hidden border border-[#9C7548]/14 bg-[#E8DECD] sm:min-h-[520px] md:w-full lg:mb-0 lg:min-h-[600px]">
-        <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_15%,rgba(242,234,220,0.2),transparent_42%),linear-gradient(180deg,transparent_70%,rgba(42,24,32,0.08))]" />
+      <div className="relative mb-3 flex min-h-[340px] w-full items-center justify-center overflow-hidden rounded-md border border-moonlite-border/70 bg-[#F8F1E8] sm:min-h-[500px] md:w-full lg:mb-0 lg:min-h-[600px]">
+        <div className="pointer-events-none absolute inset-0 z-[1] bg-[radial-gradient(circle_at_50%_15%,rgba(255,251,245,0.42),transparent_42%),linear-gradient(180deg,transparent_70%,rgba(47,33,27,0.05))]" />
         <Image
           key={selected}
           src={selected}
           width={444}
           height={530}
-          className="h-full w-full object-contain moonlite-reveal"
+          className="h-full w-full object-contain p-4 moonlite-reveal sm:p-6"
           alt={selectedAlt}
           priority
           unoptimized

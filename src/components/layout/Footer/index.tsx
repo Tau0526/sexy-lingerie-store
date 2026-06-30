@@ -1,110 +1,182 @@
 import { cn } from "@/lib/utils";
-import { integralCF } from "@/styles/fonts";
+import { moonliteLogo } from "@/styles/fonts";
 import React from "react";
-import { SocialNetworks } from "./footer.types";
-import { FaInstagram } from "react-icons/fa";
+import { FaInstagram, FaPinterestP, FaTiktok } from "react-icons/fa6";
 import Link from "next/link";
-import LinksSection from "./LinksSection";
-import Image from "next/image";
 import LayoutSpacing from "./LayoutSpacing";
-import NewsletterMock from "@/components/homepage/NewsletterMock";
 
-const socialsData: SocialNetworks[] = [
+const shopLinks = [
+  { label: "New In", href: "/shop" },
+  { label: "Best Sellers", href: "/shop" },
+  { label: "Lingerie Sets", href: "/shop" },
+  { label: "Bodysuits", href: "/shop" },
+  { label: "Nightwear", href: "/shop" },
+  { label: "Dresses", href: "/shop" },
+  { label: "Accessories", href: "/shop" },
+];
+
+const customerCareLinks = [
+  { label: "Size Guide", href: "/size-guide" },
+  { label: "Shipping & Delivery", href: "/shipping" },
+  { label: "Returns", href: "/returns" },
+  { label: "FAQs", href: "/faq" },
+  { label: "Contact Us", href: "/contact" },
+];
+
+const aboutLinks = [
+  { label: "Our Story", href: "/shop" },
+  { label: "Lookbook", href: "/shop" },
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms & Conditions", href: "/privacy-policy" },
+];
+
+type SocialLink = {
+  label: string;
+  href?: string;
+  icon: React.ReactNode;
+};
+
+const socialLinks: SocialLink[] = [
   {
-    id: 1,
+    label: "Instagram",
+    href: "https://instagram.com/Moonlite.studio_",
     icon: <FaInstagram />,
-    url: "https://instagram.com/Moonlite.studio_",
+  },
+  {
+    label: "TikTok",
+    icon: <FaTiktok />,
+  },
+  {
+    label: "Pinterest",
+    icon: <FaPinterestP />,
   },
 ];
+
+const paymentLabels = ["Visa", "Mastercard", "Amex", "Apple Pay", "Google Pay"];
 
 const Footer = () => {
   return (
     <footer
       id="contact"
-      className="relative overflow-hidden border-t border-[#9C7548]/20 bg-[#2A1820] px-4 pt-10 text-[#F2EADC] md:pt-14"
+      className="relative overflow-hidden border-t border-moonlite-border/70 bg-moonlite-ivory px-4 pt-12 text-moonlite-espresso md:pt-16"
     >
-      <div className="pointer-events-none absolute right-[-8%] top-[-24%] h-[360px] w-[360px] rounded-full bg-[#9C7548]/12 blur-3xl" />
       <div className="mx-auto max-w-frame">
-        <nav className="grid gap-10 lg:grid-cols-12">
-          <div className="lg:col-span-4 lg:max-w-[380px]">
-            <Link href="/" className="mb-5 flex w-fit items-center gap-3">
-              <span className="flex h-10 w-10 items-center justify-center">
-                <Image
-                  priority
-                  src="/brand/main-logo.png"
-                  height={48}
-                  width={48}
-                  alt="Moonlite Studio logo"
-                  className="h-full w-full object-contain"
-                />
-              </span>
+        <div className="grid gap-10 lg:grid-cols-[1.25fr_2fr_1.35fr] lg:gap-12">
+          <section className="max-w-[320px]">
+            <Link href="/" className="mb-5 block w-fit">
               <span
                 className={cn([
-                  integralCF.className,
-                  "text-[24px] text-[#F2EADC] lg:text-[30px]",
+                  moonliteLogo.className,
+                  "block text-[34px] font-normal uppercase leading-[0.9] tracking-[0.16em] text-moonlite-espresso sm:text-[40px]",
                 ])}
               >
-                Moonlite Studio
+                MOONLITE
+                <span className="block">INTIMATES</span>
               </span>
             </Link>
-            <p className="mb-4 text-sm leading-6 text-[#E8DECD]/72">
-              Intimate pieces designed for softness, discretion and quiet
-              allure.
+            <p className="mb-6 max-w-[260px] text-sm leading-7 text-moonlite-taupe">
+              Luxury intimates designed to empower and enchant.
             </p>
-            <p className="mb-5 font-serif text-lg italic leading-7 text-[#C9A28F]">
-              Pamper Yourself, Embrace Your Desires
-            </p>
-            <p className="mb-5 border-l border-[#9C7548]/45 bg-[#F2EADC]/5 px-4 py-3 text-sm leading-6 text-[#E8DECD]/78">
-              Discreet UK packaging available. Free UK delivery over £50.
-            </p>
-            <Link
-              href="mailto:Kayee7601@gmail.com"
-              className="moonlite-link mb-2 block w-fit text-sm text-[#E8DECD]/82"
-            >
-              Email: Kayee7601@gmail.com
-            </Link>
-            <Link
-              href="https://instagram.com/Moonlite.studio_"
-              className="moonlite-link mb-6 block w-fit text-sm text-[#E8DECD]/62"
-            >
-              Instagram: Moonlite.studio_
-            </Link>
-            <div className="flex items-center">
-              {socialsData.map((social) => (
-                <Link
-                  href={social.url}
-                  key={social.id}
-                  className="mr-3 flex h-8 w-8 items-center justify-center rounded-full border border-[#9C7548]/28 bg-[#F2EADC]/6 p-1.5 text-[#F2EADC] transition-all hover:border-[#9C7548] hover:text-[#9C7548]"
-                  aria-label="Moonlite Studio Instagram"
-                >
-                  {social.icon}
-                </Link>
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social) => (
+                social.href ? (
+                  <Link
+                    href={social.href}
+                    key={social.label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-moonlite-border/80 bg-moonlite-card/68 text-moonlite-bronze transition-colors hover:border-moonlite-bronze hover:bg-moonlite-cream"
+                    aria-label={`Moonlite Intimates ${social.label}`}
+                  >
+                    {social.icon}
+                  </Link>
+                ) : (
+                  <span
+                    key={social.label}
+                    className="flex h-9 w-9 items-center justify-center rounded-full border border-moonlite-border/80 bg-moonlite-card/68 text-moonlite-bronze"
+                    aria-label={`Moonlite Intimates ${social.label}`}
+                    role="img"
+                  >
+                    {social.icon}
+                  </span>
+                )
               ))}
             </div>
+          </section>
+
+          <div className="grid grid-cols-2 gap-8 sm:grid-cols-3">
+            <FooterColumn title="SHOP" links={shopLinks} />
+            <FooterColumn title="CUSTOMER CARE" links={customerCareLinks} />
+            <FooterColumn title="ABOUT" links={aboutLinks} />
           </div>
 
-          <div className="grid grid-cols-1 gap-3 sm:grid-cols-3 lg:col-span-8 lg:pl-10">
-            <LinksSection />
-          </div>
-        </nav>
-
-        <div className="mt-10 border-t border-[#9C7548]/22 pt-8">
-          <NewsletterMock variant="footer" />
+          <section>
+            <h3 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-moonlite-espresso">
+              JOIN OUR VIP LIST
+            </h3>
+            <p className="mb-5 max-w-[330px] text-sm leading-7 text-moonlite-taupe">
+              Be the first to know about new arrivals, exclusive offers and
+              more.
+            </p>
+            <div className="flex h-12 w-full max-w-[360px] overflow-hidden rounded-sm border border-moonlite-border/90 bg-moonlite-card">
+              <input
+                type="email"
+                placeholder="Enter your email"
+                aria-label="Enter your email"
+                className="min-w-0 flex-1 bg-transparent px-4 text-sm text-moonlite-espresso outline-none placeholder:text-moonlite-taupe"
+              />
+              <button
+                type="button"
+                className="flex w-12 items-center justify-center bg-moonlite-bronze text-lg leading-none text-moonlite-ivory transition-colors hover:bg-moonlite-hover"
+                aria-label="Submit newsletter signup"
+              >
+                -&gt;
+              </button>
+            </div>
+          </section>
         </div>
 
-        <hr className="mb-6 mt-10 h-[1px] border-t-[#9C7548]/22" />
-        <div className="mb-2 flex flex-col items-center justify-between gap-3 sm:flex-row">
-          <p className="text-center text-sm text-[#E8DECD]/48 sm:text-left">
-            Moonlite Studio. UK intimate apparel with privacy-minded delivery.
+        <div className="mt-12 flex flex-col gap-5 border-t border-moonlite-border/70 py-6 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-sm text-moonlite-taupe">
+            &copy; 2024 Moonlite Intimates. All rights reserved.
           </p>
-          <p className="text-center text-sm text-[#E8DECD]/48 sm:text-right">
-            GBP pricing. Tasteful 18+ storefront.
-          </p>
+          <div className="flex flex-wrap gap-2">
+            {paymentLabels.map((label) => (
+              <span
+                key={label}
+                className="rounded-sm border border-moonlite-border/80 bg-moonlite-card/68 px-2.5 py-1 text-[11px] uppercase tracking-[0.08em] text-moonlite-taupe"
+              >
+                {label}
+              </span>
+            ))}
+          </div>
         </div>
       </div>
       <LayoutSpacing />
     </footer>
   );
 };
+
+type FooterColumnProps = {
+  title: string;
+  links: { label: string; href: string }[];
+};
+
+const FooterColumn = ({ title, links }: FooterColumnProps) => (
+  <section>
+    <h3 className="mb-4 text-[11px] font-semibold uppercase tracking-[0.22em] text-moonlite-espresso">
+      {title}
+    </h3>
+    <div className="flex flex-col gap-3">
+      {links.map((link) => (
+        <Link
+          key={link.label}
+          href={link.href}
+          className="w-fit text-sm leading-5 text-moonlite-taupe transition-colors hover:text-moonlite-bronze"
+        >
+          {link.label}
+        </Link>
+      ))}
+    </div>
+  </section>
+);
 
 export default Footer;

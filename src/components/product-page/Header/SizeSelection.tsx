@@ -20,7 +20,7 @@ const SizeSelection = ({ data }: { data: Product }) => {
 
   return (
     <div className="flex flex-col">
-      <span className="mb-4 text-sm text-[#3D2E26]/70 sm:text-base">
+      <span className="mb-4 text-sm text-moonlite-taupe sm:text-base">
         Choose size
       </span>
       <div className="grid grid-cols-4 gap-2 sm:flex sm:flex-wrap sm:items-center lg:gap-3">
@@ -29,9 +29,9 @@ const SizeSelection = ({ data }: { data: Product }) => {
             key={index}
             type="button"
             className={cn([
-              "min-h-11 min-w-12 rounded-sm border border-[#9C7548]/28 bg-[#F2EADC]/45 px-4 text-sm text-[#3D2E26] transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-[#9C7548]/65 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#9C7548] focus-visible:ring-offset-2 focus-visible:ring-offset-[#F2EADC] lg:px-6 lg:text-base",
+              "min-h-11 min-w-12 rounded-sm border border-moonlite-border/80 bg-moonlite-card/60 px-4 text-sm text-moonlite-espresso transition-all duration-300 ease-out hover:-translate-y-0.5 hover:border-moonlite-bronze/65 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-moonlite-bronze focus-visible:ring-offset-2 focus-visible:ring-offset-moonlite-ivory lg:px-6 lg:text-base",
               sizeSelection === size &&
-                "border-[#2A1820] bg-[#2A1820] font-medium text-[#F2EADC]",
+                "border-moonlite-bronze bg-moonlite-bronze font-medium text-moonlite-ivory",
             ])}
             onClick={() => dispatch(setSizeSelection(size))}
             aria-pressed={sizeSelection === size}

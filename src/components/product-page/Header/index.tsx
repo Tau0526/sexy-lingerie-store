@@ -1,4 +1,4 @@
-import React from "react";
+﻿import React from "react";
 import PhotoSection from "./PhotoSection";
 import { Product } from "@/types/product.types";
 import ColorSelection from "./ColorSelection";
@@ -17,50 +17,50 @@ const Header = ({ data }: { data: Product }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 gap-8 border-b border-[#9C7548]/18 pb-10 text-[#3D2E26] md:grid-cols-[1.05fr_0.95fr] md:gap-14">
+      <div className="grid grid-cols-1 gap-8 px-0 pb-4 text-moonlite-espresso md:grid-cols-[1.05fr_0.95fr] md:gap-14 md:px-6 lg:px-8">
         <div className="moonlite-reveal-delay">
           <PhotoSection data={data} />
         </div>
         <div>
-          <span className="text-xs uppercase tracking-[0.22em] text-[#9C7548]">
+          <span className="text-xs uppercase tracking-[0.22em] text-moonlite-bronze">
             {data.category}
           </span>
-          <h1 className="mb-4 mt-3 text-3xl font-medium capitalize leading-tight text-[#3D2E26] md:text-[44px]">
+          <h1 className="mb-4 mt-3 text-3xl font-medium capitalize leading-tight text-moonlite-espresso md:text-[44px]">
             {data.title}
           </h1>
           <div className="mb-6 flex items-center space-x-2.5 sm:space-x-3">
-            <span className="text-xl font-normal text-[#3D2E26]/78 sm:text-2xl">
+            <span className="text-xl font-normal text-moonlite-espresso/78 sm:text-2xl">
               {currency}
               {discountedPrice.toFixed(2)}
             </span>
           </div>
-          <p className="mb-6 text-sm leading-7 text-[#3D2E26]/64 sm:text-base">
+          <p className="mb-6 text-sm leading-7 text-moonlite-taupe sm:text-base">
             {data.description}
           </p>
           {data.longDescription && (
-            <p className="mb-6 text-sm leading-7 text-[#3D2E26]/62 sm:text-base">
+            <p className="mb-6 text-sm leading-7 text-moonlite-taupe sm:text-base">
               {data.longDescription}
             </p>
           )}
-          <div className="mb-6 grid gap-3 border-l border-[#9C7548]/35 bg-[#E8DECD]/58 p-4 text-sm text-[#3D2E26]/62 transition-colors duration-500 hover:bg-[#E8DECD]/78 sm:grid-cols-2">
+          <div className="mb-6 grid gap-3 border-l border-moonlite-bronze/35 bg-moonlite-cream/54 p-4 text-sm text-moonlite-taupe transition-colors duration-500 hover:bg-moonlite-cream/74 sm:grid-cols-2">
             <div>
-              <span className="mb-1 block font-medium text-[#3D2E26]">
+              <span className="mb-1 block font-medium text-moonlite-espresso">
                 Material
               </span>
               <p>{data.material}</p>
             </div>
             <div>
-              <span className="mb-1 block font-medium text-[#3D2E26]">
+              <span className="mb-1 block font-medium text-moonlite-espresso">
                 Care
               </span>
               <p>{data.care}</p>
             </div>
           </div>
-          <hr className="mb-5 h-[1px] border-t-[#9C7548]/18" />
+          <hr className="mb-5 h-[1px] border-t-moonlite-border/60" />
           <ColorSelection data={data} />
-          <hr className="my-5 h-[1px] border-t-[#9C7548]/18" />
+          <hr className="my-5 h-[1px] border-t-moonlite-border/60" />
           <SizeSelection data={data} />
-          <div className="my-5 divide-y divide-[#9C7548]/18 border-y border-[#9C7548]/18 bg-[#E8DECD]/52">
+          <div className="my-5 divide-y divide-moonlite-border/60 border-y border-moonlite-border/60 bg-moonlite-cream/40">
             {[
               {
                 title: "Discreet UK Packaging",
@@ -87,14 +87,14 @@ const Header = ({ data }: { data: Product }) => {
               return (
                 <div
                   key={item.title}
-                  className="flex gap-3 px-4 py-4 transition-colors duration-300 hover:bg-[#F2EADC]/42"
+                  className="flex gap-3 px-4 py-4 transition-colors duration-300 hover:bg-moonlite-card/52"
                 >
-                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-[#9C7548]" />
+                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-moonlite-bronze" />
                   <div>
-                    <h2 className="mb-1 text-sm font-medium text-[#3D2E26]">
+                    <h2 className="mb-1 text-sm font-medium text-moonlite-espresso">
                       {item.title}
                     </h2>
-                    <p className="text-sm leading-6 text-[#3D2E26]/62">
+                    <p className="text-sm leading-6 text-moonlite-taupe">
                       {item.body}
                     </p>
                   </div>
@@ -102,7 +102,7 @@ const Header = ({ data }: { data: Product }) => {
               );
             })}
           </div>
-          <hr className="my-5 hidden h-[1px] border-t-[#9C7548]/18 md:block" />
+          <hr className="my-5 hidden h-[1px] border-t-moonlite-border/60 md:block" />
           <AddToCardSection data={data} />
         </div>
       </div>

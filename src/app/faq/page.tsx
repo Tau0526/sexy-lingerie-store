@@ -27,7 +27,7 @@ const faqs = [
   {
     question: "Is this website taking real payments?",
     answer:
-      "This MVP uses a demo checkout. No real payment is taken at this stage.",
+      "No. Moonlite Studio is currently a brand showcase and enquiry website.",
   },
   {
     question: "When will live payment be available?",
@@ -48,8 +48,7 @@ export default function FaqPage() {
             FAQ
           </h1>
           <p className="max-w-2xl text-base leading-7 text-[#3D2E26]/64">
-            Practical details about delivery, packaging, returns and the demo
-            checkout.
+            Practical details about delivery, packaging, returns and enquiries.
           </p>
         </section>
 
