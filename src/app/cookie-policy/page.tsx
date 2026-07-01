@@ -15,7 +15,7 @@ const sections = [
   },
   {
     title: "Current MVP status",
-    body: "This demo site does not currently connect live analytics, advertising or payment tracking services.",
+    body: "This demo site does not currently connect live analytics or advertising tracking services.",
   },
   {
     title: "Managing preferences",

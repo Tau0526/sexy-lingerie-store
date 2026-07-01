@@ -1,7 +1,7 @@
 const trustItems = [
   "DISCREET UK PACKAGING",
   "FREE UK DELIVERY OVER £50",
-  "100% SECURE PAYMENT",
+  "PRIVATE ENQUIRY SUPPORT",
   "PRIVATE BOUTIQUE FEEL",
 ];
 
@@ -15,8 +15,8 @@ const ShopTrustStrip = () => {
           const text = [
             "Plain outer parcels prepared with care.",
             "Complimentary delivery for larger edits.",
-            "Protected checkout for every order.",
-            "A refined experience from browse to delivery.",
+            "Ask about availability before you decide.",
+            "A refined experience from browse to enquiry.",
           ][index];
 
           return (

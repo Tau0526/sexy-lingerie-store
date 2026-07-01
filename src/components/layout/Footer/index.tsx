@@ -52,7 +52,7 @@ const socialLinks: SocialLink[] = [
   },
 ];
 
-const paymentLabels = ["Visa", "Mastercard", "Amex", "Apple Pay", "Google Pay"];
+const footerNotes = ["Wishlist friendly", "Product enquiries", "Sizing support"];
 
 const Footer = () => {
   return (
@@ -139,7 +139,7 @@ const Footer = () => {
             &copy; 2024 Moonlite Intimates. All rights reserved.
           </p>
           <div className="flex flex-wrap gap-2">
-            {paymentLabels.map((label) => (
+            {footerNotes.map((label) => (
               <span
                 key={label}
                 className="rounded-sm border border-moonlite-border/80 bg-moonlite-card/68 px-2.5 py-1 text-[11px] uppercase tracking-[0.08em] text-moonlite-taupe"

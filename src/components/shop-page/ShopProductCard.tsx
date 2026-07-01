@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { Product } from "@/types/product.types";
+import WishlistButton from "@/components/common/WishlistButton";
 
 type ShopProductCardProps = {
   product: Product;
@@ -43,7 +44,13 @@ const ShopProductCard = ({ product }: ShopProductCardProps) => {
     .slice(0, 4);
 
   return (
-    <article className="group flex h-full overflow-hidden rounded-[18px] border border-[#E6D6C6] bg-[#FFFBF5] transition-all duration-300 hover:-translate-y-0.5 hover:border-moonlite-bronze/45">
+    <article className="group relative flex h-full overflow-hidden rounded-[18px] border border-[#E6D6C6] bg-[#FFFBF5] transition-all duration-300 hover:-translate-y-0.5 hover:border-moonlite-bronze/45">
+      <WishlistButton
+        productKey={product.slug}
+        productAliases={[String(product.id)]}
+        productTitle={product.title}
+        className="absolute right-3 top-3 z-[2] h-9 w-9"
+      />
       <Link
         href={productHref}
         className="flex h-full w-full flex-col outline-none focus-visible:ring-2 focus-visible:ring-moonlite-gold focus-visible:ring-offset-2 focus-visible:ring-offset-moonlite-ivory"

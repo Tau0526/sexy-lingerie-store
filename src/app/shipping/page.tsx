@@ -1,11 +1,11 @@
 const shippingSections = [
   {
     title: "UK Delivery",
-    body: "We currently prepare Moonlite Studio orders for UK delivery.",
+    body: "We currently share UK delivery guidance for Moonlite Studio pieces.",
   },
   {
     title: "Delivery Fee",
-    body: "UK delivery is £3.99. Orders over £50 qualify for free UK delivery.",
+    body: "Final delivery fees will be confirmed when availability is discussed.",
   },
   {
     title: "Delivery Time",
@@ -13,11 +13,11 @@ const shippingSections = [
   },
   {
     title: "Discreet UK Packaging",
-    body: "Every order is prepared in plain outer packaging for privacy. The outer parcel does not display product details.",
+    body: "Pieces can be prepared in plain outer packaging for privacy. The outer parcel does not display product details.",
   },
   {
-    title: "Order Processing",
-    body: "As this is a demo website, live fulfilment and tracking are not yet connected.",
+    title: "Availability Enquiries",
+    body: "As this is a showcase website, please contact us to ask about availability and delivery timing.",
   },
 ];
 
@@ -33,7 +33,7 @@ export default function ShippingPage() {
             Shipping
           </h1>
           <p className="max-w-2xl text-base leading-7 text-[#3D2E26]/64">
-            Discreet UK delivery for every Moonlite Studio order.
+            Discreet UK delivery guidance for Moonlite Studio pieces.
           </p>
         </section>
 

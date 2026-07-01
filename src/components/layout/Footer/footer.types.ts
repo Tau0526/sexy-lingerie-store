@@ -18,7 +18,3 @@ export type FooterLinks = {
   children: FLink[];
 };
 
-export type PaymentBadge = {
-  id: number;
-  srcUrl: string;
-};

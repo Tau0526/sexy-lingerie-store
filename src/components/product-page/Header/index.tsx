@@ -3,8 +3,7 @@ import PhotoSection from "./PhotoSection";
 import { Product } from "@/types/product.types";
 import ColorSelection from "./ColorSelection";
 import SizeSelection from "./SizeSelection";
-import AddToCardSection from "./AddToCardSection";
-import { PackageCheck, Ruler, ShieldCheck, Truck } from "lucide-react";
+import ProductEnquirySection from "./ProductEnquirySection";
 
 const Header = ({ data }: { data: Product }) => {
   const currency = "\u00a3";
@@ -60,50 +59,8 @@ const Header = ({ data }: { data: Product }) => {
           <ColorSelection data={data} />
           <hr className="my-5 h-[1px] border-t-moonlite-border/60" />
           <SizeSelection data={data} />
-          <div className="my-5 divide-y divide-moonlite-border/60 border-y border-moonlite-border/60 bg-moonlite-cream/40">
-            {[
-              {
-                title: "Discreet UK Packaging",
-                body: "Plain outer packaging prepared for privacy.",
-                icon: PackageCheck,
-              },
-              {
-                title: "Free UK delivery over £50",
-                body: "Free UK delivery on orders over £50.",
-                icon: Truck,
-              },
-              {
-                title: "Hygiene-conscious Returns",
-                body: "Opened intimate apparel can only be returned if faulty.",
-                icon: ShieldCheck,
-              },
-              {
-                title: "Size Guidance",
-                body: "A simple size guide to help you choose with confidence.",
-                icon: Ruler,
-              },
-            ].map((item) => {
-              const Icon = item.icon;
-              return (
-                <div
-                  key={item.title}
-                  className="flex gap-3 px-4 py-4 transition-colors duration-300 hover:bg-moonlite-card/52"
-                >
-                  <Icon className="mt-0.5 h-4 w-4 shrink-0 text-moonlite-bronze" />
-                  <div>
-                    <h2 className="mb-1 text-sm font-medium text-moonlite-espresso">
-                      {item.title}
-                    </h2>
-                    <p className="text-sm leading-6 text-moonlite-taupe">
-                      {item.body}
-                    </p>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
           <hr className="my-5 hidden h-[1px] border-t-moonlite-border/60 md:block" />
-          <AddToCardSection data={data} />
+          <ProductEnquirySection data={data} />
         </div>
       </div>
     </>

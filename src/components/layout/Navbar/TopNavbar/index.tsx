@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 import { moonliteLogo } from "@/styles/fonts";
-import { Heart, ShoppingBag } from "lucide-react";
+import { Heart } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 import { NavMenu } from "../navbar.types";
@@ -301,7 +301,7 @@ const TopNavbar = () => {
               />
             </InputGroup>
             <Link
-              href="/products"
+              href="/shop"
               className="flex h-10 w-10 items-center justify-center rounded-sm text-moonlite-espresso/72 transition-colors hover:bg-moonlite-cream/70 hover:text-moonlite-bronze lg:hidden"
               aria-label="Search products"
             >
@@ -316,21 +316,11 @@ const TopNavbar = () => {
             </Link>
             <AccountBtn />
             <Link
-              href="/products"
-              className="hidden h-10 w-10 items-center justify-center rounded-sm text-moonlite-espresso/72 transition-colors hover:bg-moonlite-cream/70 hover:text-moonlite-bronze sm:flex"
-              aria-label="Wishlist"
+              href="/wishlist"
+              className="flex h-10 w-10 items-center justify-center rounded-sm text-moonlite-espresso/72 transition-colors hover:bg-moonlite-cream/70 hover:text-moonlite-bronze"
+              aria-label="Open wishlist"
             >
               <Heart size={20} strokeWidth={1.6} />
-            </Link>
-            <Link
-              href="/cart"
-              className="relative flex h-10 w-10 items-center justify-center rounded-sm text-moonlite-espresso/72 transition-colors hover:bg-moonlite-cream/70 hover:text-moonlite-bronze"
-              aria-label="Open shopping bag"
-            >
-              <ShoppingBag size={20} strokeWidth={1.55} />
-              <span className="absolute -right-0.5 -top-0.5 min-w-4 rounded-full border border-moonlite-ivory bg-moonlite-espresso px-1 text-center text-[10px] leading-4 text-moonlite-ivory">
-                0
-              </span>
             </Link>
           </div>
         </div>

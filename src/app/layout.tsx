@@ -6,6 +6,7 @@ import TopNavbar from "@/components/layout/Navbar/TopNavbar";
 import Footer from "@/components/layout/Footer";
 import AgeGate from "@/components/age-gate/AgeGate";
 import CookieConsent from "@/components/cookie-consent/CookieConsent";
+import WelcomeAuthModal from "@/components/layout/WelcomeAuthModal";
 import HolyLoader from "holy-loader";
 import Providers from "./providers";
 
@@ -32,6 +33,7 @@ export default function RootLayout({
         <TopBanner />
         <Providers>
           <TopNavbar />
+          <WelcomeAuthModal />
           {children}
         </Providers>
         <Footer />

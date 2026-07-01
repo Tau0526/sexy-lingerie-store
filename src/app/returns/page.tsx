@@ -5,7 +5,7 @@ const returnsSections = [
   },
   {
     title: "Faulty Items",
-    body: "If an item arrives faulty, please contact us with your order details and photos so we can review the issue.",
+    body: "If an item arrives faulty, please contact us with your enquiry details and photos so we can review the issue.",
   },
   {
     title: "Size Exchanges",

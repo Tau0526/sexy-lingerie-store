@@ -12,7 +12,7 @@ const faqs = [
   },
   {
     question: "Is the packaging discreet?",
-    answer: "Yes, orders are prepared in plain outer packaging for privacy.",
+    answer: "Yes, pieces can be prepared in plain outer packaging for privacy.",
   },
   {
     question: "Can I return intimate apparel?",
@@ -25,14 +25,14 @@ const faqs = [
       "Eligible unopened items may be considered for size exchange. Return postage may apply.",
   },
   {
-    question: "Is this website taking real payments?",
+    question: "Can I enquire before buying?",
     answer:
-      "No. Moonlite Studio is currently a brand showcase and enquiry website.",
+      "Yes. Moonlite Studio is currently a brand showcase and enquiry website.",
   },
   {
-    question: "When will live payment be available?",
+    question: "How do I ask about a piece?",
     answer:
-      "A live payment flow can be added in a later version after payment provider review.",
+      "Save it to your wishlist or use the product enquiry link to contact us.",
   },
 ];
 

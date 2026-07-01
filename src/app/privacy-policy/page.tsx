@@ -10,8 +10,8 @@ const sections = [
     body: "This may include contact form details and a newsletter email entered into the demo form.",
   },
   {
-    title: "Payment notice",
-    body: "Online ordering and payment are not currently available on this website. Payment card details are not collected.",
+    title: "Showcase notice",
+    body: "Moonlite Studio is currently focused on browsing, wishlists and product enquiries. Card details are not collected.",
   },
   {
     title: "Cookies and localStorage",
@@ -19,7 +19,7 @@ const sections = [
   },
   {
     title: "Future updates",
-    body: "If live payments, analytics or email services are added later, this policy should be reviewed and updated.",
+    body: "If new analytics or email services are added later, this policy should be reviewed and updated.",
   },
   {
     title: "Notice",

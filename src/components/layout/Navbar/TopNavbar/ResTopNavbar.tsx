@@ -70,7 +70,7 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
 
         <SheetClose asChild>
           <Link
-            href="/products"
+            href="/shop"
             className="mb-6 flex h-11 items-center rounded-full border border-moonlite-border/80 bg-moonlite-card/72 px-4 text-sm text-moonlite-taupe transition-colors hover:border-moonlite-bronze/70 hover:text-moonlite-bronze"
             aria-label="Search products"
           >
@@ -159,7 +159,7 @@ const ResTopNavbar = ({ data }: { data: NavMenu }) => {
         <div className="mt-7 border-t border-moonlite-border/60 pt-5">
           <SheetClose asChild>
             <Link
-              href="/products"
+              href="/shop"
               className="flex items-center gap-2 text-xs uppercase tracking-[0.14em] text-moonlite-espresso/62 transition-colors hover:text-moonlite-bronze"
             >
               <Image
